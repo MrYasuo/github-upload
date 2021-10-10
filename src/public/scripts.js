@@ -285,7 +285,7 @@ const saveData = () => {
 };
 
 const sendData = (arr) => {
-	fetch("http://localhost:3000", {
+	fetch(process.env.MONGODB_URI || "mongodb://localhost:27017/test", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
