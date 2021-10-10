@@ -5,7 +5,7 @@ const path = require("path");
 const Data = require("./models/Data");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 mongoose
 	.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test")
