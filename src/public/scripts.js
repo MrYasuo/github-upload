@@ -24,6 +24,7 @@ const custom = $("#custom");
 const preset = $("#preset");
 const reset = $("#reset");
 const hideCreate = $("#hide-create");
+const saveBtn = $("#save");
 var remainerStyle;
 
 const renderLayout = () => {
@@ -121,7 +122,7 @@ const removeCtrlMode = () => {
 
 const deleteData = (e) => {
 	e = e || window.event;
-	e.target.parentElement.firstChild.data = `\n\t\t\t\t\t\t\t`;
+	e.target.parentElement.firstChild.data = `\n\t\t\t\t\t`;
 	e.target.style.display = "none";
 };
 
@@ -191,7 +192,7 @@ const toggleParent = (e) => {
 	// e.target.parentElement.parentElement = <td></td>
 	// append text to cell
 	// innerText is not working? using firstChild
-	e.target.parentElement.parentElement.firstChild.data = `${e.target.innerText}\n\t\t\t\t\t\t\t`;
+	e.target.parentElement.parentElement.firstChild.data = `${e.target.innerText}\n\t\t\t\t\t`;
 	e.target.parentElement.nextElementSibling.style.display = "block";
 	// return style of option when text input so long
 	hideOption();
@@ -216,7 +217,7 @@ const deleteTask = (e) => {
 		})
 		.forEach((cell) => {
 			// still conflict with innerText? not working, it will overide all the ul and li
-			cell.firstChild.data = `\n\t\t\t\t\t\t\t`;
+			cell.firstChild.data = `\n\t\t\t\t\t`;
 			// hide cross button
 			cell.lastElementChild.style.display = "none";
 		});
@@ -264,6 +265,49 @@ const toggleMenu = () => {
 	rightMenu.style.display = rightMenu.style.display == "none" ? "block" : "none";
 };
 
+const saveData = () => {
+	if (
+		boxList.find((cell) => {
+			return cell.innerText;
+		})
+	) {
+		let arr = [];
+		for (let i = 0; i < boxList.length; ++i) {
+			if (boxList[i].innerText) {
+				arr.push({
+					task: boxList[i].innerText,
+					index: i,
+				});
+			}
+		}
+		sendData(arr);
+	} else alert("Table data is blank! Please insert something");
+};
+
+const sendData = (arr) => {
+	fetch("http://localhost:3000", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(arr),
+	})
+		.then(() => {
+			alert("Saving successfully!");
+		})
+		.catch((err) => console.log(err));
+};
+
+const setup = () => {
+	renderLayout();
+	boxList.forEach((cell) => {
+		if (cell.firstChild.data != `\n\t\t\t\t\t`) {
+			cell.lastElementChild.style.display = "block";
+		}
+	});
+	preset.value = "#ff3e3e";
+};
+
 window.addEventListener("resize", hideOption);
 window.addEventListener("resize", renderLayout);
 createBtn.addEventListener("click", createTask);
@@ -272,6 +316,6 @@ nameTask.addEventListener("keyup", createTaskByEnter);
 downbtn.addEventListener("click", downTable);
 reset.addEventListener("click", resetAll);
 hideCreate.addEventListener("click", toggleMenu);
+saveBtn.addEventListener("click", saveData);
 
-renderLayout();
-preset.value = "#ff3e3e";
+setup();

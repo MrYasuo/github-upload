@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect src/index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,9 @@
   },
   "homepage": "https://github.com/MrYasuo/github-upload#readme",
   "dependencies": {
+    "axios": "^0.22.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.13"
+    "express-handlebars": "^5.3.4",
+    "mongoose": "^6.0.10"
   }
 }
