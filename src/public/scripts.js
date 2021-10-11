@@ -25,6 +25,8 @@ const preset = $("#preset");
 const reset = $("#reset");
 const hideCreate = $("#hide-create");
 const saveBtn = $("#save");
+const btnG1 = $("#btn-1");
+const btnG2 = $("#btn-2");
 var remainerStyle;
 
 const renderLayout = () => {
@@ -270,11 +272,10 @@ const toggleMenu = () => {
 };
 
 const saveData = () => {
-	if (
-		boxList.find((cell) => {
-			return cell.innerText;
-		})
-	) {
+	let check = prompt(
+		"CAUTION: THIS WILL OVERRIDE ALL YOU PREVIOUS DATA\nPlease insert your leader's password to continue"
+	);
+	if (check.trim() == "chienthan") {
 		let arr = [];
 		for (let i = 0; i < boxList.length; ++i) {
 			if (boxList[i].innerText) {
@@ -285,21 +286,32 @@ const saveData = () => {
 			}
 		}
 		sendData(arr);
-	} else alert("Table data is blank! Please insert something");
+	} else alert("Wrong password! Please contact your leader to continue");
 };
 
 const sendData = (arr) => {
-	fetch("/", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(arr),
-	})
-		.then(() => {
-			alert("Saving successfully!");
+	if (window.location.pathname == "/group1") {
+		fetch("/group1", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(arr),
+		}).catch((err) => console.log(err));
+	} else {
+		fetch("/group2", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(arr),
 		})
-		.catch((err) => console.log(err));
+			.then(() => {
+				alert("Saving successfully!");
+			})
+			.catch((err) => console.log(err));
+	}
+	alert("Saving successfully!");
 };
 
 const setup = () => {
@@ -318,6 +330,28 @@ const setup = () => {
 	preset.value = "#ff3e3e";
 };
 
+const groupOne = () => {
+	window.location.assign("/group1");
+	fetch("/change", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ value: 1 }),
+	}).catch((err) => console.log(err));
+};
+
+const groupTwo = () => {
+	window.location.assign("/group2");
+	fetch("/change", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ value: 2 }),
+	}).catch((err) => console.log(err));
+};
+
 window.addEventListener("resize", hideOption);
 window.addEventListener("resize", renderLayout);
 createBtn.addEventListener("click", createTask);
@@ -327,5 +361,7 @@ downbtn.addEventListener("click", downTable);
 reset.addEventListener("click", resetAll);
 hideCreate.addEventListener("click", toggleMenu);
 saveBtn.addEventListener("click", saveData);
+btnG1.addEventListener("click", groupOne);
+btnG2.addEventListener("click", groupTwo);
 
 setup();

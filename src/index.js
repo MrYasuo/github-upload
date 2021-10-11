@@ -2,7 +2,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const path = require("path");
-const Data = require("./models/Data");
+const Data1 = require("./models/Data1");
+const Data2 = require("./models/Data2");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -37,24 +38,45 @@ app.engine(
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "resources/views"));
 
-app.get("/", (req, res, next) => {
-	Data.find({})
+app.get("/group1", (req, res, next) => {
+	Data1.find({})
 		.then((datum) => {
 			datum = datum.map((datum) => datum.toObject());
-			res.render("home", { datum });
+			res.render("group1", { datum });
 		})
 		.catch(next);
 });
 
-app.post("/", (req, res) => {
-	Data.deleteMany({}).catch((err) => console.log(err));
+app.post("/group1", (req, res) => {
+	Data1.deleteMany({}).catch((err) => console.log(err));
 	req.body.filter((data) => {
-		let newData = new Data(data);
+		let newData = new Data1(data);
 		newData.save();
 	});
-	res.send("");
+});
+
+app.get("/group2", (req, res, next) => {
+	Data2.find({})
+		.then((datum) => {
+			datum = datum.map((datum) => datum.toObject());
+			res.render("group2", { datum });
+		})
+		.catch(next);
+});
+
+app.post("/group2", (req, res) => {
+	Data2.deleteMany({}).catch((err) => console.log(err));
+	req.body.filter((data) => {
+		let newData = new Data2(data);
+		newData.save();
+	});
+});
+
+app.post("/change", (req, res) => {
+	if (req.body.value == "1") res.redirect("/group1");
+	else res.redirect("/group2");
 });
 
 app.listen(port, () => {
-	console.log(`Listening at http://localhost:${port}`);
+	console.log(`Listening at http://localhost:${port}/group1`);
 });
