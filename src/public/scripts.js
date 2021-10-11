@@ -47,6 +47,16 @@ const checkScroll = () => {
 	}
 };
 
+const createOptionForTask = (text) => {
+	let newTask = document.createElement("div");
+	newTask.className = "task";
+	newTask.innerHTML = `<div class="content">${text}</div><img src="times-circle-regular.svg" class="close" onclick="deleteTask()">`;
+	taskContain.appendChild(newTask);
+	checkScroll();
+	// create option of each cell in table
+	createOption();
+};
+
 const createTask = () => {
 	let tasks = [...$$(".content")];
 	if (nameTask.value) {
@@ -58,13 +68,7 @@ const createTask = () => {
 		// if not exist, create task
 		if (!check) {
 			isCreated.style.display = "none";
-			let newTask = document.createElement("div");
-			newTask.className = "task";
-			newTask.innerHTML = `<div class="content">${nameTask.value.trim()}</div><img src="times-circle-regular.svg" class="close" onclick="deleteTask()">`;
-			taskContain.appendChild(newTask);
-			checkScroll();
-			// create option of each cell in table
-			createOption();
+			createOptionForTask(nameTask.value.trim());
 			nameTask.value = "";
 		} else {
 			isCreated.style.display = "block";
@@ -300,9 +304,15 @@ const sendData = (arr) => {
 
 const setup = () => {
 	renderLayout();
+	let arr = [];
 	boxList.forEach((cell) => {
 		if (cell.firstChild.data != `\n\t\t\t\t\t`) {
 			cell.lastElementChild.style.display = "block";
+			// check not to create same task options
+			if (!arr.includes(cell.innerText)) {
+				createOptionForTask(cell.innerText);
+				arr.push(cell.innerText);
+			}
 		}
 	});
 	preset.value = "#ff3e3e";
