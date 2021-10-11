@@ -54,7 +54,7 @@ const createOptionForTask = (text) => {
 	taskContain.appendChild(newTask);
 	checkScroll();
 	// create option of each cell in table
-	createOption();
+	createOption(text);
 };
 
 const createTask = () => {
@@ -83,10 +83,10 @@ const createTaskByEnter = (e) => {
 	if (e.key == "Enter") createTask();
 };
 
-const createOption = () => {
+const createOption = (text) => {
 	for (let i = 0; i < optionList.length; ++i) {
 		let newOption = document.createElement("li");
-		newOption.innerText = nameTask.value.trim();
+		newOption.innerText = text;
 		// make cell could be like a drop down menu
 		newOption.onclick = toggleParent;
 		// append option to cell menu
