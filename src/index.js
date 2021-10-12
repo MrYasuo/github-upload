@@ -28,16 +28,19 @@ app.engine(
 	"handlebars",
 	exphbs({
 		helpers: {
-			hasIndex: function (datum, value, options) {
-				return options.fn(
-					datum.find((data) => {
-						return data.index == value;
-					})
-				);
+			for: function (from, datum, options) {
+				let accum = "";
+				for (let i = from; i < from + 7; ++i) {
+					let currentData = datum.find((data) => data.index == i);
+					if (currentData) accum += options.fn(currentData);
+					else accum += options.fn({ task: "", index: i });
+				}
+				return accum;
 			},
 		},
 	})
 );
+
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "resources/views"));
 
