@@ -130,6 +130,8 @@ const deleteData = (e) => {
 	e = e || window.event;
 	e.target.parentElement.firstChild.data = `\n\t\t\t\t\t`;
 	e.target.style.display = "none";
+	e.target.parentElement.style.color = "";
+	e.target.parentElement.style.backgroundColor = "";
 };
 
 const toggleTask = (e) => {
@@ -224,6 +226,9 @@ const deleteTask = (e) => {
 		.forEach((cell) => {
 			// still conflict with innerText? not working, it will overide all the ul and li
 			cell.firstChild.data = `\n\t\t\t\t\t`;
+			// restore color and style
+			cell.style.color = "";
+			cell.style.backgroundColor = "";
 			// hide cross button
 			cell.lastElementChild.style.display = "none";
 		});
