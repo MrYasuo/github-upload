@@ -25,7 +25,7 @@ app.use(
 );
 
 app.engine(
-	"handlebars",
+	"hbs",
 	exphbs({
 		helpers: {
 			for: function (from, datum, options) {
@@ -38,10 +38,11 @@ app.engine(
 				return accum;
 			},
 		},
+		extname: ".hbs",
 	})
 );
 
-app.set("view engine", "handlebars");
+app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 
 app.get("/", (req, res) => {

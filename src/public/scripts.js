@@ -275,18 +275,22 @@ const saveData = () => {
 	let check = prompt(
 		"CAUTION: THIS WILL OVERRIDE ALL YOU PREVIOUS DATA\nPlease insert your leader's password to continue"
 	);
-	if (check.trim() == "chienthan") {
-		let arr = [];
-		for (let i = 0; i < boxList.length; ++i) {
-			if (boxList[i].innerText) {
-				arr.push({
-					task: boxList[i].innerText,
-					index: i,
-				});
+	if (check) {
+		if (check.trim() == "chienthan") {
+			let arr = [];
+			for (let i = 0; i < boxList.length; ++i) {
+				if (boxList[i].innerText) {
+					arr.push({
+						task: boxList[i].innerText,
+						index: i,
+						background: boxList[i].style.backgroundColor,
+						color: boxList[i].style.color,
+					});
+				}
 			}
-		}
-		sendData(arr);
-	} else alert("Wrong password! Please contact your leader to continue");
+			sendData(arr);
+		} else alert("Wrong password! Please contact your leader to continue");
+	}
 };
 
 const sendData = (arr) => {

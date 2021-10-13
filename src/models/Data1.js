@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const Data1 = new Schema({
 	task: String,
 	index: Number,
+	background: String,
+	color: String,
 });
 
 module.exports = mongoose.model("Data1", Data1);
