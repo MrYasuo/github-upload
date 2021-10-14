@@ -27,7 +27,11 @@ const hideCreate = $("#hide-create");
 const saveBtn = $("#save");
 const btnG1 = $("#btn-1");
 const btnG2 = $("#btn-2");
+const undo = $("#undo");
+const redo = $("#redo");
 var remainerStyle;
+
+const undoRedoHandler = new UndoRedoHandler(boxList);
 
 const renderLayout = () => {
 	for (let i = 0; i < day.length; ++i) {
@@ -108,6 +112,7 @@ String.prototype.convertToRGB = function () {
 
 const changeColor = (e) => {
 	e = e || window.event;
+	undoRedoHandler.insert(boxList);
 	let rgb, brightness;
 	let arr = [...$$(".ctrl-mode")];
 	for (let i = 0; i < arr.length; ++i) {
@@ -117,6 +122,7 @@ const changeColor = (e) => {
 		arr[i].style.color = brightness > 125 ? "black" : "white";
 		arr[i].classList.add("custom");
 	}
+	undoRedoHandler.insert(boxList);
 };
 
 const removeCtrlMode = () => {
@@ -128,10 +134,12 @@ const removeCtrlMode = () => {
 
 const deleteData = (e) => {
 	e = e || window.event;
+	undoRedoHandler.insert(boxList);
 	e.target.parentElement.firstChild.data = `\n\t\t\t\t\t`;
 	e.target.style.display = "none";
 	e.target.parentElement.style.color = "";
 	e.target.parentElement.style.backgroundColor = "";
+	undoRedoHandler.insert(boxList);
 };
 
 const toggleTask = (e) => {
@@ -208,6 +216,7 @@ const toggleParent = (e) => {
 
 const deleteTask = (e) => {
 	e = e || window.event;
+	undoRedoHandler.insert(boxList);
 	// remove task when click on cross button
 	e.target.parentElement.remove();
 	// also remove option with the same name as task
@@ -232,6 +241,7 @@ const deleteTask = (e) => {
 			// hide cross button
 			cell.lastElementChild.style.display = "none";
 		});
+	undoRedoHandler.insert(boxList);
 };
 
 const remainStyle = () => {
@@ -253,22 +263,21 @@ const downTable = () => {
 };
 
 const restoreColor = () => {
+	undoRedoHandler.insert(boxList);
 	boxList.forEach((cell) => {
 		cell.style.backgroundColor = "";
 		cell.style.color = "";
 	});
+	undoRedoHandler.insert(boxList);
 };
 
-for (let i = 0; i < all.length; ++i) {
-	all[i].addEventListener("click", hideOptionWhenClickOut);
-	all[i].addEventListener("click", removeCtrlModeWhenClickOut);
-}
-
 const resetAll = () => {
+	undoRedoHandler.insert(boxList);
 	[...$$(".close")].forEach((button) => {
 		button.click();
 	});
 	defaultBtn.click();
+	undoRedoHandler.insert(boxList);
 };
 
 const toggleMenu = () => {
@@ -277,7 +286,7 @@ const toggleMenu = () => {
 
 const saveData = () => {
 	let check = prompt(
-		"CAUTION: THIS WILL OVERRIDE ALL YOU PREVIOUS DATA\nPlease insert your leader's password to continue"
+		"CAUTION: THIS WILL DETELE ALL YOU PREVIOUS DATA AND CANNOT BE UNDO!\nPlease insert your leader's password to continue"
 	);
 	if (check) {
 		if (check.trim() == "chienthan") {
@@ -293,6 +302,7 @@ const saveData = () => {
 				}
 			}
 			sendData(arr);
+			undoRedoHandler.clear();
 		} else alert("Wrong password! Please contact your leader to continue");
 	}
 };
@@ -335,7 +345,6 @@ const setup = () => {
 			}
 		}
 	});
-	preset.value = "#ff3e3e";
 };
 
 const groupOne = () => {
@@ -360,6 +369,43 @@ const groupTwo = () => {
 	}).catch((err) => console.log(err));
 };
 
+const handleTaskWhenUndoRedo = () => {
+	let arr = [];
+	boxList.forEach((cell) => {
+		if (cell.innerText != "") {
+			cell.lastElementChild.style.display = "block";
+			// check not to create same task options
+			if (!arr.includes(cell.innerText) && cell.firstChild.data != `\n\t\t\t\t\t`) {
+				arr.push(cell.innerText);
+				console.log(arr);
+			}
+		} else {
+			cell.lastElementChild.style.display = "none";
+		}
+	});
+	arr.forEach((item) => {
+		if (
+			![...$$(".content")].find((check) => {
+				return check.innerText == item;
+			})
+		)
+			createOptionForTask(item);
+	});
+};
+
+const handleUndoRedo = (state) => {
+	if (!$(".checked")) {
+		if (state) {
+			for (let i = 0; i < state.length; ++i) {
+				boxList[i].firstChild.data = `${state[i].content}\n\t\t\t\t\t`;
+				boxList[i].style.color = state[i].color;
+				boxList[i].style.backgroundColor = state[i].background;
+			}
+			handleTaskWhenUndoRedo();
+		}
+	}
+};
+
 window.addEventListener("resize", hideOption);
 window.addEventListener("resize", renderLayout);
 createBtn.addEventListener("click", createTask);
@@ -371,5 +417,33 @@ hideCreate.addEventListener("click", toggleMenu);
 saveBtn.addEventListener("click", saveData);
 btnG1.addEventListener("click", groupOne);
 btnG2.addEventListener("click", groupTwo);
+
+undo.addEventListener("click", () => {
+	let state = undoRedoHandler.getPrevState();
+	handleUndoRedo(state);
+});
+
+redo.addEventListener("click", () => {
+	let state = undoRedoHandler.getNextState();
+	handleUndoRedo(state);
+});
+
+document.addEventListener("keydown", (e) => {
+	if (e.ctrlKey) {
+		if (e.key == "z") {
+			let state = undoRedoHandler.getPrevState();
+			handleUndoRedo(state);
+		}
+		if (e.key == "y") {
+			let state = undoRedoHandler.getNextState();
+			handleUndoRedo(state);
+		}
+	}
+});
+
+for (let i = 0; i < all.length; ++i) {
+	all[i].addEventListener("click", hideOptionWhenClickOut);
+	all[i].addEventListener("click", removeCtrlModeWhenClickOut);
+}
 
 setup();

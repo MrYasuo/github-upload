@@ -210,3 +210,18 @@ div #btn-1, #btn-2 {
 	width: 100%;
 	margin: 1%;
 }
+
+#undo, #redo {
+	position: absolute;
+	width: 20%;
+	height: 20%;
+	bottom: 0;
+}
+
+#undo {
+	left: -40%;
+}
+
+#redo {
+	left: -20%;
+}

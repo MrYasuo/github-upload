@@ -8,9 +8,7 @@
 		? (module.exports = factory())
 		: typeof define === "function" && define.amd
 		? define(factory)
-		: ((global =
-				typeof globalThis !== "undefined" ? globalThis : global || self),
-		  (global.html2canvas = factory()));
+		: ((global = typeof globalThis !== "undefined" ? globalThis : global || self), (global.html2canvas = factory()));
 })(this, function () {
 	"use strict";
 
@@ -38,23 +36,19 @@
 					d.__proto__ = b;
 				}) ||
 			function (d, b) {
-				for (var p in b)
-					if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+				for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
 			};
 		return extendStatics(d, b);
 	};
 
 	function __extends(d, b) {
 		if (typeof b !== "function" && b !== null)
-			throw new TypeError(
-				"Class extends value " + String(b) + " is not a constructor or null"
-			);
+			throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
 		extendStatics(d, b);
 		function __() {
 			this.constructor = d;
 		}
-		d.prototype =
-			b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
+		d.prototype = b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
 	}
 
 	var __assign = function () {
@@ -63,8 +57,7 @@
 			function __assign(t) {
 				for (var s, i = 1, n = arguments.length; i < n; i++) {
 					s = arguments[i];
-					for (var p in s)
-						if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+					for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
 				}
 				return t;
 			};
@@ -95,9 +88,7 @@
 				}
 			}
 			function step(result) {
-				result.done
-					? resolve(result.value)
-					: adopt(result.value).then(fulfilled, rejected);
+				result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
 			}
 			step((generator = generator.apply(thisArg, _arguments || [])).next());
 		});
@@ -137,12 +128,7 @@
 					if (
 						((f = 1),
 						y &&
-							(t =
-								op[0] & 2
-									? y["return"]
-									: op[0]
-									? y["throw"] || ((t = y["return"]) && t.call(y), 0)
-									: y.next) &&
+							(t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) &&
 							!(t = t.call(y, op[1])).done)
 					)
 						return t;
@@ -165,10 +151,7 @@
 							_.trys.pop();
 							continue;
 						default:
-							if (
-								!((t = _.trys), (t = t.length > 0 && t[t.length - 1])) &&
-								(op[0] === 6 || op[0] === 2)
-							) {
+							if (!((t = _.trys), (t = t.length > 0 && t[t.length - 1])) && (op[0] === 6 || op[0] === 2)) {
 								_ = 0;
 								continue;
 							}
@@ -221,12 +204,7 @@
 			this.height = height;
 		}
 		Bounds.prototype.add = function (x, y, w, h) {
-			return new Bounds(
-				this.left + x,
-				this.top + y,
-				this.width + w,
-				this.height + h
-			);
+			return new Bounds(this.left + x, this.top + y, this.width + w, this.height + h);
 		};
 		Bounds.fromClientRect = function (context, clientRect) {
 			return new Bounds(
@@ -318,10 +296,7 @@
 				codeUnits.push(codePoint);
 			} else {
 				codePoint -= 0x10000;
-				codeUnits.push(
-					(codePoint >> 10) + 0xd800,
-					(codePoint % 0x400) + 0xdc00
-				);
+				codeUnits.push((codePoint >> 10) + 0xd800, (codePoint % 0x400) + 0xdc00);
 			}
 			if (index + 1 === length || codeUnits.length > 0x4000) {
 				result += String.fromCharCode.apply(String, codeUnits);
@@ -330,8 +305,7 @@
 		}
 		return result;
 	};
-	var chars$2 =
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	var chars$2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	// Use a lookup table to find the index.
 	var lookup$2 = typeof Uint8Array === "undefined" ? [] : new Uint8Array(256);
 	for (var i$2 = 0; i$2 < chars$2.length; i$2++) {
@@ -382,12 +356,7 @@
 		var length = buffer.length;
 		var bytes = [];
 		for (var i = 0; i < length; i += 4) {
-			bytes.push(
-				(buffer[i + 3] << 24) |
-					(buffer[i + 2] << 16) |
-					(buffer[i + 1] << 8) |
-					buffer[i]
-			);
+			bytes.push((buffer[i + 3] << 24) | (buffer[i + 2] << 16) | (buffer[i + 1] << 8) | buffer[i]);
 		}
 		return bytes;
 	};
@@ -421,15 +390,13 @@
 	var UTRIE2_DATA_MASK$1 = UTRIE2_DATA_BLOCK_LENGTH$1 - 1;
 	var UTRIE2_LSCP_INDEX_2_LENGTH$1 = 0x400 >> UTRIE2_SHIFT_2$1;
 	/** Count the lengths of both BMP pieces. 2080=0x820 */
-	var UTRIE2_INDEX_2_BMP_LENGTH$1 =
-		UTRIE2_LSCP_INDEX_2_OFFSET$1 + UTRIE2_LSCP_INDEX_2_LENGTH$1;
+	var UTRIE2_INDEX_2_BMP_LENGTH$1 = UTRIE2_LSCP_INDEX_2_OFFSET$1 + UTRIE2_LSCP_INDEX_2_LENGTH$1;
 	/**
 	 * The 2-byte UTF-8 version of the index-2 table follows at offset 2080=0x820.
 	 * Length 32=0x20 for lead bytes C0..DF, regardless of UTRIE2_SHIFT_2.
 	 */
 	var UTRIE2_UTF8_2B_INDEX_2_OFFSET$1 = UTRIE2_INDEX_2_BMP_LENGTH$1;
-	var UTRIE2_UTF8_2B_INDEX_2_LENGTH$1 =
-		0x800 >> 6; /* U+0800 is the first code point after 2-byte UTF-8 */
+	var UTRIE2_UTF8_2B_INDEX_2_LENGTH$1 = 0x800 >> 6; /* U+0800 is the first code point after 2-byte UTF-8 */
 	/**
 	 * The index-1 table, only used for supplementary code points, at offset 2112=0x840.
 	 * Variable length, for code points up to highStart, where the last single-value range starts.
@@ -442,8 +409,7 @@
 	 * Both the index-1 table and the following part of the index-2 table
 	 * are omitted completely if there is only BMP data.
 	 */
-	var UTRIE2_INDEX_1_OFFSET$1 =
-		UTRIE2_UTF8_2B_INDEX_2_OFFSET$1 + UTRIE2_UTF8_2B_INDEX_2_LENGTH$1;
+	var UTRIE2_INDEX_1_OFFSET$1 = UTRIE2_UTF8_2B_INDEX_2_OFFSET$1 + UTRIE2_UTF8_2B_INDEX_2_LENGTH$1;
 	/**
 	 * Number of index-1 entries for the BMP. 32=0x20
 	 * This part of the index-1 table is omitted from the serialized form.
@@ -467,12 +433,8 @@
 	};
 	var createTrieFromBase64$1 = function (base64) {
 		var buffer = decode$1(base64);
-		var view32 = Array.isArray(buffer)
-			? polyUint32Array$1(buffer)
-			: new Uint32Array(buffer);
-		var view16 = Array.isArray(buffer)
-			? polyUint16Array$1(buffer)
-			: new Uint16Array(buffer);
+		var view32 = Array.isArray(buffer) ? polyUint32Array$1(buffer) : new Uint32Array(buffer);
+		var view16 = Array.isArray(buffer) ? polyUint16Array$1(buffer) : new Uint16Array(buffer);
 		var headerLength = 24;
 		var index = slice16$1(view16, headerLength / 2, view32[4] / 2);
 		var data =
@@ -482,14 +444,7 @@
 		return new Trie$1(view32[0], view32[1], view32[2], view32[3], index, data);
 	};
 	var Trie$1 = /** @class */ (function () {
-		function Trie(
-			initialValue,
-			errorValue,
-			highStart,
-			highValueIndex,
-			index,
-			data
-		) {
+		function Trie(initialValue, errorValue, highStart, highValueIndex, index, data) {
 			this.initialValue = initialValue;
 			this.errorValue = errorValue;
 			this.highStart = highStart;
@@ -506,10 +461,7 @@
 		Trie.prototype.get = function (codePoint) {
 			var ix;
 			if (codePoint >= 0) {
-				if (
-					codePoint < 0x0d800 ||
-					(codePoint > 0x0dbff && codePoint <= 0x0ffff)
-				) {
+				if (codePoint < 0x0d800 || (codePoint > 0x0dbff && codePoint <= 0x0ffff)) {
 					// Ordinary BMP code point, excluding leading surrogates.
 					// BMP uses a single level lookup.  BMP index starts at offset 0 in the Trie2 index.
 					// 16 bit data is stored in the index array itself.
@@ -524,20 +476,13 @@
 					//   For this function, we need the code point data.
 					// Note: this expression could be refactored for slightly improved efficiency, but
 					//       surrogate code points will be so rare in practice that it's not worth it.
-					ix =
-						this.index[
-							UTRIE2_LSCP_INDEX_2_OFFSET$1 +
-								((codePoint - 0xd800) >> UTRIE2_SHIFT_2$1)
-						];
+					ix = this.index[UTRIE2_LSCP_INDEX_2_OFFSET$1 + ((codePoint - 0xd800) >> UTRIE2_SHIFT_2$1)];
 					ix = (ix << UTRIE2_INDEX_SHIFT$1) + (codePoint & UTRIE2_DATA_MASK$1);
 					return this.data[ix];
 				}
 				if (codePoint < this.highStart) {
 					// Supplemental code point, use two-level lookup.
-					ix =
-						UTRIE2_INDEX_1_OFFSET$1 -
-						UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1 +
-						(codePoint >> UTRIE2_SHIFT_1$1);
+					ix = UTRIE2_INDEX_1_OFFSET$1 - UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1 + (codePoint >> UTRIE2_SHIFT_1$1);
 					ix = this.index[ix];
 					ix += (codePoint >> UTRIE2_SHIFT_2$1) & UTRIE2_INDEX_2_MASK$1;
 					ix = this.index[ix];
@@ -670,10 +615,7 @@
 			// and characters in the ranges 20000..2FFFD and 30000..3FFFD as ID, until the implementation can be revised
 			// to take into account the actual line breaking properties for these characters.
 			if (classType === XX) {
-				if (
-					(codePoint >= 0x20000 && codePoint <= 0x2fffd) ||
-					(codePoint >= 0x30000 && codePoint <= 0x3fffd)
-				) {
+				if ((codePoint >= 0x20000 && codePoint <= 0x2fffd) || (codePoint >= 0x30000 && codePoint <= 0x3fffd)) {
 					return types.push(ID);
 				} else {
 					return types.push(AL);
@@ -735,21 +677,12 @@
 		}
 		return 0;
 	};
-	var _lineBreakAtIndex = function (
-		codePoints,
-		classTypes,
-		indicies,
-		index,
-		forbiddenBreaks
-	) {
+	var _lineBreakAtIndex = function (codePoints, classTypes, indicies, index, forbiddenBreaks) {
 		if (indicies[index] === 0) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		var currentIndex = index - 1;
-		if (
-			Array.isArray(forbiddenBreaks) &&
-			forbiddenBreaks[currentIndex] === true
-		) {
+		if (Array.isArray(forbiddenBreaks) && forbiddenBreaks[currentIndex] === true) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		var beforeIndex = currentIndex - 1;
@@ -782,10 +715,7 @@
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// zwj emojis
-		if (
-			(current === EB || current === EM) &&
-			UnicodeTrie$1.get(codePoints[afterIndex]) === ZWJ$1
-		) {
+		if ((current === EB || current === EM) && UnicodeTrie$1.get(codePoints[afterIndex]) === ZWJ$1) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// LB11 Do not break before or after Word joiner and related characters.
@@ -849,10 +779,7 @@
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// LB23 Do not break between digits and letters.
-		if (
-			(ALPHABETICS.indexOf(next) !== -1 && current === NU) ||
-			(ALPHABETICS.indexOf(current) !== -1 && next === NU)
-		) {
+		if ((ALPHABETICS.indexOf(next) !== -1 && current === NU) || (ALPHABETICS.indexOf(current) !== -1 && next === NU)) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// LB23a Do not break between numeric prefixes and ideographs, or between ideographs and numeric postfixes.
@@ -864,10 +791,8 @@
 		}
 		// LB24 Do not break between numeric prefix/postfix and letters, or between letters and prefix/postfix.
 		if (
-			(ALPHABETICS.indexOf(current) !== -1 &&
-				PREFIX_POSTFIX.indexOf(next) !== -1) ||
-			(PREFIX_POSTFIX.indexOf(current) !== -1 &&
-				ALPHABETICS.indexOf(next) !== -1)
+			(ALPHABETICS.indexOf(current) !== -1 && PREFIX_POSTFIX.indexOf(next) !== -1) ||
+			(PREFIX_POSTFIX.indexOf(current) !== -1 && ALPHABETICS.indexOf(next) !== -1)
 		) {
 			return BREAK_NOT_ALLOWED$1;
 		}
@@ -875,9 +800,7 @@
 		if (
 			// (PR | PO) × ( OP | HY )? NU
 			([PR, PO].indexOf(current) !== -1 &&
-				(next === NU ||
-					([OP, HY].indexOf(next) !== -1 &&
-						classTypes[afterIndex + 1] === NU))) ||
+				(next === NU || ([OP, HY].indexOf(next) !== -1 && classTypes[afterIndex + 1] === NU))) ||
 			// ( OP | HY ) × NU
 			([OP, HY].indexOf(current) !== -1 && next === NU) ||
 			// NU ×	(NU | SY | IS)
@@ -901,8 +824,7 @@
 		}
 		// NU (NU | SY | IS)* (CL | CP)? × (PO | PR))
 		if ([PR, PO].indexOf(next) !== -1) {
-			var prevIndex =
-				[CL, CP].indexOf(current) !== -1 ? beforeIndex : currentIndex;
+			var prevIndex = [CL, CP].indexOf(current) !== -1 ? beforeIndex : currentIndex;
 			while (prevIndex >= 0) {
 				var type = classTypes[prevIndex];
 				if (type === NU) {
@@ -924,17 +846,13 @@
 		}
 		// LB27 Treat a Korean Syllable Block the same as ID.
 		if (
-			(KOREAN_SYLLABLE_BLOCK.indexOf(current) !== -1 &&
-				[IN, PO].indexOf(next) !== -1) ||
+			(KOREAN_SYLLABLE_BLOCK.indexOf(current) !== -1 && [IN, PO].indexOf(next) !== -1) ||
 			(KOREAN_SYLLABLE_BLOCK.indexOf(next) !== -1 && current === PR)
 		) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// LB28 Do not break between alphabetics (“at”).
-		if (
-			ALPHABETICS.indexOf(current) !== -1 &&
-			ALPHABETICS.indexOf(next) !== -1
-		) {
+		if (ALPHABETICS.indexOf(current) !== -1 && ALPHABETICS.indexOf(next) !== -1) {
 			return BREAK_NOT_ALLOWED$1;
 		}
 		// LB29 Do not break between numeric punctuation and alphabetics (“e.g.”).
@@ -943,9 +861,7 @@
 		}
 		// LB30 Do not break between letters, numbers, or ordinary symbols and opening or closing parentheses.
 		if (
-			(ALPHABETICS.concat(NU).indexOf(current) !== -1 &&
-				next === OP &&
-				ea_OP.indexOf(codePoints[afterIndex]) === -1) ||
+			(ALPHABETICS.concat(NU).indexOf(current) !== -1 && next === OP && ea_OP.indexOf(codePoints[afterIndex]) === -1) ||
 			(ALPHABETICS.concat(NU).indexOf(next) !== -1 && current === CP)
 		) {
 			return BREAK_NOT_ALLOWED$1;
@@ -981,10 +897,7 @@
 			indicies = _a[0],
 			classTypes = _a[1],
 			isLetterNumber = _a[2];
-		if (
-			options.wordBreak === "break-all" ||
-			options.wordBreak === "break-word"
-		) {
+		if (options.wordBreak === "break-all" || options.wordBreak === "break-word") {
 			classTypes = classTypes.map(function (type) {
 				return [NU, AL, SA].indexOf(type) !== -1 ? ID : type;
 			});
@@ -992,9 +905,7 @@
 		var forbiddenBreakpoints =
 			options.wordBreak === "keep-all"
 				? isLetterNumber.map(function (letterNumber, i) {
-						return (
-							letterNumber && codePoints[i] >= 0x4e00 && codePoints[i] <= 0x9fff
-						);
+						return letterNumber && codePoints[i] >= 0x4e00 && codePoints[i] <= 0x9fff;
 				  })
 				: undefined;
 		return [indicies, classTypes, forbiddenBreakpoints];
@@ -1007,10 +918,7 @@
 			this.end = end;
 		}
 		Break.prototype.slice = function () {
-			return fromCodePoint$1.apply(
-				void 0,
-				this.codePoints.slice(this.start, this.end)
-			);
+			return fromCodePoint$1.apply(void 0, this.codePoints.slice(this.start, this.end));
 		};
 		return Break;
 	})();
@@ -1031,13 +939,8 @@
 				var lineBreak = BREAK_NOT_ALLOWED$1;
 				while (
 					nextIndex < length &&
-					(lineBreak = _lineBreakAtIndex(
-						codePoints,
-						classTypes,
-						indicies,
-						++nextIndex,
-						forbiddenBreakpoints
-					)) === BREAK_NOT_ALLOWED$1
+					(lineBreak = _lineBreakAtIndex(codePoints, classTypes, indicies, ++nextIndex, forbiddenBreakpoints)) ===
+						BREAK_NOT_ALLOWED$1
 				) {}
 				if (lineBreak !== BREAK_NOT_ALLOWED$1 || nextIndex === length) {
 					var value = new Break(codePoints, lineBreak, lastEnd, nextIndex);
@@ -1114,11 +1017,7 @@
 		return codePoint >= 0xd800 && codePoint <= 0xdfff;
 	};
 	var isHex = function (codePoint) {
-		return (
-			isDigit(codePoint) ||
-			(codePoint >= A && codePoint <= F) ||
-			(codePoint >= a && codePoint <= f)
-		);
+		return isDigit(codePoint) || (codePoint >= A && codePoint <= F) || (codePoint >= a && codePoint <= f);
 	};
 	var isLowerCaseLetter = function (codePoint) {
 		return codePoint >= a && codePoint <= z;
@@ -1133,25 +1032,13 @@
 		return codePoint >= CONTROL;
 	};
 	var isWhiteSpace = function (codePoint) {
-		return (
-			codePoint === LINE_FEED ||
-			codePoint === CHARACTER_TABULATION ||
-			codePoint === SPACE
-		);
+		return codePoint === LINE_FEED || codePoint === CHARACTER_TABULATION || codePoint === SPACE;
 	};
 	var isNameStartCodePoint = function (codePoint) {
-		return (
-			isLetter(codePoint) ||
-			isNonASCIICodePoint(codePoint) ||
-			codePoint === LOW_LINE
-		);
+		return isLetter(codePoint) || isNonASCIICodePoint(codePoint) || codePoint === LOW_LINE;
 	};
 	var isNameCodePoint = function (codePoint) {
-		return (
-			isNameStartCodePoint(codePoint) ||
-			isDigit(codePoint) ||
-			codePoint === HYPHEN_MINUS
-		);
+		return isNameStartCodePoint(codePoint) || isDigit(codePoint) || codePoint === HYPHEN_MINUS;
 	};
 	var isNonPrintableCodePoint = function (codePoint) {
 		return (
@@ -1202,9 +1089,7 @@
 		while (isDigit(codePoints[c])) {
 			integers.push(codePoints[c++]);
 		}
-		var int = integers.length
-			? parseInt(fromCodePoint$1.apply(void 0, integers), 10)
-			: 0;
+		var int = integers.length ? parseInt(fromCodePoint$1.apply(void 0, integers), 10) : 0;
 		if (codePoints[c] === FULL_STOP) {
 			c++;
 		}
@@ -1213,9 +1098,7 @@
 			fraction.push(codePoints[c++]);
 		}
 		var fracd = fraction.length;
-		var frac = fracd
-			? parseInt(fromCodePoint$1.apply(void 0, fraction), 10)
-			: 0;
+		var frac = fracd ? parseInt(fromCodePoint$1.apply(void 0, fraction), 10) : 0;
 		if (codePoints[c] === E || codePoints[c] === e) {
 			c++;
 		}
@@ -1230,12 +1113,8 @@
 		while (isDigit(codePoints[c])) {
 			exponent.push(codePoints[c++]);
 		}
-		var exp = exponent.length
-			? parseInt(fromCodePoint$1.apply(void 0, exponent), 10)
-			: 0;
-		return (
-			sign * (int + frac * Math.pow(10, -fracd)) * Math.pow(10, expsign * exp)
-		);
+		var exp = exponent.length ? parseInt(fromCodePoint$1.apply(void 0, exponent), 10) : 0;
+		return sign * (int + frac * Math.pow(10, -fracd)) * Math.pow(10, expsign * exp);
 	};
 	var LEFT_PARENTHESIS_TOKEN = {
 		type: 2 /* LEFT_PARENTHESIS_TOKEN */,
@@ -1296,9 +1175,7 @@
 					var c2 = this.peekCodePoint(1);
 					var c3 = this.peekCodePoint(2);
 					if (isNameCodePoint(c1) || isValidEscape(c2, c3)) {
-						var flags = isIdentifierStart(c1, c2, c3)
-							? FLAG_ID
-							: FLAG_UNRESTRICTED;
+						var flags = isIdentifierStart(c1, c2, c3) ? FLAG_ID : FLAG_UNRESTRICTED;
 						var value = this.consumeName();
 						return { type: 5 /* HASH_TOKEN */, value: value, flags: flags };
 					}
@@ -1322,13 +1199,7 @@
 					}
 					break;
 				case PLUS_SIGN:
-					if (
-						isNumberStart(
-							codePoint,
-							this.peekCodePoint(0),
-							this.peekCodePoint(1)
-						)
-					) {
+					if (isNumberStart(codePoint, this.peekCodePoint(0), this.peekCodePoint(1))) {
 						this.reconsumeCodePoint(codePoint);
 						return this.consumeNumericToken();
 					}
@@ -1354,13 +1225,7 @@
 					}
 					break;
 				case FULL_STOP:
-					if (
-						isNumberStart(
-							codePoint,
-							this.peekCodePoint(0),
-							this.peekCodePoint(1)
-						)
-					) {
+					if (isNumberStart(codePoint, this.peekCodePoint(0), this.peekCodePoint(1))) {
 						this.reconsumeCodePoint(codePoint);
 						return this.consumeNumericToken();
 					}
@@ -1517,10 +1382,7 @@
 				return { type: 30 /* UNICODE_RANGE_TOKEN */, start: start_1, end: end };
 			}
 			var start = parseInt(fromCodePoint$1.apply(void 0, digits), 16);
-			if (
-				this.peekCodePoint(0) === HYPHEN_MINUS &&
-				isHex(this.peekCodePoint(1))
-			) {
+			if (this.peekCodePoint(0) === HYPHEN_MINUS && isHex(this.peekCodePoint(1))) {
 				this.consumeCodePoint();
 				codePoint = this.consumeCodePoint();
 				var endDigits = [];
@@ -1536,10 +1398,7 @@
 		};
 		Tokenizer.prototype.consumeIdentLikeToken = function () {
 			var value = this.consumeName();
-			if (
-				value.toLowerCase() === "url" &&
-				this.peekCodePoint(0) === LEFT_PARENTHESIS
-			) {
+			if (value.toLowerCase() === "url" && this.peekCodePoint(0) === LEFT_PARENTHESIS) {
 				this.consumeCodePoint();
 				return this.consumeUrlToken();
 			} else if (this.peekCodePoint(0) === LEFT_PARENTHESIS) {
@@ -1559,10 +1418,7 @@
 				var stringToken = this.consumeStringToken(this.consumeCodePoint());
 				if (stringToken.type === 0 /* STRING_TOKEN */) {
 					this.consumeWhiteSpace();
-					if (
-						this.peekCodePoint(0) === EOF ||
-						this.peekCodePoint(0) === RIGHT_PARENTHESIS
-					) {
+					if (this.peekCodePoint(0) === EOF || this.peekCodePoint(0) === RIGHT_PARENTHESIS) {
 						this.consumeCodePoint();
 						return { type: 22 /* URL_TOKEN */, value: stringToken.value };
 					}
@@ -1579,10 +1435,7 @@
 					};
 				} else if (isWhiteSpace(codePoint)) {
 					this.consumeWhiteSpace();
-					if (
-						this.peekCodePoint(0) === EOF ||
-						this.peekCodePoint(0) === RIGHT_PARENTHESIS
-					) {
+					if (this.peekCodePoint(0) === EOF || this.peekCodePoint(0) === RIGHT_PARENTHESIS) {
 						this.consumeCodePoint();
 						return {
 							type: 22 /* URL_TOKEN */,
@@ -1643,11 +1496,7 @@
 			var i = 0;
 			do {
 				var codePoint = this._value[i];
-				if (
-					codePoint === EOF ||
-					codePoint === undefined ||
-					codePoint === endingCodePoint
-				) {
+				if (codePoint === EOF || codePoint === undefined || codePoint === endingCodePoint) {
 					value += this.consumeStringSlice(i);
 					return { type: 0 /* STRING_TOKEN */, value: value };
 				}
@@ -1694,11 +1543,7 @@
 			c1 = this.peekCodePoint(0);
 			c2 = this.peekCodePoint(1);
 			var c3 = this.peekCodePoint(2);
-			if (
-				(c1 === E || c1 === e) &&
-				(((c2 === PLUS_SIGN || c2 === HYPHEN_MINUS) && isDigit(c3)) ||
-					isDigit(c2))
-			) {
+			if ((c1 === E || c1 === e) && (((c2 === PLUS_SIGN || c2 === HYPHEN_MINUS) && isDigit(c3)) || isDigit(c2))) {
 				repr.push(this.consumeCodePoint(), this.consumeCodePoint());
 				type = FLAG_NUMBER;
 				while (isDigit(this.peekCodePoint(0))) {
@@ -1744,11 +1589,7 @@
 					this.consumeCodePoint();
 				}
 				var hexCodePoint = parseInt(hex, 16);
-				if (
-					hexCodePoint === 0 ||
-					isSurrogateCodePoint(hexCodePoint) ||
-					hexCodePoint > 0x10ffff
-				) {
+				if (hexCodePoint === 0 || isSurrogateCodePoint(hexCodePoint) || hexCodePoint > 0x10ffff) {
 					return REPLACEMENT_CHARACTER;
 				}
 				return hexCodePoint;
@@ -1796,9 +1637,7 @@
 				token = this.consumeToken();
 			}
 			if (token.type === 32 /* EOF_TOKEN */) {
-				throw new SyntaxError(
-					"Error parsing CSS component value, unexpected EOF"
-				);
+				throw new SyntaxError("Error parsing CSS component value, unexpected EOF");
 			}
 			this.reconsumeToken(token);
 			var value = this.consumeComponentValue();
@@ -1808,9 +1647,7 @@
 			if (token.type === 32 /* EOF_TOKEN */) {
 				return value;
 			}
-			throw new SyntaxError(
-				"Error parsing CSS component value, multiple values found when expecting only one"
-			);
+			throw new SyntaxError("Error parsing CSS component value, multiple values found when expecting only one");
 		};
 		Parser.prototype.parseComponentValues = function () {
 			var values = [];
@@ -1839,10 +1676,7 @@
 			var block = { type: type, values: [] };
 			var token = this.consumeToken();
 			while (true) {
-				if (
-					token.type === 32 /* EOF_TOKEN */ ||
-					isEndingTokenFor(token, type)
-				) {
+				if (token.type === 32 /* EOF_TOKEN */ || isEndingTokenFor(token, type)) {
 					return block;
 				}
 				this.reconsumeToken(token);
@@ -1858,10 +1692,7 @@
 			};
 			while (true) {
 				var token = this.consumeToken();
-				if (
-					token.type === 32 /* EOF_TOKEN */ ||
-					token.type === 3 /* RIGHT_PARENTHESIS_TOKEN */
-				) {
+				if (token.type === 32 /* EOF_TOKEN */ || token.type === 3 /* RIGHT_PARENTHESIS_TOKEN */) {
 					return cssFunction;
 				}
 				this.reconsumeToken(token);
@@ -1896,10 +1727,7 @@
 		return token.type !== 31 /* WHITESPACE_TOKEN */;
 	};
 	var nonFunctionArgSeparator = function (token) {
-		return (
-			token.type !== 31 /* WHITESPACE_TOKEN */ &&
-			token.type !== 4 /* COMMA_TOKEN */
-		);
+		return token.type !== 31 /* WHITESPACE_TOKEN */ && token.type !== 4 /* COMMA_TOKEN */;
 	};
 	var parseFunctionArgs = function (tokens) {
 		var args = [];
@@ -1923,29 +1751,17 @@
 		return args;
 	};
 	var isEndingTokenFor = function (token, type) {
-		if (
-			type === 11 /* LEFT_CURLY_BRACKET_TOKEN */ &&
-			token.type === 12 /* RIGHT_CURLY_BRACKET_TOKEN */
-		) {
+		if (type === 11 /* LEFT_CURLY_BRACKET_TOKEN */ && token.type === 12 /* RIGHT_CURLY_BRACKET_TOKEN */) {
 			return true;
 		}
-		if (
-			type === 28 /* LEFT_SQUARE_BRACKET_TOKEN */ &&
-			token.type === 29 /* RIGHT_SQUARE_BRACKET_TOKEN */
-		) {
+		if (type === 28 /* LEFT_SQUARE_BRACKET_TOKEN */ && token.type === 29 /* RIGHT_SQUARE_BRACKET_TOKEN */) {
 			return true;
 		}
-		return (
-			type === 2 /* LEFT_PARENTHESIS_TOKEN */ &&
-			token.type === 3 /* RIGHT_PARENTHESIS_TOKEN */
-		);
+		return type === 2 /* LEFT_PARENTHESIS_TOKEN */ && token.type === 3 /* RIGHT_PARENTHESIS_TOKEN */;
 	};
 
 	var isLength = function (token) {
-		return (
-			token.type === 17 /* NUMBER_TOKEN */ ||
-			token.type === 15 /* DIMENSION_TOKEN */
-		);
+		return token.type === 17 /* NUMBER_TOKEN */ || token.type === 15 /* DIMENSION_TOKEN */;
 	};
 
 	var isLengthPercentage = function (token) {
@@ -1972,10 +1788,7 @@
 	var getAbsoluteValueForTuple = function (tuple, width, height) {
 		var x = tuple[0],
 			y = tuple[1];
-		return [
-			getAbsoluteValue(x, width),
-			getAbsoluteValue(typeof y !== "undefined" ? y : x, height),
-		];
+		return [getAbsoluteValue(x, width), getAbsoluteValue(typeof y !== "undefined" ? y : x, height)];
 	};
 	var getAbsoluteValue = function (token, parent) {
 		if (token.type === 16 /* PERCENTAGE_TOKEN */) {
@@ -2018,12 +1831,7 @@
 	};
 	var isAngle = function (value) {
 		if (value.type === 15 /* DIMENSION_TOKEN */) {
-			if (
-				value.unit === DEG ||
-				value.unit === GRAD ||
-				value.unit === RAD ||
-				value.unit === TURN
-			) {
+			if (value.unit === DEG || value.unit === GRAD || value.unit === RAD || value.unit === TURN) {
 				return true;
 			}
 		}
@@ -2082,11 +1890,7 @@
 			if (value.type === 18 /* FUNCTION */) {
 				var colorFunction = SUPPORTED_COLOR_FUNCTIONS[value.name];
 				if (typeof colorFunction === "undefined") {
-					throw new Error(
-						'Attempting to parse an unsupported color function "' +
-							value.name +
-							'"'
-					);
+					throw new Error('Attempting to parse an unsupported color function "' + value.name + '"');
 				}
 				return colorFunction(context, value.values);
 			}
@@ -2095,24 +1899,14 @@
 					var r = value.value.substring(0, 1);
 					var g = value.value.substring(1, 2);
 					var b = value.value.substring(2, 3);
-					return pack(
-						parseInt(r + r, 16),
-						parseInt(g + g, 16),
-						parseInt(b + b, 16),
-						1
-					);
+					return pack(parseInt(r + r, 16), parseInt(g + g, 16), parseInt(b + b, 16), 1);
 				}
 				if (value.value.length === 4) {
 					var r = value.value.substring(0, 1);
 					var g = value.value.substring(1, 2);
 					var b = value.value.substring(2, 3);
 					var a = value.value.substring(3, 4);
-					return pack(
-						parseInt(r + r, 16),
-						parseInt(g + g, 16),
-						parseInt(b + b, 16),
-						parseInt(a + a, 16) / 255
-					);
+					return pack(parseInt(r + r, 16), parseInt(g + g, 16), parseInt(b + b, 16), parseInt(a + a, 16) / 255);
 				}
 				if (value.value.length === 6) {
 					var r = value.value.substring(0, 2);
@@ -2125,12 +1919,7 @@
 					var g = value.value.substring(2, 4);
 					var b = value.value.substring(4, 6);
 					var a = value.value.substring(6, 8);
-					return pack(
-						parseInt(r, 16),
-						parseInt(g, 16),
-						parseInt(b, 16),
-						parseInt(a, 16) / 255
-					);
+					return pack(parseInt(r, 16), parseInt(g, 16), parseInt(b, 16), parseInt(a, 16) / 255);
 				}
 			}
 			if (value.type === 20 /* IDENT_TOKEN */) {
@@ -2155,9 +1944,7 @@
 			: "rgb(" + red + "," + green + "," + blue + ")";
 	};
 	var pack = function (r, g, b, a) {
-		return (
-			((r << 24) | (g << 16) | (b << 8) | (Math.round(a * 255) << 0)) >>> 0
-		);
+		return ((r << 24) | (g << 16) | (b << 8) | (Math.round(a * 255) << 0)) >>> 0;
 	};
 	var getTokenColorValue = function (token, i) {
 		if (token.type === 17 /* NUMBER_TOKEN */) {
@@ -2165,9 +1952,7 @@
 		}
 		if (token.type === 16 /* PERCENTAGE_TOKEN */) {
 			var max = i === 3 ? 1 : 255;
-			return i === 3
-				? (token.number / 100) * max
-				: Math.round((token.number / 100) * max);
+			return i === 3 ? (token.number / 100) * max : Math.round((token.number / 100) * max);
 		}
 		return 0;
 	};
@@ -2213,17 +1998,10 @@
 			saturation = tokens[1],
 			lightness = tokens[2],
 			alpha = tokens[3];
-		var h =
-			(hue.type === 17 /* NUMBER_TOKEN */
-				? deg(hue.number)
-				: angle.parse(context, hue)) /
-			(Math.PI * 2);
+		var h = (hue.type === 17 /* NUMBER_TOKEN */ ? deg(hue.number) : angle.parse(context, hue)) / (Math.PI * 2);
 		var s = isLengthPercentage(saturation) ? saturation.number / 100 : 0;
 		var l = isLengthPercentage(lightness) ? lightness.number / 100 : 0;
-		var a =
-			typeof alpha !== "undefined" && isLengthPercentage(alpha)
-				? getAbsoluteValue(alpha, 1)
-				: 1;
+		var a = typeof alpha !== "undefined" && isLengthPercentage(alpha) ? getAbsoluteValue(alpha, 1) : 1;
 		if (s === 0) {
 			return pack(l * 255, l * 255, l * 255, 1);
 		}
@@ -2426,9 +2204,7 @@
 	var parseColorStop = function (context, args) {
 		var color = color$1.parse(context, args[0]);
 		var stop = args[1];
-		return stop && isLengthPercentage(stop)
-			? { color: color, stop: stop }
-			: { color: color, stop: null };
+		return stop && isLengthPercentage(stop) ? { color: color, stop: stop } : { color: color, stop: null };
 	};
 	var processColorStops = function (stops, lineLength) {
 		var first = stops[0];
@@ -2488,24 +2264,14 @@
 		return (Math.atan2(y, x) + Math.PI * 2) % (Math.PI * 2);
 	};
 	var calculateGradientDirection = function (angle, width, height) {
-		var radian =
-			typeof angle === "number"
-				? angle
-				: getAngleFromCorner(angle, width, height);
-		var lineLength =
-			Math.abs(width * Math.sin(radian)) + Math.abs(height * Math.cos(radian));
+		var radian = typeof angle === "number" ? angle : getAngleFromCorner(angle, width, height);
+		var lineLength = Math.abs(width * Math.sin(radian)) + Math.abs(height * Math.cos(radian));
 		var halfWidth = width / 2;
 		var halfHeight = height / 2;
 		var halfLineLength = lineLength / 2;
 		var yDiff = Math.sin(radian - Math.PI / 2) * halfLineLength;
 		var xDiff = Math.cos(radian - Math.PI / 2) * halfLineLength;
-		return [
-			lineLength,
-			halfWidth - xDiff,
-			halfWidth + xDiff,
-			halfHeight - yDiff,
-			halfHeight + yDiff,
-		];
+		return [lineLength, halfWidth - xDiff, halfWidth + xDiff, halfHeight - yDiff, halfHeight + yDiff];
 	};
 	var distance = function (a, b) {
 		return Math.sqrt(a * a + b * b);
@@ -2544,12 +2310,7 @@
 				// The ending shape is sized so that that it exactly meets the side of the gradient box closest to the gradient’s center.
 				// If the shape is an ellipse, it exactly meets the closest side in each dimension.
 				if (gradient.shape === 0 /* CIRCLE */) {
-					rx = ry = Math.min(
-						Math.abs(x),
-						Math.abs(x - width),
-						Math.abs(y),
-						Math.abs(y - height)
-					);
+					rx = ry = Math.min(Math.abs(x), Math.abs(x - width), Math.abs(y), Math.abs(y - height));
 				} else if (gradient.shape === 1 /* ELLIPSE */) {
 					rx = Math.min(Math.abs(x), Math.abs(x - width));
 					ry = Math.min(Math.abs(y), Math.abs(y - height));
@@ -2567,9 +2328,7 @@
 					);
 				} else if (gradient.shape === 1 /* ELLIPSE */) {
 					// Compute the ratio ry/rx (which is to be the same as for "closest-side")
-					var c =
-						Math.min(Math.abs(y), Math.abs(y - height)) /
-						Math.min(Math.abs(x), Math.abs(x - width));
+					var c = Math.min(Math.abs(y), Math.abs(y - height)) / Math.min(Math.abs(x), Math.abs(x - width));
 					var _a = findCorner(width, height, x, y, true),
 						cx = _a[0],
 						cy = _a[1];
@@ -2580,12 +2339,7 @@
 			case 1 /* FARTHEST_SIDE */:
 				// Same as closest-side, except the ending shape is sized based on the farthest side(s)
 				if (gradient.shape === 0 /* CIRCLE */) {
-					rx = ry = Math.max(
-						Math.abs(x),
-						Math.abs(x - width),
-						Math.abs(y),
-						Math.abs(y - height)
-					);
+					rx = ry = Math.max(Math.abs(x), Math.abs(x - width), Math.abs(y), Math.abs(y - height));
 				} else if (gradient.shape === 1 /* ELLIPSE */) {
 					rx = Math.max(Math.abs(x), Math.abs(x - width));
 					ry = Math.max(Math.abs(y), Math.abs(y - height));
@@ -2603,9 +2357,7 @@
 					);
 				} else if (gradient.shape === 1 /* ELLIPSE */) {
 					// Compute the ratio ry/rx (which is to be the same as for "farthest-side")
-					var c =
-						Math.max(Math.abs(y), Math.abs(y - height)) /
-						Math.max(Math.abs(x), Math.abs(x - width));
+					var c = Math.max(Math.abs(y), Math.abs(y - height)) / Math.max(Math.abs(x), Math.abs(x - width));
 					var _b = findCorner(width, height, x, y, false),
 						cx = _b[0],
 						cy = _b[1];
@@ -2616,10 +2368,7 @@
 		}
 		if (Array.isArray(gradient.size)) {
 			rx = getAbsoluteValue(gradient.size[0], width);
-			ry =
-				gradient.size.length === 2
-					? getAbsoluteValue(gradient.size[1], height)
-					: rx;
+			ry = gradient.size.length === 2 ? getAbsoluteValue(gradient.size[1], height) : rx;
 		}
 		return [rx, ry];
 	};
@@ -2630,10 +2379,7 @@
 		parseFunctionArgs(tokens).forEach(function (arg, i) {
 			if (i === 0) {
 				var firstToken = arg[0];
-				if (
-					firstToken.type === 20 /* IDENT_TOKEN */ &&
-					firstToken.value === "to"
-				) {
+				if (firstToken.type === 20 /* IDENT_TOKEN */ && firstToken.value === "to") {
 					angle$1 = parseNamedSide(arg);
 					return;
 				} else if (isAngle(firstToken)) {
@@ -2914,11 +2660,7 @@
 			if (value.type === 18 /* FUNCTION */) {
 				var imageFunction = SUPPORTED_IMAGE_FUNCTIONS[value.name];
 				if (typeof imageFunction === "undefined") {
-					throw new Error(
-						'Attempting to parse an unsupported image function "' +
-							value.name +
-							'"'
-					);
+					throw new Error('Attempting to parse an unsupported image function "' + value.name + '"');
 				}
 				return imageFunction(context, value.values);
 			}
@@ -2928,8 +2670,7 @@
 	function isSupportedImage(value) {
 		return (
 			!(value.type === 20 /* IDENT_TOKEN */ && value.value === "none") &&
-			(value.type !== 18 /* FUNCTION */ ||
-				!!SUPPORTED_IMAGE_FUNCTIONS[value.name])
+			(value.type !== 18 /* FUNCTION */ || !!SUPPORTED_IMAGE_FUNCTIONS[value.name])
 		);
 	}
 	var SUPPORTED_IMAGE_FUNCTIONS = {
@@ -3634,11 +3375,7 @@
 			if (token.type === 18 /* FUNCTION */) {
 				var transformFunction = SUPPORTED_TRANSFORM_FUNCTIONS[token.name];
 				if (typeof transformFunction === "undefined") {
-					throw new Error(
-						'Attempting to parse an unsupported transform function "' +
-							token.name +
-							'"'
-					);
+					throw new Error('Attempting to parse an unsupported transform function "' + token.name + '"');
 				}
 				return transformFunction(token.values);
 			}
@@ -4137,126 +3874,30 @@
 	var CSSParsedDeclaration = /** @class */ (function () {
 		function CSSParsedDeclaration(context, declaration) {
 			var _a, _b;
-			this.animationDuration = parse(
-				context,
-				duration,
-				declaration.animationDuration
-			);
-			this.backgroundClip = parse(
-				context,
-				backgroundClip,
-				declaration.backgroundClip
-			);
-			this.backgroundColor = parse(
-				context,
-				backgroundColor,
-				declaration.backgroundColor
-			);
-			this.backgroundImage = parse(
-				context,
-				backgroundImage,
-				declaration.backgroundImage
-			);
-			this.backgroundOrigin = parse(
-				context,
-				backgroundOrigin,
-				declaration.backgroundOrigin
-			);
-			this.backgroundPosition = parse(
-				context,
-				backgroundPosition,
-				declaration.backgroundPosition
-			);
-			this.backgroundRepeat = parse(
-				context,
-				backgroundRepeat,
-				declaration.backgroundRepeat
-			);
-			this.backgroundSize = parse(
-				context,
-				backgroundSize,
-				declaration.backgroundSize
-			);
-			this.borderTopColor = parse(
-				context,
-				borderTopColor,
-				declaration.borderTopColor
-			);
-			this.borderRightColor = parse(
-				context,
-				borderRightColor,
-				declaration.borderRightColor
-			);
-			this.borderBottomColor = parse(
-				context,
-				borderBottomColor,
-				declaration.borderBottomColor
-			);
-			this.borderLeftColor = parse(
-				context,
-				borderLeftColor,
-				declaration.borderLeftColor
-			);
-			this.borderTopLeftRadius = parse(
-				context,
-				borderTopLeftRadius,
-				declaration.borderTopLeftRadius
-			);
-			this.borderTopRightRadius = parse(
-				context,
-				borderTopRightRadius,
-				declaration.borderTopRightRadius
-			);
-			this.borderBottomRightRadius = parse(
-				context,
-				borderBottomRightRadius,
-				declaration.borderBottomRightRadius
-			);
-			this.borderBottomLeftRadius = parse(
-				context,
-				borderBottomLeftRadius,
-				declaration.borderBottomLeftRadius
-			);
-			this.borderTopStyle = parse(
-				context,
-				borderTopStyle,
-				declaration.borderTopStyle
-			);
-			this.borderRightStyle = parse(
-				context,
-				borderRightStyle,
-				declaration.borderRightStyle
-			);
-			this.borderBottomStyle = parse(
-				context,
-				borderBottomStyle,
-				declaration.borderBottomStyle
-			);
-			this.borderLeftStyle = parse(
-				context,
-				borderLeftStyle,
-				declaration.borderLeftStyle
-			);
-			this.borderTopWidth = parse(
-				context,
-				borderTopWidth,
-				declaration.borderTopWidth
-			);
-			this.borderRightWidth = parse(
-				context,
-				borderRightWidth,
-				declaration.borderRightWidth
-			);
-			this.borderBottomWidth = parse(
-				context,
-				borderBottomWidth,
-				declaration.borderBottomWidth
-			);
-			this.borderLeftWidth = parse(
-				context,
-				borderLeftWidth,
-				declaration.borderLeftWidth
-			);
+			this.animationDuration = parse(context, duration, declaration.animationDuration);
+			this.backgroundClip = parse(context, backgroundClip, declaration.backgroundClip);
+			this.backgroundColor = parse(context, backgroundColor, declaration.backgroundColor);
+			this.backgroundImage = parse(context, backgroundImage, declaration.backgroundImage);
+			this.backgroundOrigin = parse(context, backgroundOrigin, declaration.backgroundOrigin);
+			this.backgroundPosition = parse(context, backgroundPosition, declaration.backgroundPosition);
+			this.backgroundRepeat = parse(context, backgroundRepeat, declaration.backgroundRepeat);
+			this.backgroundSize = parse(context, backgroundSize, declaration.backgroundSize);
+			this.borderTopColor = parse(context, borderTopColor, declaration.borderTopColor);
+			this.borderRightColor = parse(context, borderRightColor, declaration.borderRightColor);
+			this.borderBottomColor = parse(context, borderBottomColor, declaration.borderBottomColor);
+			this.borderLeftColor = parse(context, borderLeftColor, declaration.borderLeftColor);
+			this.borderTopLeftRadius = parse(context, borderTopLeftRadius, declaration.borderTopLeftRadius);
+			this.borderTopRightRadius = parse(context, borderTopRightRadius, declaration.borderTopRightRadius);
+			this.borderBottomRightRadius = parse(context, borderBottomRightRadius, declaration.borderBottomRightRadius);
+			this.borderBottomLeftRadius = parse(context, borderBottomLeftRadius, declaration.borderBottomLeftRadius);
+			this.borderTopStyle = parse(context, borderTopStyle, declaration.borderTopStyle);
+			this.borderRightStyle = parse(context, borderRightStyle, declaration.borderRightStyle);
+			this.borderBottomStyle = parse(context, borderBottomStyle, declaration.borderBottomStyle);
+			this.borderLeftStyle = parse(context, borderLeftStyle, declaration.borderLeftStyle);
+			this.borderTopWidth = parse(context, borderTopWidth, declaration.borderTopWidth);
+			this.borderRightWidth = parse(context, borderRightWidth, declaration.borderRightWidth);
+			this.borderBottomWidth = parse(context, borderBottomWidth, declaration.borderBottomWidth);
+			this.borderLeftWidth = parse(context, borderLeftWidth, declaration.borderLeftWidth);
 			this.boxShadow = parse(context, boxShadow, declaration.boxShadow);
 			this.color = parse(context, color, declaration.color);
 			this.direction = parse(context, direction, declaration.direction);
@@ -4267,56 +3908,24 @@
 			this.fontStyle = parse(context, fontStyle, declaration.fontStyle);
 			this.fontVariant = parse(context, fontVariant, declaration.fontVariant);
 			this.fontWeight = parse(context, fontWeight, declaration.fontWeight);
-			this.letterSpacing = parse(
-				context,
-				letterSpacing,
-				declaration.letterSpacing
-			);
+			this.letterSpacing = parse(context, letterSpacing, declaration.letterSpacing);
 			this.lineBreak = parse(context, lineBreak, declaration.lineBreak);
 			this.lineHeight = parse(context, lineHeight, declaration.lineHeight);
-			this.listStyleImage = parse(
-				context,
-				listStyleImage,
-				declaration.listStyleImage
-			);
-			this.listStylePosition = parse(
-				context,
-				listStylePosition,
-				declaration.listStylePosition
-			);
-			this.listStyleType = parse(
-				context,
-				listStyleType,
-				declaration.listStyleType
-			);
+			this.listStyleImage = parse(context, listStyleImage, declaration.listStyleImage);
+			this.listStylePosition = parse(context, listStylePosition, declaration.listStylePosition);
+			this.listStyleType = parse(context, listStyleType, declaration.listStyleType);
 			this.marginTop = parse(context, marginTop, declaration.marginTop);
 			this.marginRight = parse(context, marginRight, declaration.marginRight);
-			this.marginBottom = parse(
-				context,
-				marginBottom,
-				declaration.marginBottom
-			);
+			this.marginBottom = parse(context, marginBottom, declaration.marginBottom);
 			this.marginLeft = parse(context, marginLeft, declaration.marginLeft);
 			this.opacity = parse(context, opacity, declaration.opacity);
 			var overflowTuple = parse(context, overflow, declaration.overflow);
 			this.overflowX = overflowTuple[0];
 			this.overflowY = overflowTuple[overflowTuple.length > 1 ? 1 : 0];
-			this.overflowWrap = parse(
-				context,
-				overflowWrap,
-				declaration.overflowWrap
-			);
+			this.overflowWrap = parse(context, overflowWrap, declaration.overflowWrap);
 			this.paddingTop = parse(context, paddingTop, declaration.paddingTop);
-			this.paddingRight = parse(
-				context,
-				paddingRight,
-				declaration.paddingRight
-			);
-			this.paddingBottom = parse(
-				context,
-				paddingBottom,
-				declaration.paddingBottom
-			);
+			this.paddingRight = parse(context, paddingRight, declaration.paddingRight);
+			this.paddingBottom = parse(context, paddingBottom, declaration.paddingBottom);
 			this.paddingLeft = parse(context, paddingLeft, declaration.paddingLeft);
 			this.paintOrder = parse(context, paintOrder, declaration.paintOrder);
 			this.position = parse(context, position, declaration.position);
@@ -4324,49 +3933,25 @@
 			this.textDecorationColor = parse(
 				context,
 				textDecorationColor,
-				(_a = declaration.textDecorationColor) !== null && _a !== void 0
-					? _a
-					: declaration.color
+				(_a = declaration.textDecorationColor) !== null && _a !== void 0 ? _a : declaration.color
 			);
 			this.textDecorationLine = parse(
 				context,
 				textDecorationLine,
-				(_b = declaration.textDecorationLine) !== null && _b !== void 0
-					? _b
-					: declaration.textDecoration
+				(_b = declaration.textDecorationLine) !== null && _b !== void 0 ? _b : declaration.textDecoration
 			);
 			this.textShadow = parse(context, textShadow, declaration.textShadow);
-			this.textTransform = parse(
-				context,
-				textTransform,
-				declaration.textTransform
-			);
+			this.textTransform = parse(context, textTransform, declaration.textTransform);
 			this.transform = parse(context, transform$1, declaration.transform);
-			this.transformOrigin = parse(
-				context,
-				transformOrigin,
-				declaration.transformOrigin
-			);
+			this.transformOrigin = parse(context, transformOrigin, declaration.transformOrigin);
 			this.visibility = parse(context, visibility, declaration.visibility);
-			this.webkitTextStrokeColor = parse(
-				context,
-				webkitTextStrokeColor,
-				declaration.webkitTextStrokeColor
-			);
-			this.webkitTextStrokeWidth = parse(
-				context,
-				webkitTextStrokeWidth,
-				declaration.webkitTextStrokeWidth
-			);
+			this.webkitTextStrokeColor = parse(context, webkitTextStrokeColor, declaration.webkitTextStrokeColor);
+			this.webkitTextStrokeWidth = parse(context, webkitTextStrokeWidth, declaration.webkitTextStrokeWidth);
 			this.wordBreak = parse(context, wordBreak, declaration.wordBreak);
 			this.zIndex = parse(context, zIndex, declaration.zIndex);
 		}
 		CSSParsedDeclaration.prototype.isVisible = function () {
-			return (
-				this.display > 0 &&
-				this.opacity > 0 &&
-				this.visibility === 0 /* VISIBLE */
-			);
+			return this.display > 0 && this.opacity > 0 && this.visibility === 0 /* VISIBLE */;
 		};
 		CSSParsedDeclaration.prototype.isTransparent = function () {
 			return isTransparent(this.backgroundColor);
@@ -4404,35 +3989,21 @@
 	})();
 	var CSSParsedCounterDeclaration = /** @class */ (function () {
 		function CSSParsedCounterDeclaration(context, declaration) {
-			this.counterIncrement = parse(
-				context,
-				counterIncrement,
-				declaration.counterIncrement
-			);
-			this.counterReset = parse(
-				context,
-				counterReset,
-				declaration.counterReset
-			);
+			this.counterIncrement = parse(context, counterIncrement, declaration.counterIncrement);
+			this.counterReset = parse(context, counterReset, declaration.counterReset);
 		}
 		return CSSParsedCounterDeclaration;
 	})();
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	var parse = function (context, descriptor, style) {
 		var tokenizer = new Tokenizer();
-		var value =
-			style !== null && typeof style !== "undefined"
-				? style.toString()
-				: descriptor.initialValue;
+		var value = style !== null && typeof style !== "undefined" ? style.toString() : descriptor.initialValue;
 		tokenizer.write(value);
 		var parser = new Parser(tokenizer.read());
 		switch (descriptor.type) {
 			case 2 /* IDENT_VALUE */:
 				var token = parser.parseComponentValue();
-				return descriptor.parse(
-					context,
-					isIdentToken(token) ? token.value : descriptor.initialValue
-				);
+				return descriptor.parse(context, isIdentToken(token) ? token.value : descriptor.initialValue);
 			case 0 /* VALUE */:
 				return descriptor.parse(context, parser.parseComponentValue());
 			case 1 /* LIST */:
@@ -4490,10 +4061,7 @@
 			if (isDebugging(element, 3 /* PARSE */)) {
 				debugger;
 			}
-			this.styles = new CSSParsedDeclaration(
-				context,
-				window.getComputedStyle(element, null)
-			);
+			this.styles = new CSSParsedDeclaration(context, window.getComputedStyle(element, null));
 			if (isHTMLElementNode(element)) {
 				if (
 					this.styles.animationDuration.some(function (duration) {
@@ -4528,8 +4096,7 @@
 	 * Copyright (c) 2021 Niklas von Hertzen <https://hertzen.com>
 	 * Released under MIT License
 	 */
-	var chars$1 =
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	var chars$1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	// Use a lookup table to find the index.
 	var lookup$1 = typeof Uint8Array === "undefined" ? [] : new Uint8Array(256);
 	for (var i$1 = 0; i$1 < chars$1.length; i$1++) {
@@ -4580,12 +4147,7 @@
 		var length = buffer.length;
 		var bytes = [];
 		for (var i = 0; i < length; i += 4) {
-			bytes.push(
-				(buffer[i + 3] << 24) |
-					(buffer[i + 2] << 16) |
-					(buffer[i + 1] << 8) |
-					buffer[i]
-			);
+			bytes.push((buffer[i + 3] << 24) | (buffer[i + 2] << 16) | (buffer[i + 1] << 8) | buffer[i]);
 		}
 		return bytes;
 	};
@@ -4619,15 +4181,13 @@
 	var UTRIE2_DATA_MASK = UTRIE2_DATA_BLOCK_LENGTH - 1;
 	var UTRIE2_LSCP_INDEX_2_LENGTH = 0x400 >> UTRIE2_SHIFT_2;
 	/** Count the lengths of both BMP pieces. 2080=0x820 */
-	var UTRIE2_INDEX_2_BMP_LENGTH =
-		UTRIE2_LSCP_INDEX_2_OFFSET + UTRIE2_LSCP_INDEX_2_LENGTH;
+	var UTRIE2_INDEX_2_BMP_LENGTH = UTRIE2_LSCP_INDEX_2_OFFSET + UTRIE2_LSCP_INDEX_2_LENGTH;
 	/**
 	 * The 2-byte UTF-8 version of the index-2 table follows at offset 2080=0x820.
 	 * Length 32=0x20 for lead bytes C0..DF, regardless of UTRIE2_SHIFT_2.
 	 */
 	var UTRIE2_UTF8_2B_INDEX_2_OFFSET = UTRIE2_INDEX_2_BMP_LENGTH;
-	var UTRIE2_UTF8_2B_INDEX_2_LENGTH =
-		0x800 >> 6; /* U+0800 is the first code point after 2-byte UTF-8 */
+	var UTRIE2_UTF8_2B_INDEX_2_LENGTH = 0x800 >> 6; /* U+0800 is the first code point after 2-byte UTF-8 */
 	/**
 	 * The index-1 table, only used for supplementary code points, at offset 2112=0x840.
 	 * Variable length, for code points up to highStart, where the last single-value range starts.
@@ -4640,8 +4200,7 @@
 	 * Both the index-1 table and the following part of the index-2 table
 	 * are omitted completely if there is only BMP data.
 	 */
-	var UTRIE2_INDEX_1_OFFSET =
-		UTRIE2_UTF8_2B_INDEX_2_OFFSET + UTRIE2_UTF8_2B_INDEX_2_LENGTH;
+	var UTRIE2_INDEX_1_OFFSET = UTRIE2_UTF8_2B_INDEX_2_OFFSET + UTRIE2_UTF8_2B_INDEX_2_LENGTH;
 	/**
 	 * Number of index-1 entries for the BMP. 32=0x20
 	 * This part of the index-1 table is omitted from the serialized form.
@@ -4665,12 +4224,8 @@
 	};
 	var createTrieFromBase64 = function (base64, _byteLength) {
 		var buffer = decode(base64);
-		var view32 = Array.isArray(buffer)
-			? polyUint32Array(buffer)
-			: new Uint32Array(buffer);
-		var view16 = Array.isArray(buffer)
-			? polyUint16Array(buffer)
-			: new Uint16Array(buffer);
+		var view32 = Array.isArray(buffer) ? polyUint32Array(buffer) : new Uint32Array(buffer);
+		var view16 = Array.isArray(buffer) ? polyUint16Array(buffer) : new Uint16Array(buffer);
 		var headerLength = 24;
 		var index = slice16(view16, headerLength / 2, view32[4] / 2);
 		var data =
@@ -4680,14 +4235,7 @@
 		return new Trie(view32[0], view32[1], view32[2], view32[3], index, data);
 	};
 	var Trie = /** @class */ (function () {
-		function Trie(
-			initialValue,
-			errorValue,
-			highStart,
-			highValueIndex,
-			index,
-			data
-		) {
+		function Trie(initialValue, errorValue, highStart, highValueIndex, index, data) {
 			this.initialValue = initialValue;
 			this.errorValue = errorValue;
 			this.highStart = highStart;
@@ -4704,10 +4252,7 @@
 		Trie.prototype.get = function (codePoint) {
 			var ix;
 			if (codePoint >= 0) {
-				if (
-					codePoint < 0x0d800 ||
-					(codePoint > 0x0dbff && codePoint <= 0x0ffff)
-				) {
+				if (codePoint < 0x0d800 || (codePoint > 0x0dbff && codePoint <= 0x0ffff)) {
 					// Ordinary BMP code point, excluding leading surrogates.
 					// BMP uses a single level lookup.  BMP index starts at offset 0 in the Trie2 index.
 					// 16 bit data is stored in the index array itself.
@@ -4722,20 +4267,13 @@
 					//   For this function, we need the code point data.
 					// Note: this expression could be refactored for slightly improved efficiency, but
 					//       surrogate code points will be so rare in practice that it's not worth it.
-					ix =
-						this.index[
-							UTRIE2_LSCP_INDEX_2_OFFSET +
-								((codePoint - 0xd800) >> UTRIE2_SHIFT_2)
-						];
+					ix = this.index[UTRIE2_LSCP_INDEX_2_OFFSET + ((codePoint - 0xd800) >> UTRIE2_SHIFT_2)];
 					ix = (ix << UTRIE2_INDEX_SHIFT) + (codePoint & UTRIE2_DATA_MASK);
 					return this.data[ix];
 				}
 				if (codePoint < this.highStart) {
 					// Supplemental code point, use two-level lookup.
-					ix =
-						UTRIE2_INDEX_1_OFFSET -
-						UTRIE2_OMITTED_BMP_INDEX_1_LENGTH +
-						(codePoint >> UTRIE2_SHIFT_1);
+					ix = UTRIE2_INDEX_1_OFFSET - UTRIE2_OMITTED_BMP_INDEX_1_LENGTH + (codePoint >> UTRIE2_SHIFT_1);
 					ix = this.index[ix];
 					ix += (codePoint >> UTRIE2_SHIFT_2) & UTRIE2_INDEX_2_MASK;
 					ix = this.index[ix];
@@ -4757,8 +4295,7 @@
 	 * Copyright (c) 2021 Niklas von Hertzen <https://hertzen.com>
 	 * Released under MIT License
 	 */
-	var chars =
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 	// Use a lookup table to find the index.
 	var lookup = typeof Uint8Array === "undefined" ? [] : new Uint8Array(256);
 	for (var i = 0; i < chars.length; i++) {
@@ -4820,10 +4357,7 @@
 				codeUnits.push(codePoint);
 			} else {
 				codePoint -= 0x10000;
-				codeUnits.push(
-					(codePoint >> 10) + 0xd800,
-					(codePoint % 0x400) + 0xdc00
-				);
+				codeUnits.push((codePoint >> 10) + 0xd800, (codePoint % 0x400) + 0xdc00);
 			}
 			if (index + 1 === length || codeUnits.length > 0x4000) {
 				result += String.fromCharCode.apply(String, codeUnits);
@@ -4919,17 +4453,10 @@
 				var graphemeBreak = BREAK_NOT_ALLOWED;
 				while (
 					index < length &&
-					(graphemeBreak = _graphemeBreakAtIndex(
-						codePoints,
-						classTypes,
-						++index
-					)) === BREAK_NOT_ALLOWED
+					(graphemeBreak = _graphemeBreakAtIndex(codePoints, classTypes, ++index)) === BREAK_NOT_ALLOWED
 				) {}
 				if (graphemeBreak !== BREAK_NOT_ALLOWED || index === length) {
-					var value = fromCodePoint.apply(
-						null,
-						codePoints.slice(lastEnd, index)
-					);
+					var value = fromCodePoint.apply(null, codePoints.slice(lastEnd, index));
 					lastEnd = index;
 					return { value: value, done: false };
 				}
@@ -4978,8 +4505,7 @@
 		testElement.style.wordSpacing = "0px";
 		document.body.appendChild(testElement);
 		var range = document.createRange();
-		testElement.innerHTML =
-			typeof "".repeat === "function" ? "&#128104;".repeat(10) : "";
+		testElement.innerHTML = typeof "".repeat === "function" ? "&#128104;".repeat(10) : "";
 		var node = testElement.firstChild;
 		var textList = toCodePoints$1(node.data).map(function (i) {
 			return fromCodePoint$1(i);
@@ -5015,8 +4541,7 @@
 		if (!ctx) {
 			return false;
 		}
-		img.src =
-			"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'></svg>";
+		img.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'></svg>";
 		try {
 			ctx.drawImage(img, 0, 0);
 			canvas.toDataURL();
@@ -5090,9 +4615,7 @@
 				return resolve(img);
 			};
 			img.onerror = reject;
-			img.src =
-				"data:image/svg+xml;charset=utf-8," +
-				encodeURIComponent(new XMLSerializer().serializeToString(svg));
+			img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg));
 		});
 	};
 	var FEATURES = {
@@ -5160,25 +4683,15 @@
 						textBounds.push(
 							new TextBounds(
 								text,
-								Bounds.fromDOMRectList(
-									context,
-									createRange(node, offset, text.length).getClientRects()
-								)
+								Bounds.fromDOMRectList(context, createRange(node, offset, text.length).getClientRects())
 							)
 						);
 					} else {
-						textBounds.push(
-							new TextBounds(
-								text,
-								getRangeBounds(context, node, offset, text.length)
-							)
-						);
+						textBounds.push(new TextBounds(text, getRangeBounds(context, node, offset, text.length)));
 					}
 				} else {
 					var replacementNode = node.splitText(text.length);
-					textBounds.push(
-						new TextBounds(text, getWrapperBounds(context, node))
-					);
+					textBounds.push(new TextBounds(text, getWrapperBounds(context, node)));
 					node = replacementNode;
 				}
 			} else if (!FEATURES.SUPPORT_RANGE_BOUNDS) {
@@ -5216,27 +4729,17 @@
 		return range;
 	};
 	var getRangeBounds = function (context, node, offset, length) {
-		return Bounds.fromClientRect(
-			context,
-			createRange(node, offset, length).getBoundingClientRect()
-		);
+		return Bounds.fromClientRect(context, createRange(node, offset, length).getBoundingClientRect());
 	};
 	var breakText = function (value, styles) {
-		return styles.letterSpacing !== 0
-			? splitGraphemes(value)
-			: breakWords(value, styles);
+		return styles.letterSpacing !== 0 ? splitGraphemes(value) : breakWords(value, styles);
 	};
 	// https://drafts.csswg.org/css-text/#word-separator
-	var wordSeparators = [
-		0x0020, 0x00a0, 0x1361, 0x10100, 0x10101, 0x1039, 0x1091,
-	];
+	var wordSeparators = [0x0020, 0x00a0, 0x1361, 0x10100, 0x10101, 0x1039, 0x1091];
 	var breakWords = function (str, styles) {
 		var breaker = LineBreaker(str, {
 			lineBreak: styles.lineBreak,
-			wordBreak:
-				styles.overflowWrap === "break-word" /* BREAK_WORD */
-					? "break-word"
-					: styles.wordBreak,
+			wordBreak: styles.overflowWrap === "break-word" /* BREAK_WORD */ ? "break-word" : styles.wordBreak,
 		});
 		var words = [];
 		var bk;
@@ -5327,8 +4830,7 @@
 			var bounds = parseBounds(context, img);
 			img.setAttribute("width", bounds.width + "px");
 			img.setAttribute("height", bounds.height + "px");
-			_this.svg =
-				"data:image/svg+xml," + encodeURIComponent(s.serializeToString(img));
+			_this.svg = "data:image/svg+xml," + encodeURIComponent(s.serializeToString(img));
 			_this.intrinsicWidth = img.width.baseVal.value;
 			_this.intrinsicHeight = img.height.baseVal.value;
 			_this.context.cache.addImage(_this.svg);
@@ -5352,8 +4854,7 @@
 		function OLElementContainer(context, element) {
 			var _this = _super.call(this, context, element) || this;
 			_this.start = element.start;
-			_this.reversed =
-				typeof element.reversed === "boolean" && element.reversed === true;
+			_this.reversed = typeof element.reversed === "boolean" && element.reversed === true;
 			return _this;
 		}
 		return OLElementContainer;
@@ -5376,27 +4877,14 @@
 	];
 	var reformatInputBounds = function (bounds) {
 		if (bounds.width > bounds.height) {
-			return new Bounds(
-				bounds.left + (bounds.width - bounds.height) / 2,
-				bounds.top,
-				bounds.height,
-				bounds.height
-			);
+			return new Bounds(bounds.left + (bounds.width - bounds.height) / 2, bounds.top, bounds.height, bounds.height);
 		} else if (bounds.width < bounds.height) {
-			return new Bounds(
-				bounds.left,
-				bounds.top + (bounds.height - bounds.width) / 2,
-				bounds.width,
-				bounds.width
-			);
+			return new Bounds(bounds.left, bounds.top + (bounds.height - bounds.width) / 2, bounds.width, bounds.width);
 		}
 		return bounds;
 	};
 	var getInputValue = function (node) {
-		var value =
-			node.type === PASSWORD
-				? new Array(node.value.length + 1).join("\u2022")
-				: node.value;
+		var value = node.type === PASSWORD ? new Array(node.value.length + 1).join("\u2022") : node.value;
 		return value.length === 0 ? node.placeholder || "" : value;
 	};
 	var CHECKBOX = "checkbox";
@@ -5482,30 +4970,14 @@
 			_this.height = parseInt(iframe.height, 10) || 0;
 			_this.backgroundColor = _this.styles.backgroundColor;
 			try {
-				if (
-					iframe.contentWindow &&
-					iframe.contentWindow.document &&
-					iframe.contentWindow.document.documentElement
-				) {
-					_this.tree = parseTree(
-						context,
-						iframe.contentWindow.document.documentElement
-					);
+				if (iframe.contentWindow && iframe.contentWindow.document && iframe.contentWindow.document.documentElement) {
+					_this.tree = parseTree(context, iframe.contentWindow.document.documentElement);
 					// http://www.w3.org/TR/css3-background/#special-backgrounds
-					var documentBackgroundColor = iframe.contentWindow.document
-						.documentElement
-						? parseColor(
-								context,
-								getComputedStyle(iframe.contentWindow.document.documentElement)
-									.backgroundColor
-						  )
+					var documentBackgroundColor = iframe.contentWindow.document.documentElement
+						? parseColor(context, getComputedStyle(iframe.contentWindow.document.documentElement).backgroundColor)
 						: COLORS.TRANSPARENT;
 					var bodyBackgroundColor = iframe.contentWindow.document.body
-						? parseColor(
-								context,
-								getComputedStyle(iframe.contentWindow.document.body)
-									.backgroundColor
-						  )
+						? parseColor(context, getComputedStyle(iframe.contentWindow.document.body).backgroundColor)
 						: COLORS.TRANSPARENT;
 					_this.backgroundColor = isTransparent(documentBackgroundColor)
 						? isTransparent(bodyBackgroundColor)
@@ -5521,16 +4993,10 @@
 
 	var LIST_OWNERS = ["OL", "UL", "MENU"];
 	var parseNodeTree = function (context, node, parent, root) {
-		for (
-			var childNode = node.firstChild, nextNode = void 0;
-			childNode;
-			childNode = nextNode
-		) {
+		for (var childNode = node.firstChild, nextNode = void 0; childNode; childNode = nextNode) {
 			nextNode = childNode.nextSibling;
 			if (isTextNode(childNode) && childNode.data.trim().length > 0) {
-				parent.textNodes.push(
-					new TextContainer(context, childNode, parent.styles)
-				);
+				parent.textNodes.push(new TextContainer(context, childNode, parent.styles));
 			} else if (isElementNode(childNode)) {
 				if (isSlotElement(childNode) && childNode.assignedNodes) {
 					childNode.assignedNodes().forEach(function (childNode) {
@@ -5551,11 +5017,7 @@
 						childNode.slot;
 						if (childNode.shadowRoot) {
 							parseNodeTree(context, childNode.shadowRoot, container, root);
-						} else if (
-							!isTextareaElement(childNode) &&
-							!isSVGElement(childNode) &&
-							!isSelectElement(childNode)
-						) {
+						} else if (!isTextareaElement(childNode) && !isSVGElement(childNode) && !isSelectElement(childNode)) {
 							parseNodeTree(context, childNode, container, root);
 						}
 					}
@@ -5617,11 +5079,7 @@
 		return node.nodeType === Node.ELEMENT_NODE;
 	};
 	var isHTMLElementNode = function (node) {
-		return (
-			isElementNode(node) &&
-			typeof node.style !== "undefined" &&
-			!isSVGElementNode(node)
-		);
+		return isElementNode(node) && typeof node.style !== "undefined" && !isSVGElementNode(node);
 	};
 	var isSVGElementNode = function (element) {
 		return typeof element.className === "object";
@@ -5724,27 +5182,12 @@
 	})();
 	var ROMAN_UPPER = {
 		integers: [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1],
-		values: [
-			"M",
-			"CM",
-			"D",
-			"CD",
-			"C",
-			"XC",
-			"L",
-			"XL",
-			"X",
-			"IX",
-			"V",
-			"IV",
-			"I",
-		],
+		values: ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"],
 	};
 	var ARMENIAN = {
 		integers: [
-			9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800, 700, 600,
-			500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9, 8, 7, 6,
-			5, 4, 3, 2, 1,
+			9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 90, 80, 70, 60,
+			50, 40, 30, 20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
 		],
 		values: [
 			"Ք",
@@ -5787,9 +5230,8 @@
 	};
 	var HEBREW = {
 		integers: [
-			10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 400, 300,
-			200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 19, 18, 17, 16, 15, 10, 9, 8, 7,
-			6, 5, 4, 3, 2, 1,
+			10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20,
+			19, 18, 17, 16, 15, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
 		],
 		values: [
 			"י׳",
@@ -5833,9 +5275,8 @@
 	};
 	var GEORGIAN = {
 		integers: [
-			10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800,
-			700, 600, 500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9,
-			8, 7, 6, 5, 4, 3, 2, 1,
+			10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 90, 80,
+			70, 60, 50, 40, 30, 20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
 		],
 		values: [
 			"ჵ",
@@ -5877,14 +5318,7 @@
 			"ა",
 		],
 	};
-	var createAdditiveCounter = function (
-		value,
-		min,
-		max,
-		symbols,
-		fallback,
-		suffix
-	) {
+	var createAdditiveCounter = function (value, min, max, symbols, fallback, suffix) {
 		if (value < min || value > max) {
 			return createCounterText(value, fallback, suffix.length > 0);
 		}
@@ -5898,12 +5332,7 @@
 			}, "") + suffix
 		);
 	};
-	var createCounterStyleWithSymbolResolver = function (
-		value,
-		codePointRangeLength,
-		isNumeric,
-		resolver
-	) {
+	var createCounterStyleWithSymbolResolver = function (value, codePointRangeLength, isNumeric, resolver) {
 		var string = "";
 		do {
 			if (!isNumeric) {
@@ -5914,26 +5343,13 @@
 		} while (value * codePointRangeLength >= codePointRangeLength);
 		return string;
 	};
-	var createCounterStyleFromRange = function (
-		value,
-		codePointRangeStart,
-		codePointRangeEnd,
-		isNumeric,
-		suffix
-	) {
+	var createCounterStyleFromRange = function (value, codePointRangeStart, codePointRangeEnd, isNumeric, suffix) {
 		var codePointRangeLength = codePointRangeEnd - codePointRangeStart + 1;
 		return (
 			(value < 0 ? "-" : "") +
-			(createCounterStyleWithSymbolResolver(
-				Math.abs(value),
-				codePointRangeLength,
-				isNumeric,
-				function (codePoint) {
-					return fromCodePoint$1(
-						Math.floor(codePoint % codePointRangeLength) + codePointRangeStart
-					);
-				}
-			) +
+			(createCounterStyleWithSymbolResolver(Math.abs(value), codePointRangeLength, isNumeric, function (codePoint) {
+				return fromCodePoint$1(Math.floor(codePoint % codePointRangeLength) + codePointRangeStart);
+			}) +
 				suffix)
 		);
 	};
@@ -5943,28 +5359,16 @@
 		}
 		var codePointRangeLength = symbols.length;
 		return (
-			createCounterStyleWithSymbolResolver(
-				Math.abs(value),
-				codePointRangeLength,
-				false,
-				function (codePoint) {
-					return symbols[Math.floor(codePoint % codePointRangeLength)];
-				}
-			) + suffix
+			createCounterStyleWithSymbolResolver(Math.abs(value), codePointRangeLength, false, function (codePoint) {
+				return symbols[Math.floor(codePoint % codePointRangeLength)];
+			}) + suffix
 		);
 	};
 	var CJK_ZEROS = 1 << 0;
 	var CJK_TEN_COEFFICIENTS = 1 << 1;
 	var CJK_TEN_HIGH_COEFFICIENTS = 1 << 2;
 	var CJK_HUNDRED_COEFFICIENTS = 1 << 3;
-	var createCJKCounter = function (
-		value,
-		numbers,
-		multipliers,
-		negativeSign,
-		suffix,
-		flags
-	) {
+	var createCJKCounter = function (value, numbers, multipliers, negativeSign, suffix, flags) {
 		if (value < -9999 || value > 9999) {
 			return createCounterText(value, 4 /* CJK_DECIMAL */, suffix.length > 0);
 		}
@@ -5980,21 +5384,11 @@
 			} else if (
 				coefficient > 1 ||
 				(coefficient === 1 && digit === 0) ||
-				(coefficient === 1 &&
-					digit === 1 &&
-					contains(flags, CJK_TEN_COEFFICIENTS)) ||
-				(coefficient === 1 &&
-					digit === 1 &&
-					contains(flags, CJK_TEN_HIGH_COEFFICIENTS) &&
-					value > 100) ||
-				(coefficient === 1 &&
-					digit > 1 &&
-					contains(flags, CJK_HUNDRED_COEFFICIENTS))
+				(coefficient === 1 && digit === 1 && contains(flags, CJK_TEN_COEFFICIENTS)) ||
+				(coefficient === 1 && digit === 1 && contains(flags, CJK_TEN_HIGH_COEFFICIENTS) && value > 100) ||
+				(coefficient === 1 && digit > 1 && contains(flags, CJK_HUNDRED_COEFFICIENTS))
 			) {
-				string =
-					numbers[coefficient] +
-					(digit > 0 ? multipliers[digit - 1] : "") +
-					string;
+				string = numbers[coefficient] + (digit > 0 ? multipliers[digit - 1] : "") + string;
 			} else if (coefficient === 1 && digit > 0) {
 				string = multipliers[digit - 1] + string;
 			}
@@ -6019,112 +5413,36 @@
 			case 2 /* SQUARE */:
 				return "◾" + spaceSuffix;
 			case 5 /* DECIMAL_LEADING_ZERO */:
-				var string = createCounterStyleFromRange(
-					value,
-					48,
-					57,
-					true,
-					defaultSuffix
-				);
+				var string = createCounterStyleFromRange(value, 48, 57, true, defaultSuffix);
 				return string.length < 4 ? "0" + string : string;
 			case 4 /* CJK_DECIMAL */:
-				return createCounterStyleFromSymbols(
-					value,
-					"〇一二三四五六七八九",
-					cjkSuffix
-				);
+				return createCounterStyleFromSymbols(value, "〇一二三四五六七八九", cjkSuffix);
 			case 6 /* LOWER_ROMAN */:
-				return createAdditiveCounter(
-					value,
-					1,
-					3999,
-					ROMAN_UPPER,
-					3 /* DECIMAL */,
-					defaultSuffix
-				).toLowerCase();
+				return createAdditiveCounter(value, 1, 3999, ROMAN_UPPER, 3 /* DECIMAL */, defaultSuffix).toLowerCase();
 			case 7 /* UPPER_ROMAN */:
-				return createAdditiveCounter(
-					value,
-					1,
-					3999,
-					ROMAN_UPPER,
-					3 /* DECIMAL */,
-					defaultSuffix
-				);
+				return createAdditiveCounter(value, 1, 3999, ROMAN_UPPER, 3 /* DECIMAL */, defaultSuffix);
 			case 8 /* LOWER_GREEK */:
-				return createCounterStyleFromRange(
-					value,
-					945,
-					969,
-					false,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 945, 969, false, defaultSuffix);
 			case 9 /* LOWER_ALPHA */:
-				return createCounterStyleFromRange(
-					value,
-					97,
-					122,
-					false,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 97, 122, false, defaultSuffix);
 			case 10 /* UPPER_ALPHA */:
 				return createCounterStyleFromRange(value, 65, 90, false, defaultSuffix);
 			case 11 /* ARABIC_INDIC */:
-				return createCounterStyleFromRange(
-					value,
-					1632,
-					1641,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 1632, 1641, true, defaultSuffix);
 			case 12 /* ARMENIAN */:
 			case 49 /* UPPER_ARMENIAN */:
-				return createAdditiveCounter(
-					value,
-					1,
-					9999,
-					ARMENIAN,
-					3 /* DECIMAL */,
-					defaultSuffix
-				);
+				return createAdditiveCounter(value, 1, 9999, ARMENIAN, 3 /* DECIMAL */, defaultSuffix);
 			case 35 /* LOWER_ARMENIAN */:
-				return createAdditiveCounter(
-					value,
-					1,
-					9999,
-					ARMENIAN,
-					3 /* DECIMAL */,
-					defaultSuffix
-				).toLowerCase();
+				return createAdditiveCounter(value, 1, 9999, ARMENIAN, 3 /* DECIMAL */, defaultSuffix).toLowerCase();
 			case 13 /* BENGALI */:
-				return createCounterStyleFromRange(
-					value,
-					2534,
-					2543,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 2534, 2543, true, defaultSuffix);
 			case 14 /* CAMBODIAN */:
 			case 30 /* KHMER */:
-				return createCounterStyleFromRange(
-					value,
-					6112,
-					6121,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 6112, 6121, true, defaultSuffix);
 			case 15 /* CJK_EARTHLY_BRANCH */:
-				return createCounterStyleFromSymbols(
-					value,
-					"子丑寅卯辰巳午未申酉戌亥",
-					cjkSuffix
-				);
+				return createCounterStyleFromSymbols(value, "子丑寅卯辰巳午未申酉戌亥", cjkSuffix);
 			case 16 /* CJK_HEAVENLY_STEM */:
-				return createCounterStyleFromSymbols(
-					value,
-					"甲乙丙丁戊己庚辛壬癸",
-					cjkSuffix
-				);
+				return createCounterStyleFromSymbols(value, "甲乙丙丁戊己庚辛壬癸", cjkSuffix);
 			case 17 /* CJK_IDEOGRAPHIC */:
 			case 48 /* TRAD_CHINESE_INFORMAL */:
 				return createCJKCounter(
@@ -6133,9 +5451,7 @@
 					CHINESE_INFORMAL_MULTIPLIERS,
 					"負",
 					cjkSuffix,
-					CJK_TEN_COEFFICIENTS |
-						CJK_TEN_HIGH_COEFFICIENTS |
-						CJK_HUNDRED_COEFFICIENTS
+					CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS | CJK_HUNDRED_COEFFICIENTS
 				);
 			case 47 /* TRAD_CHINESE_FORMAL */:
 				return createCJKCounter(
@@ -6144,10 +5460,7 @@
 					CHINESE_FORMAL_MULTIPLIERS,
 					"負",
 					cjkSuffix,
-					CJK_ZEROS |
-						CJK_TEN_COEFFICIENTS |
-						CJK_TEN_HIGH_COEFFICIENTS |
-						CJK_HUNDRED_COEFFICIENTS
+					CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS | CJK_HUNDRED_COEFFICIENTS
 				);
 			case 42 /* SIMP_CHINESE_INFORMAL */:
 				return createCJKCounter(
@@ -6156,9 +5469,7 @@
 					CHINESE_INFORMAL_MULTIPLIERS,
 					"负",
 					cjkSuffix,
-					CJK_TEN_COEFFICIENTS |
-						CJK_TEN_HIGH_COEFFICIENTS |
-						CJK_HUNDRED_COEFFICIENTS
+					CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS | CJK_HUNDRED_COEFFICIENTS
 				);
 			case 41 /* SIMP_CHINESE_FORMAL */:
 				return createCJKCounter(
@@ -6167,20 +5478,10 @@
 					CHINESE_FORMAL_MULTIPLIERS,
 					"负",
 					cjkSuffix,
-					CJK_ZEROS |
-						CJK_TEN_COEFFICIENTS |
-						CJK_TEN_HIGH_COEFFICIENTS |
-						CJK_HUNDRED_COEFFICIENTS
+					CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS | CJK_HUNDRED_COEFFICIENTS
 				);
 			case 26 /* JAPANESE_INFORMAL */:
-				return createCJKCounter(
-					value,
-					"〇一二三四五六七八九",
-					"十百千万",
-					JAPANESE_NEGATIVE,
-					cjkSuffix,
-					0
-				);
+				return createCJKCounter(value, "〇一二三四五六七八九", "十百千万", JAPANESE_NEGATIVE, cjkSuffix, 0);
 			case 25 /* JAPANESE_FORMAL */:
 				return createCJKCounter(
 					value,
@@ -6200,14 +5501,7 @@
 					CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS
 				);
 			case 33 /* KOREAN_HANJA_INFORMAL */:
-				return createCJKCounter(
-					value,
-					"零一二三四五六七八九",
-					"十百千萬",
-					KOREAN_NEGATIVE,
-					koreanSuffix,
-					0
-				);
+				return createCJKCounter(value, "零一二三四五六七八九", "十百千萬", KOREAN_NEGATIVE, koreanSuffix, 0);
 			case 32 /* KOREAN_HANJA_FORMAL */:
 				return createCJKCounter(
 					value,
@@ -6218,47 +5512,15 @@
 					CJK_ZEROS | CJK_TEN_COEFFICIENTS | CJK_TEN_HIGH_COEFFICIENTS
 				);
 			case 18 /* DEVANAGARI */:
-				return createCounterStyleFromRange(
-					value,
-					0x966,
-					0x96f,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0x966, 0x96f, true, defaultSuffix);
 			case 20 /* GEORGIAN */:
-				return createAdditiveCounter(
-					value,
-					1,
-					19999,
-					GEORGIAN,
-					3 /* DECIMAL */,
-					defaultSuffix
-				);
+				return createAdditiveCounter(value, 1, 19999, GEORGIAN, 3 /* DECIMAL */, defaultSuffix);
 			case 21 /* GUJARATI */:
-				return createCounterStyleFromRange(
-					value,
-					0xae6,
-					0xaef,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xae6, 0xaef, true, defaultSuffix);
 			case 22 /* GURMUKHI */:
-				return createCounterStyleFromRange(
-					value,
-					0xa66,
-					0xa6f,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xa66, 0xa6f, true, defaultSuffix);
 			case 22 /* HEBREW */:
-				return createAdditiveCounter(
-					value,
-					1,
-					10999,
-					HEBREW,
-					3 /* DECIMAL */,
-					defaultSuffix
-				);
+				return createAdditiveCounter(value, 1, 10999, HEBREW, 3 /* DECIMAL */, defaultSuffix);
 			case 23 /* HIRAGANA */:
 				return createCounterStyleFromSymbols(
 					value,
@@ -6270,13 +5532,7 @@
 					"いろはにほへとちりぬるをわかよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせす"
 				);
 			case 27 /* KANNADA */:
-				return createCounterStyleFromRange(
-					value,
-					0xce6,
-					0xcef,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xce6, 0xcef, true, defaultSuffix);
 			case 28 /* KATAKANA */:
 				return createCounterStyleFromSymbols(
 					value,
@@ -6290,77 +5546,23 @@
 					cjkSuffix
 				);
 			case 34 /* LAO */:
-				return createCounterStyleFromRange(
-					value,
-					0xed0,
-					0xed9,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xed0, 0xed9, true, defaultSuffix);
 			case 37 /* MONGOLIAN */:
-				return createCounterStyleFromRange(
-					value,
-					0x1810,
-					0x1819,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0x1810, 0x1819, true, defaultSuffix);
 			case 38 /* MYANMAR */:
-				return createCounterStyleFromRange(
-					value,
-					0x1040,
-					0x1049,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0x1040, 0x1049, true, defaultSuffix);
 			case 39 /* ORIYA */:
-				return createCounterStyleFromRange(
-					value,
-					0xb66,
-					0xb6f,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xb66, 0xb6f, true, defaultSuffix);
 			case 40 /* PERSIAN */:
-				return createCounterStyleFromRange(
-					value,
-					0x6f0,
-					0x6f9,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0x6f0, 0x6f9, true, defaultSuffix);
 			case 43 /* TAMIL */:
-				return createCounterStyleFromRange(
-					value,
-					0xbe6,
-					0xbef,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xbe6, 0xbef, true, defaultSuffix);
 			case 44 /* TELUGU */:
-				return createCounterStyleFromRange(
-					value,
-					0xc66,
-					0xc6f,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xc66, 0xc6f, true, defaultSuffix);
 			case 45 /* THAI */:
-				return createCounterStyleFromRange(
-					value,
-					0xe50,
-					0xe59,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xe50, 0xe59, true, defaultSuffix);
 			case 46 /* TIBETAN */:
-				return createCounterStyleFromRange(
-					value,
-					0xf20,
-					0xf29,
-					true,
-					defaultSuffix
-				);
+				return createCounterStyleFromRange(value, 0xf20, 0xf29, true, defaultSuffix);
 			case 3 /* DECIMAL */:
 			default:
 				return createCounterStyleFromRange(value, 48, 57, true, defaultSuffix);
@@ -6379,9 +5581,7 @@
 			if (!element.ownerDocument) {
 				throw new Error("Cloned element does not have an owner document");
 			}
-			this.documentElement = this.cloneNode(
-				element.ownerDocument.documentElement
-			);
+			this.documentElement = this.cloneNode(element.ownerDocument.documentElement);
 		}
 		DocumentCloner.prototype.toIFrame = function (ownerDocument, windowSize) {
 			var _this = this;
@@ -6407,12 +5607,9 @@
 									cloneWindow.scrollTo(windowSize.left, windowSize.top);
 									if (
 										/(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
-										(cloneWindow.scrollY !== windowSize.top ||
-											cloneWindow.scrollX !== windowSize.left)
+										(cloneWindow.scrollY !== windowSize.top || cloneWindow.scrollX !== windowSize.left)
 									) {
-										this.context.logger.warn(
-											"Unable to restore scroll position for cloned document"
-										);
+										this.context.logger.warn("Unable to restore scroll position for cloned document");
 										this.context.windowBounds = this.context.windowBounds.add(
 											cloneWindow.scrollX - windowSize.left,
 											cloneWindow.scrollY - windowSize.top,
@@ -6426,22 +5623,16 @@
 								if (typeof referenceElement === "undefined") {
 									return [
 										2 /*return*/,
-										Promise.reject(
-											"Error finding the " +
-												this.referenceElement.nodeName +
-												" in the cloned document"
-										),
+										Promise.reject("Error finding the " + this.referenceElement.nodeName + " in the cloned document"),
 									];
 								}
-								if (!(documentClone.fonts && documentClone.fonts.ready))
-									return [3 /*break*/, 2];
+								if (!(documentClone.fonts && documentClone.fonts.ready)) return [3 /*break*/, 2];
 								return [4 /*yield*/, documentClone.fonts.ready];
 							case 1:
 								_a.sent();
 								_a.label = 2;
 							case 2:
-								if (!/(AppleWebKit)/g.test(navigator.userAgent))
-									return [3 /*break*/, 4];
+								if (!/(AppleWebKit)/g.test(navigator.userAgent)) return [3 /*break*/, 4];
 								return [4 /*yield*/, imagesReady(documentClone)];
 							case 3:
 								_a.sent();
@@ -6468,10 +5659,7 @@
 			documentClone.write(serializeDoctype(document.doctype) + "<html></html>");
 			// Chrome scrolls the parent document for some reason after the write to the cloned window???
 			restoreOwnerScroll(this.referenceElement.ownerDocument, scrollX, scrollY);
-			documentClone.replaceChild(
-				documentClone.adoptNode(this.documentElement),
-				documentClone.documentElement
-			);
+			documentClone.replaceChild(documentClone.adoptNode(this.documentElement), documentClone.documentElement);
 			documentClone.close();
 			return iframeLoad;
 		};
@@ -6487,11 +5675,7 @@
 			}
 			var clone = node.cloneNode(false);
 			if (isImageElement(clone)) {
-				if (
-					isImageElement(node) &&
-					node.currentSrc &&
-					node.currentSrc !== node.src
-				) {
+				if (isImageElement(node) && node.currentSrc && node.currentSrc !== node.src) {
 					clone.src = node.currentSrc;
 					clone.srcset = "";
 				}
@@ -6505,14 +5689,12 @@
 			try {
 				var sheet = node.sheet;
 				if (sheet && sheet.cssRules) {
-					var css = [].slice
-						.call(sheet.cssRules, 0)
-						.reduce(function (css, rule) {
-							if (rule && typeof rule.cssText === "string") {
-								return css + rule.cssText;
-							}
-							return css;
-						}, "");
+					var css = [].slice.call(sheet.cssRules, 0).reduce(function (css, rule) {
+						if (rule && typeof rule.cssText === "string") {
+							return css + rule.cssText;
+						}
+						return css;
+					}, "");
 					var style = node.cloneNode(false);
 					style.textContent = css;
 					return style;
@@ -6534,10 +5716,7 @@
 					img.src = canvas.toDataURL();
 					return img;
 				} catch (e) {
-					this.context.logger.info(
-						"Unable to inline canvas contents, canvas is tainted",
-						canvas
-					);
+					this.context.logger.info("Unable to inline canvas contents, canvas is tainted", canvas);
 				}
 			}
 			var clonedCanvas = canvas.cloneNode(false);
@@ -6548,27 +5727,13 @@
 				var clonedCtx = clonedCanvas.getContext("2d");
 				if (clonedCtx) {
 					if (!this.options.allowTaint && ctx) {
-						clonedCtx.putImageData(
-							ctx.getImageData(0, 0, canvas.width, canvas.height),
-							0,
-							0
-						);
+						clonedCtx.putImageData(ctx.getImageData(0, 0, canvas.width, canvas.height), 0, 0);
 					} else {
-						var gl =
-							(_a = canvas.getContext("webgl2")) !== null && _a !== void 0
-								? _a
-								: canvas.getContext("webgl");
+						var gl = (_a = canvas.getContext("webgl2")) !== null && _a !== void 0 ? _a : canvas.getContext("webgl");
 						if (gl) {
 							var attribs = gl.getContextAttributes();
-							if (
-								(attribs === null || attribs === void 0
-									? void 0
-									: attribs.preserveDrawingBuffer) === false
-							) {
-								this.context.logger.warn(
-									"Unable to clone WebGL context as it has preserveDrawingBuffer=false",
-									canvas
-								);
+							if ((attribs === null || attribs === void 0 ? void 0 : attribs.preserveDrawingBuffer) === false) {
+								this.context.logger.warn("Unable to clone WebGL context as it has preserveDrawingBuffer=false", canvas);
 							}
 						}
 						clonedCtx.drawImage(canvas, 0, 0);
@@ -6576,10 +5741,7 @@
 				}
 				return clonedCanvas;
 			} catch (e) {
-				this.context.logger.info(
-					"Unable to clone canvas as it is tainted",
-					canvas
-				);
+				this.context.logger.info("Unable to clone canvas as it is tainted", canvas);
 			}
 			return clonedCanvas;
 		};
@@ -6591,11 +5753,7 @@
 				return node.cloneNode(false);
 			}
 			var window = node.ownerDocument.defaultView;
-			if (
-				window &&
-				isElementNode(node) &&
-				(isHTMLElementNode(node) || isSVGElementNode(node))
-			) {
+			if (window && isElementNode(node) && (isHTMLElementNode(node) || isSVGElementNode(node))) {
 				var clone = this.createElementClone(node);
 				clone.style.transitionProperty = "none";
 				var style = window.getComputedStyle(node);
@@ -6607,28 +5765,16 @@
 				if (isBodyElement(clone)) {
 					createPseudoHideStyles(clone);
 				}
-				var counters = this.counters.parse(
-					new CSSParsedCounterDeclaration(this.context, style)
-				);
-				var before = this.resolvePseudoContent(
-					node,
-					clone,
-					styleBefore,
-					PseudoElementType.BEFORE
-				);
+				var counters = this.counters.parse(new CSSParsedCounterDeclaration(this.context, style));
+				var before = this.resolvePseudoContent(node, clone, styleBefore, PseudoElementType.BEFORE);
 				for (var child = node.firstChild; child; child = child.nextSibling) {
 					if (
 						!isElementNode(child) ||
 						(!isScriptElement(child) &&
 							!child.hasAttribute(IGNORE_ATTRIBUTE) &&
-							(typeof this.options.ignoreElements !== "function" ||
-								!this.options.ignoreElements(child)))
+							(typeof this.options.ignoreElements !== "function" || !this.options.ignoreElements(child)))
 					) {
-						if (
-							!this.options.copyStyles ||
-							!isElementNode(child) ||
-							!isStyleElement(child)
-						) {
+						if (!this.options.copyStyles || !isElementNode(child) || !isStyleElement(child)) {
 							clone.appendChild(this.cloneNode(child));
 						}
 					}
@@ -6636,21 +5782,12 @@
 				if (before) {
 					clone.insertBefore(before, clone.firstChild);
 				}
-				var after = this.resolvePseudoContent(
-					node,
-					clone,
-					styleAfter,
-					PseudoElementType.AFTER
-				);
+				var after = this.resolvePseudoContent(node, clone, styleAfter, PseudoElementType.AFTER);
 				if (after) {
 					clone.appendChild(after);
 				}
 				this.counters.pop(counters);
-				if (
-					style &&
-					(this.options.copyStyles || isSVGElementNode(node)) &&
-					!isIFrameElement(node)
-				) {
+				if (style && (this.options.copyStyles || isSVGElementNode(node)) && !isIFrameElement(node)) {
 					copyCSSStyles(style, clone);
 				}
 				if (node.scrollTop !== 0 || node.scrollLeft !== 0) {
@@ -6666,38 +5803,23 @@
 			}
 			return node.cloneNode(false);
 		};
-		DocumentCloner.prototype.resolvePseudoContent = function (
-			node,
-			clone,
-			style,
-			pseudoElt
-		) {
+		DocumentCloner.prototype.resolvePseudoContent = function (node, clone, style, pseudoElt) {
 			var _this = this;
 			if (!style) {
 				return;
 			}
 			var value = style.content;
 			var document = clone.ownerDocument;
-			if (
-				!document ||
-				!value ||
-				value === "none" ||
-				value === "-moz-alt-content" ||
-				style.display === "none"
-			) {
+			if (!document || !value || value === "none" || value === "-moz-alt-content" || style.display === "none") {
 				return;
 			}
 			this.counters.parse(new CSSParsedCounterDeclaration(this.context, style));
 			var declaration = new CSSParsedPseudoDeclaration(this.context, style);
-			var anonymousReplacedElement = document.createElement(
-				"html2canvaspseudoelement"
-			);
+			var anonymousReplacedElement = document.createElement("html2canvaspseudoelement");
 			copyCSSStyles(style, anonymousReplacedElement);
 			declaration.content.forEach(function (token) {
 				if (token.type === 0 /* STRING_TOKEN */) {
-					anonymousReplacedElement.appendChild(
-						document.createTextNode(token.value)
-					);
+					anonymousReplacedElement.appendChild(document.createTextNode(token.value));
 				} else if (token.type === 22 /* URL_TOKEN */) {
 					var img = document.createElement("img");
 					img.src = token.value;
@@ -6707,9 +5829,7 @@
 					if (token.name === "attr") {
 						var attr = token.values.filter(isIdentToken);
 						if (attr.length) {
-							anonymousReplacedElement.appendChild(
-								document.createTextNode(node.getAttribute(attr[0].value) || "")
-							);
+							anonymousReplacedElement.appendChild(document.createTextNode(node.getAttribute(attr[0].value) || ""));
 						}
 					} else if (token.name === "counter") {
 						var _a = token.values.filter(nonFunctionArgSeparator),
@@ -6722,9 +5842,7 @@
 									? listStyleType.parse(_this.context, counterStyle.value)
 									: 3; /* DECIMAL */
 							anonymousReplacedElement.appendChild(
-								document.createTextNode(
-									createCounterText(counterState, counterType, false)
-								)
+								document.createTextNode(createCounterText(counterState, counterType, false))
 							);
 						}
 					} else if (token.name === "counters") {
@@ -6733,53 +5851,39 @@
 							delim = _b[1],
 							counterStyle = _b[2];
 						if (counter && isIdentToken(counter)) {
-							var counterStates = _this.counters.getCounterValues(
-								counter.value
-							);
+							var counterStates = _this.counters.getCounterValues(counter.value);
 							var counterType_1 =
 								counterStyle && isIdentToken(counterStyle)
 									? listStyleType.parse(_this.context, counterStyle.value)
 									: 3; /* DECIMAL */
-							var separator =
-								delim && delim.type === 0 /* STRING_TOKEN */ ? delim.value : "";
+							var separator = delim && delim.type === 0 /* STRING_TOKEN */ ? delim.value : "";
 							var text = counterStates
 								.map(function (value) {
 									return createCounterText(value, counterType_1, false);
 								})
 								.join(separator);
-							anonymousReplacedElement.appendChild(
-								document.createTextNode(text)
-							);
+							anonymousReplacedElement.appendChild(document.createTextNode(text));
 						}
 					} else;
 				} else if (token.type === 20 /* IDENT_TOKEN */) {
 					switch (token.value) {
 						case "open-quote":
 							anonymousReplacedElement.appendChild(
-								document.createTextNode(
-									getQuote(declaration.quotes, _this.quoteDepth++, true)
-								)
+								document.createTextNode(getQuote(declaration.quotes, _this.quoteDepth++, true))
 							);
 							break;
 						case "close-quote":
 							anonymousReplacedElement.appendChild(
-								document.createTextNode(
-									getQuote(declaration.quotes, --_this.quoteDepth, false)
-								)
+								document.createTextNode(getQuote(declaration.quotes, --_this.quoteDepth, false))
 							);
 							break;
 						default:
 							// safari doesn't parse string tokens correctly because of lack of quotes
-							anonymousReplacedElement.appendChild(
-								document.createTextNode(token.value)
-							);
+							anonymousReplacedElement.appendChild(document.createTextNode(token.value));
 					}
 				}
 			});
-			anonymousReplacedElement.className =
-				PSEUDO_HIDE_ELEMENT_CLASS_BEFORE +
-				" " +
-				PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
+			anonymousReplacedElement.className = PSEUDO_HIDE_ELEMENT_CLASS_BEFORE + " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
 			var newClassName =
 				pseudoElt === PseudoElementType.BEFORE
 					? " " + PSEUDO_HIDE_ELEMENT_CLASS_BEFORE
@@ -6847,10 +5951,7 @@
 			cloneWindow.onload = iframe.onload = function () {
 				cloneWindow.onload = iframe.onload = null;
 				var interval = setInterval(function () {
-					if (
-						documentClone.body.childNodes.length > 0 &&
-						documentClone.readyState === "complete"
-					) {
+					if (documentClone.body.childNodes.length > 0 && documentClone.readyState === "complete") {
 						clearInterval(interval);
 						resolve(iframe);
 					}
@@ -6897,8 +5998,7 @@
 		if (
 			ownerDocument &&
 			ownerDocument.defaultView &&
-			(x !== ownerDocument.defaultView.pageXOffset ||
-				y !== ownerDocument.defaultView.pageYOffset)
+			(x !== ownerDocument.defaultView.pageXOffset || y !== ownerDocument.defaultView.pageYOffset)
 		) {
 			ownerDocument.defaultView.scrollTo(x, y);
 		}
@@ -6912,11 +6012,9 @@
 	};
 	var PSEUDO_BEFORE = ":before";
 	var PSEUDO_AFTER = ":after";
-	var PSEUDO_HIDE_ELEMENT_CLASS_BEFORE =
-		"___html2canvas___pseudoelement_before";
+	var PSEUDO_HIDE_ELEMENT_CLASS_BEFORE = "___html2canvas___pseudoelement_before";
 	var PSEUDO_HIDE_ELEMENT_CLASS_AFTER = "___html2canvas___pseudoelement_after";
-	var PSEUDO_HIDE_ELEMENT_STYLE =
-		'{\n    content: "" !important;\n    display: none !important;\n}';
+	var PSEUDO_HIDE_ELEMENT_STYLE = '{\n    content: "" !important;\n    display: none !important;\n}';
 	var createPseudoHideStyles = function (body) {
 		createStyles(
 			body,
@@ -6993,10 +6091,7 @@
 						case 0:
 							isSameOrigin = CacheStorage.isSameOrigin(key);
 							useCORS =
-								!isInlineImage(key) &&
-								this._options.useCORS === true &&
-								FEATURES.SUPPORT_CORS_IMAGES &&
-								!isSameOrigin;
+								!isInlineImage(key) && this._options.useCORS === true && FEATURES.SUPPORT_CORS_IMAGES && !isSameOrigin;
 							useProxy =
 								!isInlineImage(key) &&
 								!isSameOrigin &&
@@ -7043,11 +6138,7 @@
 									}
 									if (_this._options.imageTimeout > 0) {
 										setTimeout(function () {
-											return reject(
-												"Timed out (" +
-													_this._options.imageTimeout +
-													"ms) loading image"
-											);
+											return reject("Timed out (" + _this._options.imageTimeout + "ms) loading image");
 										}, _this._options.imageTimeout);
 									}
 								}),
@@ -7097,26 +6188,12 @@
 							reader_1.readAsDataURL(xhr.response);
 						}
 					} else {
-						reject(
-							"Failed to proxy resource " +
-								key +
-								" with status code " +
-								xhr.status
-						);
+						reject("Failed to proxy resource " + key + " with status code " + xhr.status);
 					}
 				};
 				xhr.onerror = reject;
 				var queryString = proxy.indexOf("?") > -1 ? "&" : "?";
-				xhr.open(
-					"GET",
-					"" +
-						proxy +
-						queryString +
-						"url=" +
-						encodeURIComponent(src) +
-						"&responseType=" +
-						responseType
-				);
+				xhr.open("GET", "" + proxy + queryString + "url=" + encodeURIComponent(src) + "&responseType=" + responseType);
 				if (responseType !== "text" && xhr instanceof XMLHttpRequest) {
 					xhr.responseType = responseType;
 				}
@@ -7181,9 +6258,7 @@
 			var abbc = lerp(ab, bc, t);
 			var bccd = lerp(bc, cd, t);
 			var dest = lerp(abbc, bccd, t);
-			return firstHalf
-				? new BezierCurve(this.start, ab, abbc, dest)
-				: new BezierCurve(dest, bccd, cd, this.end);
+			return firstHalf ? new BezierCurve(this.start, ab, abbc, dest) : new BezierCurve(dest, bccd, cd, this.end);
 		};
 		BezierCurve.prototype.add = function (deltaX, deltaY) {
 			return new BezierCurve(
@@ -7194,12 +6269,7 @@
 			);
 		};
 		BezierCurve.prototype.reverse = function () {
-			return new BezierCurve(
-				this.end,
-				this.endControl,
-				this.startControl,
-				this.start
-			);
+			return new BezierCurve(this.end, this.endControl, this.startControl, this.start);
 		};
 		return BezierCurve;
 	})();
@@ -7211,32 +6281,16 @@
 		function BoundCurves(element) {
 			var styles = element.styles;
 			var bounds = element.bounds;
-			var _a = getAbsoluteValueForTuple(
-					styles.borderTopLeftRadius,
-					bounds.width,
-					bounds.height
-				),
+			var _a = getAbsoluteValueForTuple(styles.borderTopLeftRadius, bounds.width, bounds.height),
 				tlh = _a[0],
 				tlv = _a[1];
-			var _b = getAbsoluteValueForTuple(
-					styles.borderTopRightRadius,
-					bounds.width,
-					bounds.height
-				),
+			var _b = getAbsoluteValueForTuple(styles.borderTopRightRadius, bounds.width, bounds.height),
 				trh = _b[0],
 				trv = _b[1];
-			var _c = getAbsoluteValueForTuple(
-					styles.borderBottomRightRadius,
-					bounds.width,
-					bounds.height
-				),
+			var _c = getAbsoluteValueForTuple(styles.borderBottomRightRadius, bounds.width, bounds.height),
 				brh = _c[0],
 				brv = _c[1];
-			var _d = getAbsoluteValueForTuple(
-					styles.borderBottomLeftRadius,
-					bounds.width,
-					bounds.height
-				),
+			var _d = getAbsoluteValueForTuple(styles.borderBottomLeftRadius, bounds.width, bounds.height),
 				blh = _d[0],
 				blv = _d[1];
 			var factors = [];
@@ -7263,22 +6317,10 @@
 			var borderRightWidth = styles.borderRightWidth;
 			var borderBottomWidth = styles.borderBottomWidth;
 			var borderLeftWidth = styles.borderLeftWidth;
-			var paddingTop = getAbsoluteValue(
-				styles.paddingTop,
-				element.bounds.width
-			);
-			var paddingRight = getAbsoluteValue(
-				styles.paddingRight,
-				element.bounds.width
-			);
-			var paddingBottom = getAbsoluteValue(
-				styles.paddingBottom,
-				element.bounds.width
-			);
-			var paddingLeft = getAbsoluteValue(
-				styles.paddingLeft,
-				element.bounds.width
-			);
+			var paddingTop = getAbsoluteValue(styles.paddingTop, element.bounds.width);
+			var paddingRight = getAbsoluteValue(styles.paddingRight, element.bounds.width);
+			var paddingBottom = getAbsoluteValue(styles.paddingBottom, element.bounds.width);
+			var paddingLeft = getAbsoluteValue(styles.paddingLeft, element.bounds.width);
 			this.topLeftBorderDoubleOuterBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7288,10 +6330,7 @@
 							tlv - borderTopWidth / 3,
 							CORNER.TOP_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth / 3,
-							bounds.top + borderTopWidth / 3
-					  );
+					: new Vector(bounds.left + borderLeftWidth / 3, bounds.top + borderTopWidth / 3);
 			this.topRightBorderDoubleOuterBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7301,10 +6340,7 @@
 							trv - borderTopWidth / 3,
 							CORNER.TOP_RIGHT
 					  )
-					: new Vector(
-							bounds.left + bounds.width - borderRightWidth / 3,
-							bounds.top + borderTopWidth / 3
-					  );
+					: new Vector(bounds.left + bounds.width - borderRightWidth / 3, bounds.top + borderTopWidth / 3);
 			this.bottomRightBorderDoubleOuterBox =
 				brh > 0 || brv > 0
 					? getCurvePoints(
@@ -7327,10 +6363,7 @@
 							blv - borderBottomWidth / 3,
 							CORNER.BOTTOM_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth / 3,
-							bounds.top + bounds.height - borderBottomWidth / 3
-					  );
+					: new Vector(bounds.left + borderLeftWidth / 3, bounds.top + bounds.height - borderBottomWidth / 3);
 			this.topLeftBorderDoubleInnerBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7340,10 +6373,7 @@
 							tlv - (borderTopWidth * 2) / 3,
 							CORNER.TOP_LEFT
 					  )
-					: new Vector(
-							bounds.left + (borderLeftWidth * 2) / 3,
-							bounds.top + (borderTopWidth * 2) / 3
-					  );
+					: new Vector(bounds.left + (borderLeftWidth * 2) / 3, bounds.top + (borderTopWidth * 2) / 3);
 			this.topRightBorderDoubleInnerBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7353,10 +6383,7 @@
 							trv - (borderTopWidth * 2) / 3,
 							CORNER.TOP_RIGHT
 					  )
-					: new Vector(
-							bounds.left + bounds.width - (borderRightWidth * 2) / 3,
-							bounds.top + (borderTopWidth * 2) / 3
-					  );
+					: new Vector(bounds.left + bounds.width - (borderRightWidth * 2) / 3, bounds.top + (borderTopWidth * 2) / 3);
 			this.bottomRightBorderDoubleInnerBox =
 				brh > 0 || brv > 0
 					? getCurvePoints(
@@ -7392,10 +6419,7 @@
 							tlv - borderTopWidth / 2,
 							CORNER.TOP_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth / 2,
-							bounds.top + borderTopWidth / 2
-					  );
+					: new Vector(bounds.left + borderLeftWidth / 2, bounds.top + borderTopWidth / 2);
 			this.topRightBorderStroke =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7405,10 +6429,7 @@
 							trv - borderTopWidth / 2,
 							CORNER.TOP_RIGHT
 					  )
-					: new Vector(
-							bounds.left + bounds.width - borderRightWidth / 2,
-							bounds.top + borderTopWidth / 2
-					  );
+					: new Vector(bounds.left + bounds.width - borderRightWidth / 2, bounds.top + borderTopWidth / 2);
 			this.bottomRightBorderStroke =
 				brh > 0 || brv > 0
 					? getCurvePoints(
@@ -7431,43 +6452,22 @@
 							blv - borderBottomWidth / 2,
 							CORNER.BOTTOM_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth / 2,
-							bounds.top + bounds.height - borderBottomWidth / 2
-					  );
+					: new Vector(bounds.left + borderLeftWidth / 2, bounds.top + bounds.height - borderBottomWidth / 2);
 			this.topLeftBorderBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(bounds.left, bounds.top, tlh, tlv, CORNER.TOP_LEFT)
 					: new Vector(bounds.left, bounds.top);
 			this.topRightBorderBox =
 				trh > 0 || trv > 0
-					? getCurvePoints(
-							bounds.left + topWidth,
-							bounds.top,
-							trh,
-							trv,
-							CORNER.TOP_RIGHT
-					  )
+					? getCurvePoints(bounds.left + topWidth, bounds.top, trh, trv, CORNER.TOP_RIGHT)
 					: new Vector(bounds.left + bounds.width, bounds.top);
 			this.bottomRightBorderBox =
 				brh > 0 || brv > 0
-					? getCurvePoints(
-							bounds.left + bottomWidth,
-							bounds.top + rightHeight,
-							brh,
-							brv,
-							CORNER.BOTTOM_RIGHT
-					  )
+					? getCurvePoints(bounds.left + bottomWidth, bounds.top + rightHeight, brh, brv, CORNER.BOTTOM_RIGHT)
 					: new Vector(bounds.left + bounds.width, bounds.top + bounds.height);
 			this.bottomLeftBorderBox =
 				blh > 0 || blv > 0
-					? getCurvePoints(
-							bounds.left,
-							bounds.top + leftHeight,
-							blh,
-							blv,
-							CORNER.BOTTOM_LEFT
-					  )
+					? getCurvePoints(bounds.left, bounds.top + leftHeight, blh, blv, CORNER.BOTTOM_LEFT)
 					: new Vector(bounds.left, bounds.top + bounds.height);
 			this.topLeftPaddingBox =
 				tlh > 0 || tlv > 0
@@ -7478,54 +6478,37 @@
 							Math.max(0, tlv - borderTopWidth),
 							CORNER.TOP_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth,
-							bounds.top + borderTopWidth
-					  );
+					: new Vector(bounds.left + borderLeftWidth, bounds.top + borderTopWidth);
 			this.topRightPaddingBox =
 				trh > 0 || trv > 0
 					? getCurvePoints(
 							bounds.left + Math.min(topWidth, bounds.width - borderRightWidth),
 							bounds.top + borderTopWidth,
-							topWidth > bounds.width + borderRightWidth
-								? 0
-								: Math.max(0, trh - borderRightWidth),
+							topWidth > bounds.width + borderRightWidth ? 0 : Math.max(0, trh - borderRightWidth),
 							Math.max(0, trv - borderTopWidth),
 							CORNER.TOP_RIGHT
 					  )
-					: new Vector(
-							bounds.left + bounds.width - borderRightWidth,
-							bounds.top + borderTopWidth
-					  );
+					: new Vector(bounds.left + bounds.width - borderRightWidth, bounds.top + borderTopWidth);
 			this.bottomRightPaddingBox =
 				brh > 0 || brv > 0
 					? getCurvePoints(
-							bounds.left +
-								Math.min(bottomWidth, bounds.width - borderLeftWidth),
-							bounds.top +
-								Math.min(rightHeight, bounds.height - borderBottomWidth),
+							bounds.left + Math.min(bottomWidth, bounds.width - borderLeftWidth),
+							bounds.top + Math.min(rightHeight, bounds.height - borderBottomWidth),
 							Math.max(0, brh - borderRightWidth),
 							Math.max(0, brv - borderBottomWidth),
 							CORNER.BOTTOM_RIGHT
 					  )
-					: new Vector(
-							bounds.left + bounds.width - borderRightWidth,
-							bounds.top + bounds.height - borderBottomWidth
-					  );
+					: new Vector(bounds.left + bounds.width - borderRightWidth, bounds.top + bounds.height - borderBottomWidth);
 			this.bottomLeftPaddingBox =
 				blh > 0 || blv > 0
 					? getCurvePoints(
 							bounds.left + borderLeftWidth,
-							bounds.top +
-								Math.min(leftHeight, bounds.height - borderBottomWidth),
+							bounds.top + Math.min(leftHeight, bounds.height - borderBottomWidth),
 							Math.max(0, blh - borderLeftWidth),
 							Math.max(0, blv - borderBottomWidth),
 							CORNER.BOTTOM_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth,
-							bounds.top + bounds.height - borderBottomWidth
-					  );
+					: new Vector(bounds.left + borderLeftWidth, bounds.top + bounds.height - borderBottomWidth);
 			this.topLeftContentBox =
 				tlh > 0 || tlv > 0
 					? getCurvePoints(
@@ -7535,22 +6518,13 @@
 							Math.max(0, tlv - (borderTopWidth + paddingTop)),
 							CORNER.TOP_LEFT
 					  )
-					: new Vector(
-							bounds.left + borderLeftWidth + paddingLeft,
-							bounds.top + borderTopWidth + paddingTop
-					  );
+					: new Vector(bounds.left + borderLeftWidth + paddingLeft, bounds.top + borderTopWidth + paddingTop);
 			this.topRightContentBox =
 				trh > 0 || trv > 0
 					? getCurvePoints(
-							bounds.left +
-								Math.min(
-									topWidth,
-									bounds.width + borderLeftWidth + paddingLeft
-								),
+							bounds.left + Math.min(topWidth, bounds.width + borderLeftWidth + paddingLeft),
 							bounds.top + borderTopWidth + paddingTop,
-							topWidth > bounds.width + borderLeftWidth + paddingLeft
-								? 0
-								: trh - borderLeftWidth + paddingLeft,
+							topWidth > bounds.width + borderLeftWidth + paddingLeft ? 0 : trh - borderLeftWidth + paddingLeft,
 							trv - (borderTopWidth + paddingTop),
 							CORNER.TOP_RIGHT
 					  )
@@ -7561,16 +6535,8 @@
 			this.bottomRightContentBox =
 				brh > 0 || brv > 0
 					? getCurvePoints(
-							bounds.left +
-								Math.min(
-									bottomWidth,
-									bounds.width - (borderLeftWidth + paddingLeft)
-								),
-							bounds.top +
-								Math.min(
-									rightHeight,
-									bounds.height + borderTopWidth + paddingTop
-								),
+							bounds.left + Math.min(bottomWidth, bounds.width - (borderLeftWidth + paddingLeft)),
+							bounds.top + Math.min(rightHeight, bounds.height + borderTopWidth + paddingTop),
 							Math.max(0, brh - (borderRightWidth + paddingRight)),
 							brv - (borderBottomWidth + paddingBottom),
 							CORNER.BOTTOM_RIGHT
@@ -7610,43 +6576,18 @@
 		var ym = y + r2; // y-middle
 		switch (position) {
 			case CORNER.TOP_LEFT:
-				return new BezierCurve(
-					new Vector(x, ym),
-					new Vector(x, ym - oy),
-					new Vector(xm - ox, y),
-					new Vector(xm, y)
-				);
+				return new BezierCurve(new Vector(x, ym), new Vector(x, ym - oy), new Vector(xm - ox, y), new Vector(xm, y));
 			case CORNER.TOP_RIGHT:
-				return new BezierCurve(
-					new Vector(x, y),
-					new Vector(x + ox, y),
-					new Vector(xm, ym - oy),
-					new Vector(xm, ym)
-				);
+				return new BezierCurve(new Vector(x, y), new Vector(x + ox, y), new Vector(xm, ym - oy), new Vector(xm, ym));
 			case CORNER.BOTTOM_RIGHT:
-				return new BezierCurve(
-					new Vector(xm, y),
-					new Vector(xm, y + oy),
-					new Vector(x + ox, ym),
-					new Vector(x, ym)
-				);
+				return new BezierCurve(new Vector(xm, y), new Vector(xm, y + oy), new Vector(x + ox, ym), new Vector(x, ym));
 			case CORNER.BOTTOM_LEFT:
 			default:
-				return new BezierCurve(
-					new Vector(xm, ym),
-					new Vector(xm - ox, ym),
-					new Vector(x, y + oy),
-					new Vector(x, y)
-				);
+				return new BezierCurve(new Vector(xm, ym), new Vector(xm - ox, ym), new Vector(x, y + oy), new Vector(x, y));
 		}
 	};
 	var calculateBorderBoxPath = function (curves) {
-		return [
-			curves.topLeftBorderBox,
-			curves.topRightBorderBox,
-			curves.bottomRightBorderBox,
-			curves.bottomLeftBorderBox,
-		];
+		return [curves.topLeftBorderBox, curves.topRightBorderBox, curves.bottomRightBorderBox, curves.bottomLeftBorderBox];
 	};
 	var calculateContentBoxPath = function (curves) {
 		return [
@@ -7748,12 +6689,8 @@
 				this.effects.push(new OpacityEffect(this.container.styles.opacity));
 			}
 			if (this.container.styles.transform !== null) {
-				var offsetX =
-					this.container.bounds.left +
-					this.container.styles.transformOrigin[0].number;
-				var offsetY =
-					this.container.bounds.top +
-					this.container.styles.transformOrigin[1].number;
+				var offsetX = this.container.bounds.left + this.container.styles.transformOrigin[0].number;
+				var offsetY = this.container.bounds.top + this.container.styles.transformOrigin[1].number;
 				var matrix = this.container.styles.transform;
 				this.effects.push(new TransformEffect(offsetX, offsetY, matrix));
 			}
@@ -7761,51 +6698,29 @@
 				var borderBox = calculateBorderBoxPath(this.curves);
 				var paddingBox = calculatePaddingBoxPath(this.curves);
 				if (equalPath(borderBox, paddingBox)) {
-					this.effects.push(
-						new ClipEffect(
-							borderBox,
-							2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */
-						)
-					);
+					this.effects.push(new ClipEffect(borderBox, 2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */));
 				} else {
-					this.effects.push(
-						new ClipEffect(borderBox, 2 /* BACKGROUND_BORDERS */)
-					);
+					this.effects.push(new ClipEffect(borderBox, 2 /* BACKGROUND_BORDERS */));
 					this.effects.push(new ClipEffect(paddingBox, 4 /* CONTENT */));
 				}
 			}
 		}
 		ElementPaint.prototype.getEffects = function (target) {
-			var inFlow =
-				[2 /* ABSOLUTE */, 3 /* FIXED */].indexOf(
-					this.container.styles.position
-				) === -1;
+			var inFlow = [2 /* ABSOLUTE */, 3 /* FIXED */].indexOf(this.container.styles.position) === -1;
 			var parent = this.parent;
 			var effects = this.effects.slice(0);
 			while (parent) {
 				var croplessEffects = parent.effects.filter(function (effect) {
 					return !isClipEffect(effect);
 				});
-				if (
-					inFlow ||
-					parent.container.styles.position !== 0 /* STATIC */ ||
-					!parent.parent
-				) {
+				if (inFlow || parent.container.styles.position !== 0 /* STATIC */ || !parent.parent) {
 					effects.unshift.apply(effects, croplessEffects);
-					inFlow =
-						[2 /* ABSOLUTE */, 3 /* FIXED */].indexOf(
-							parent.container.styles.position
-						) === -1;
+					inFlow = [2 /* ABSOLUTE */, 3 /* FIXED */].indexOf(parent.container.styles.position) === -1;
 					if (parent.container.styles.overflowX !== 0 /* VISIBLE */) {
 						var borderBox = calculateBorderBoxPath(parent.curves);
 						var paddingBox = calculatePaddingBoxPath(parent.curves);
 						if (!equalPath(borderBox, paddingBox)) {
-							effects.unshift(
-								new ClipEffect(
-									paddingBox,
-									2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */
-								)
-							);
+							effects.unshift(new ClipEffect(paddingBox, 2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */));
 						}
 					}
 				} else {
@@ -7819,39 +6734,20 @@
 		};
 		return ElementPaint;
 	})();
-	var parseStackTree = function (
-		parent,
-		stackingContext,
-		realStackingContext,
-		listItems
-	) {
+	var parseStackTree = function (parent, stackingContext, realStackingContext, listItems) {
 		parent.container.elements.forEach(function (child) {
-			var treatAsRealStackingContext = contains(
-				child.flags,
-				4 /* CREATES_REAL_STACKING_CONTEXT */
-			);
-			var createsStackingContext = contains(
-				child.flags,
-				2 /* CREATES_STACKING_CONTEXT */
-			);
+			var treatAsRealStackingContext = contains(child.flags, 4 /* CREATES_REAL_STACKING_CONTEXT */);
+			var createsStackingContext = contains(child.flags, 2 /* CREATES_STACKING_CONTEXT */);
 			var paintContainer = new ElementPaint(child, parent);
 			if (contains(child.styles.display, 2048 /* LIST_ITEM */)) {
 				listItems.push(paintContainer);
 			}
-			var listOwnerItems = contains(child.flags, 8 /* IS_LIST_OWNER */)
-				? []
-				: listItems;
+			var listOwnerItems = contains(child.flags, 8 /* IS_LIST_OWNER */) ? [] : listItems;
 			if (treatAsRealStackingContext || createsStackingContext) {
 				var parentStack =
-					treatAsRealStackingContext || child.styles.isPositioned()
-						? realStackingContext
-						: stackingContext;
+					treatAsRealStackingContext || child.styles.isPositioned() ? realStackingContext : stackingContext;
 				var stack = new StackingContext(paintContainer);
-				if (
-					child.styles.isPositioned() ||
-					child.styles.opacity < 1 ||
-					child.styles.isTransformed()
-				) {
+				if (child.styles.isPositioned() || child.styles.opacity < 1 || child.styles.isTransformed()) {
 					var order_1 = child.styles.zIndex.order;
 					if (order_1 < 0) {
 						var index_1 = 0;
@@ -7887,24 +6783,14 @@
 						parentStack.nonPositionedInlineLevel.push(stack);
 					}
 				}
-				parseStackTree(
-					paintContainer,
-					stack,
-					treatAsRealStackingContext ? stack : realStackingContext,
-					listOwnerItems
-				);
+				parseStackTree(paintContainer, stack, treatAsRealStackingContext ? stack : realStackingContext, listOwnerItems);
 			} else {
 				if (child.styles.isInlineLevel()) {
 					stackingContext.inlineLevel.push(paintContainer);
 				} else {
 					stackingContext.nonInlineLevel.push(paintContainer);
 				}
-				parseStackTree(
-					paintContainer,
-					stackingContext,
-					realStackingContext,
-					listOwnerItems
-				);
+				parseStackTree(paintContainer, stackingContext, realStackingContext, listOwnerItems);
 			}
 			if (contains(child.flags, 8 /* IS_LIST_OWNER */)) {
 				processListItems(child, listOwnerItems);
@@ -7923,11 +6809,7 @@
 			) {
 				numbering = item.container.value;
 			}
-			item.listValue = createCounterText(
-				numbering,
-				item.container.styles.listStyleType,
-				true
-			);
+			item.listValue = createCounterText(numbering, item.container.styles.listStyleType, true);
 			numbering += reversed ? -1 : 1;
 		}
 	};
@@ -8042,26 +6924,14 @@
 	var parsePathForBorderStroke = function (curves, borderSide) {
 		switch (borderSide) {
 			case 0:
-				return createStrokePathFromCurves(
-					curves.topLeftBorderStroke,
-					curves.topRightBorderStroke
-				);
+				return createStrokePathFromCurves(curves.topLeftBorderStroke, curves.topRightBorderStroke);
 			case 1:
-				return createStrokePathFromCurves(
-					curves.topRightBorderStroke,
-					curves.bottomRightBorderStroke
-				);
+				return createStrokePathFromCurves(curves.topRightBorderStroke, curves.bottomRightBorderStroke);
 			case 2:
-				return createStrokePathFromCurves(
-					curves.bottomRightBorderStroke,
-					curves.bottomLeftBorderStroke
-				);
+				return createStrokePathFromCurves(curves.bottomRightBorderStroke, curves.bottomLeftBorderStroke);
 			case 3:
 			default:
-				return createStrokePathFromCurves(
-					curves.bottomLeftBorderStroke,
-					curves.topLeftBorderStroke
-				);
+				return createStrokePathFromCurves(curves.bottomLeftBorderStroke, curves.topLeftBorderStroke);
 		}
 	};
 	var createStrokePathFromCurves = function (outer1, outer2) {
@@ -8123,25 +6993,12 @@
 		return bounds.add(
 			paddingLeft + styles.borderLeftWidth,
 			paddingTop + styles.borderTopWidth,
-			-(
-				styles.borderRightWidth +
-				styles.borderLeftWidth +
-				paddingLeft +
-				paddingRight
-			),
-			-(
-				styles.borderTopWidth +
-				styles.borderBottomWidth +
-				paddingTop +
-				paddingBottom
-			)
+			-(styles.borderRightWidth + styles.borderLeftWidth + paddingLeft + paddingRight),
+			-(styles.borderTopWidth + styles.borderBottomWidth + paddingTop + paddingBottom)
 		);
 	};
 
-	var calculateBackgroundPositioningArea = function (
-		backgroundOrigin,
-		element
-	) {
+	var calculateBackgroundPositioningArea = function (backgroundOrigin, element) {
 		if (backgroundOrigin === 0 /* BORDER_BOX */) {
 			return element.bounds;
 		}
@@ -8159,11 +7016,7 @@
 		}
 		return paddingBox(element);
 	};
-	var calculateBackgroundRendering = function (
-		container,
-		index,
-		intrinsicSize
-	) {
+	var calculateBackgroundRendering = function (container, index, intrinsicSize) {
 		var backgroundPositioningArea = calculateBackgroundPositioningArea(
 			getBackgroundValueForIndex(container.styles.backgroundOrigin, index),
 			container
@@ -8211,21 +7064,13 @@
 			return [0, 0];
 		}
 		if (isLengthPercentage(first) && second && isLengthPercentage(second)) {
-			return [
-				getAbsoluteValue(first, bounds.width),
-				getAbsoluteValue(second, bounds.height),
-			];
+			return [getAbsoluteValue(first, bounds.width), getAbsoluteValue(second, bounds.height)];
 		}
 		var hasIntrinsicProportion = hasIntrinsicValue(intrinsicProportion);
-		if (
-			isIdentToken(first) &&
-			(first.value === BACKGROUND_SIZE.CONTAIN ||
-				first.value === BACKGROUND_SIZE.COVER)
-		) {
+		if (isIdentToken(first) && (first.value === BACKGROUND_SIZE.CONTAIN || first.value === BACKGROUND_SIZE.COVER)) {
 			if (hasIntrinsicValue(intrinsicProportion)) {
 				var targetRatio = bounds.width / bounds.height;
-				return targetRatio < intrinsicProportion !==
-					(first.value === BACKGROUND_SIZE.COVER)
+				return targetRatio < intrinsicProportion !== (first.value === BACKGROUND_SIZE.COVER)
 					? [bounds.width, bounds.width / intrinsicProportion]
 					: [bounds.height * intrinsicProportion, bounds.height];
 			}
@@ -8249,12 +7094,8 @@
 			// If the image has only one intrinsic dimension and has intrinsic proportions, it's rendered at the size corresponding to that one dimension.
 			// The other dimension is computed using the specified dimension and the intrinsic proportions.
 			if (hasIntrinsicDimensions && hasIntrinsicProportion) {
-				var width_1 = hasIntrinsicWidth
-					? intrinsicWidth
-					: intrinsicHeight * intrinsicProportion;
-				var height_1 = hasIntrinsicHeight
-					? intrinsicHeight
-					: intrinsicWidth / intrinsicProportion;
+				var width_1 = hasIntrinsicWidth ? intrinsicWidth : intrinsicHeight * intrinsicProportion;
+				var height_1 = hasIntrinsicHeight ? intrinsicHeight : intrinsicWidth / intrinsicProportion;
 				return [width_1, height_1];
 			}
 			// If the image has only one intrinsic dimension but has no intrinsic proportions,
@@ -8292,16 +7133,10 @@
 			height = getAbsoluteValue(second, bounds.height);
 		}
 		if (width !== null && (!second || isAuto(second))) {
-			height =
-				hasIntrinsicWidth && hasIntrinsicHeight
-					? (width / intrinsicWidth) * intrinsicHeight
-					: bounds.height;
+			height = hasIntrinsicWidth && hasIntrinsicHeight ? (width / intrinsicWidth) * intrinsicHeight : bounds.height;
 		}
 		if (height !== null && isAuto(first)) {
-			width =
-				hasIntrinsicWidth && hasIntrinsicHeight
-					? (height / intrinsicHeight) * intrinsicWidth
-					: bounds.width;
+			width = hasIntrinsicWidth && hasIntrinsicHeight ? (height / intrinsicHeight) * intrinsicWidth : bounds.width;
 		}
 		if (width !== null && height !== null) {
 			return [width, height];
@@ -8315,13 +7150,7 @@
 		}
 		return value;
 	};
-	var calculateBackgroundRepeatPath = function (
-		repeat,
-		_a,
-		_b,
-		backgroundPositioningArea,
-		backgroundPaintingArea
-	) {
+	var calculateBackgroundRepeatPath = function (repeat, _a, _b, backgroundPositioningArea, backgroundPaintingArea) {
 		var x = _a[0],
 			y = _a[1];
 		var width = _b[0],
@@ -8329,20 +7158,13 @@
 		switch (repeat) {
 			case 2 /* REPEAT_X */:
 				return [
+					new Vector(Math.round(backgroundPositioningArea.left), Math.round(backgroundPositioningArea.top + y)),
 					new Vector(
-						Math.round(backgroundPositioningArea.left),
+						Math.round(backgroundPositioningArea.left + backgroundPositioningArea.width),
 						Math.round(backgroundPositioningArea.top + y)
 					),
 					new Vector(
-						Math.round(
-							backgroundPositioningArea.left + backgroundPositioningArea.width
-						),
-						Math.round(backgroundPositioningArea.top + y)
-					),
-					new Vector(
-						Math.round(
-							backgroundPositioningArea.left + backgroundPositioningArea.width
-						),
+						Math.round(backgroundPositioningArea.left + backgroundPositioningArea.width),
 						Math.round(height + backgroundPositioningArea.top + y)
 					),
 					new Vector(
@@ -8352,33 +7174,20 @@
 				];
 			case 3 /* REPEAT_Y */:
 				return [
-					new Vector(
-						Math.round(backgroundPositioningArea.left + x),
-						Math.round(backgroundPositioningArea.top)
-					),
+					new Vector(Math.round(backgroundPositioningArea.left + x), Math.round(backgroundPositioningArea.top)),
+					new Vector(Math.round(backgroundPositioningArea.left + x + width), Math.round(backgroundPositioningArea.top)),
 					new Vector(
 						Math.round(backgroundPositioningArea.left + x + width),
-						Math.round(backgroundPositioningArea.top)
-					),
-					new Vector(
-						Math.round(backgroundPositioningArea.left + x + width),
-						Math.round(
-							backgroundPositioningArea.height + backgroundPositioningArea.top
-						)
+						Math.round(backgroundPositioningArea.height + backgroundPositioningArea.top)
 					),
 					new Vector(
 						Math.round(backgroundPositioningArea.left + x),
-						Math.round(
-							backgroundPositioningArea.height + backgroundPositioningArea.top
-						)
+						Math.round(backgroundPositioningArea.height + backgroundPositioningArea.top)
 					),
 				];
 			case 1 /* NO_REPEAT */:
 				return [
-					new Vector(
-						Math.round(backgroundPositioningArea.left + x),
-						Math.round(backgroundPositioningArea.top + y)
-					),
+					new Vector(Math.round(backgroundPositioningArea.left + x), Math.round(backgroundPositioningArea.top + y)),
 					new Vector(
 						Math.round(backgroundPositioningArea.left + x + width),
 						Math.round(backgroundPositioningArea.top + y)
@@ -8394,36 +7203,24 @@
 				];
 			default:
 				return [
+					new Vector(Math.round(backgroundPaintingArea.left), Math.round(backgroundPaintingArea.top)),
 					new Vector(
-						Math.round(backgroundPaintingArea.left),
+						Math.round(backgroundPaintingArea.left + backgroundPaintingArea.width),
 						Math.round(backgroundPaintingArea.top)
 					),
 					new Vector(
-						Math.round(
-							backgroundPaintingArea.left + backgroundPaintingArea.width
-						),
-						Math.round(backgroundPaintingArea.top)
-					),
-					new Vector(
-						Math.round(
-							backgroundPaintingArea.left + backgroundPaintingArea.width
-						),
-						Math.round(
-							backgroundPaintingArea.height + backgroundPaintingArea.top
-						)
+						Math.round(backgroundPaintingArea.left + backgroundPaintingArea.width),
+						Math.round(backgroundPaintingArea.height + backgroundPaintingArea.top)
 					),
 					new Vector(
 						Math.round(backgroundPaintingArea.left),
-						Math.round(
-							backgroundPaintingArea.height + backgroundPaintingArea.top
-						)
+						Math.round(backgroundPaintingArea.height + backgroundPaintingArea.top)
 					),
 				];
 		}
 	};
 
-	var SMALL_IMAGE =
-		"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+	var SMALL_IMAGE = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 	var SAMPLE_TEXT = "Hidden Text";
 	var FontMetrics = /** @class */ (function () {
@@ -8488,9 +7285,7 @@
 		function CanvasRenderer(context, options) {
 			var _this = _super.call(this, context, options) || this;
 			_this._activeEffects = [];
-			_this.canvas = options.canvas
-				? options.canvas
-				: document.createElement("canvas");
+			_this.canvas = options.canvas ? options.canvas : document.createElement("canvas");
 			_this.ctx = _this.canvas.getContext("2d");
 			if (!options.canvas) {
 				_this.canvas.width = Math.floor(options.width * options.scale);
@@ -8504,12 +7299,7 @@
 			_this.ctx.textBaseline = "bottom";
 			_this._activeEffects = [];
 			_this.context.logger.debug(
-				"Canvas renderer initialized (" +
-					options.width +
-					"x" +
-					options.height +
-					") with scale " +
-					options.scale
+				"Canvas renderer initialized (" + options.width + "x" + options.height + ") with scale " + options.scale
 			);
 			return _this;
 		}
@@ -8589,18 +7379,10 @@
 				});
 			});
 		};
-		CanvasRenderer.prototype.renderTextWithLetterSpacing = function (
-			text,
-			letterSpacing,
-			baseline
-		) {
+		CanvasRenderer.prototype.renderTextWithLetterSpacing = function (text, letterSpacing, baseline) {
 			var _this = this;
 			if (letterSpacing === 0) {
-				this.ctx.fillText(
-					text.text,
-					text.bounds.left,
-					text.bounds.top + baseline
-				);
+				this.ctx.fillText(text.text, text.bounds.left, text.bounds.top + baseline);
 			} else {
 				var letters = splitGraphemes(text.text);
 				letters.reduce(function (left, letter) {
@@ -8619,45 +7401,26 @@
 			var fontSize = isDimensionToken(styles.fontSize)
 				? "" + styles.fontSize.number + styles.fontSize.unit
 				: styles.fontSize.number + "px";
-			return [
-				[
-					styles.fontStyle,
-					fontVariant,
-					styles.fontWeight,
-					fontSize,
-					fontFamily,
-				].join(" "),
-				fontFamily,
-				fontSize,
-			];
+			return [[styles.fontStyle, fontVariant, styles.fontWeight, fontSize, fontFamily].join(" "), fontFamily, fontSize];
 		};
 		CanvasRenderer.prototype.renderTextNode = function (text, styles) {
 			return __awaiter(this, void 0, void 0, function () {
 				var _a, font, fontFamily, fontSize, _b, baseline, middle, paintOrder;
 				var _this = this;
 				return __generator(this, function (_c) {
-					(_a = this.createFontStyle(styles)),
-						(font = _a[0]),
-						(fontFamily = _a[1]),
-						(fontSize = _a[2]);
+					(_a = this.createFontStyle(styles)), (font = _a[0]), (fontFamily = _a[1]), (fontSize = _a[2]);
 					this.ctx.font = font;
 					this.ctx.direction = styles.direction === 1 /* RTL */ ? "rtl" : "ltr";
 					this.ctx.textAlign = "left";
 					this.ctx.textBaseline = "alphabetic";
-					(_b = this.fontMetrics.getMetrics(fontFamily, fontSize)),
-						(baseline = _b.baseline),
-						(middle = _b.middle);
+					(_b = this.fontMetrics.getMetrics(fontFamily, fontSize)), (baseline = _b.baseline), (middle = _b.middle);
 					paintOrder = styles.paintOrder;
 					text.textBounds.forEach(function (text) {
 						paintOrder.forEach(function (paintOrderLayer) {
 							switch (paintOrderLayer) {
 								case 0 /* FILL */:
 									_this.ctx.fillStyle = asString(styles.color);
-									_this.renderTextWithLetterSpacing(
-										text,
-										styles.letterSpacing,
-										baseline
-									);
+									_this.renderTextWithLetterSpacing(text, styles.letterSpacing, baseline);
 									var textShadows = styles.textShadow;
 									if (textShadows.length && text.text.trim().length) {
 										textShadows
@@ -8665,16 +7428,10 @@
 											.reverse()
 											.forEach(function (textShadow) {
 												_this.ctx.shadowColor = asString(textShadow.color);
-												_this.ctx.shadowOffsetX =
-													textShadow.offsetX.number * _this.options.scale;
-												_this.ctx.shadowOffsetY =
-													textShadow.offsetY.number * _this.options.scale;
+												_this.ctx.shadowOffsetX = textShadow.offsetX.number * _this.options.scale;
+												_this.ctx.shadowOffsetY = textShadow.offsetY.number * _this.options.scale;
 												_this.ctx.shadowBlur = textShadow.blur.number;
-												_this.renderTextWithLetterSpacing(
-													text,
-													styles.letterSpacing,
-													baseline
-												);
+												_this.renderTextWithLetterSpacing(text, styles.letterSpacing, baseline);
 											});
 										_this.ctx.shadowColor = "";
 										_this.ctx.shadowOffsetX = 0;
@@ -8682,12 +7439,8 @@
 										_this.ctx.shadowBlur = 0;
 									}
 									if (styles.textDecorationLine.length) {
-										_this.ctx.fillStyle = asString(
-											styles.textDecorationColor || styles.color
-										);
-										styles.textDecorationLine.forEach(function (
-											textDecorationLine
-										) {
+										_this.ctx.fillStyle = asString(styles.textDecorationColor || styles.color);
+										styles.textDecorationLine.forEach(function (textDecorationLine) {
 											switch (textDecorationLine) {
 												case 1 /* UNDERLINE */:
 													// Draws a line at the baseline of the font
@@ -8701,12 +7454,7 @@
 													);
 													break;
 												case 2 /* OVERLINE */:
-													_this.ctx.fillRect(
-														text.bounds.left,
-														Math.round(text.bounds.top),
-														text.bounds.width,
-														1
-													);
+													_this.ctx.fillRect(text.bounds.left, Math.round(text.bounds.top), text.bounds.width, 1);
 													break;
 												case 3 /* LINE_THROUGH */:
 													// TODO try and find exact position for line-through
@@ -8723,17 +7471,11 @@
 									break;
 								case 1 /* STROKE */:
 									if (styles.webkitTextStrokeWidth && text.text.trim().length) {
-										_this.ctx.strokeStyle = asString(
-											styles.webkitTextStrokeColor
-										);
+										_this.ctx.strokeStyle = asString(styles.webkitTextStrokeColor);
 										_this.ctx.lineWidth = styles.webkitTextStrokeWidth;
 										// eslint-disable-next-line @typescript-eslint/no-explicit-any
 										_this.ctx.lineJoin = !!window.chrome ? "miter" : "round";
-										_this.ctx.strokeText(
-											text.text,
-											text.bounds.left,
-											text.bounds.top + baseline
-										);
+										_this.ctx.strokeText(text.text, text.bounds.left, text.bounds.top + baseline);
 									}
 									_this.ctx.strokeStyle = "";
 									_this.ctx.lineWidth = 0;
@@ -8746,16 +7488,8 @@
 				});
 			});
 		};
-		CanvasRenderer.prototype.renderReplacedElement = function (
-			container,
-			curves,
-			image
-		) {
-			if (
-				image &&
-				container.intrinsicWidth > 0 &&
-				container.intrinsicHeight > 0
-			) {
+		CanvasRenderer.prototype.renderReplacedElement = function (container, curves, image) {
+			if (image && container.intrinsicWidth > 0 && container.intrinsicHeight > 0) {
 				var box = contentBox(container);
 				var path = calculatePaddingBoxPath(curves);
 				this.path(path);
@@ -8820,8 +7554,7 @@
 							_i++;
 							return [3 /*break*/, 1];
 						case 4:
-							if (!(container instanceof ImageElementContainer))
-								return [3 /*break*/, 8];
+							if (!(container instanceof ImageElementContainer)) return [3 /*break*/, 8];
 							_c.label = 5;
 						case 5:
 							_c.trys.push([5, 7, , 8]);
@@ -8838,8 +7571,7 @@
 							if (container instanceof CanvasElementContainer) {
 								this.renderReplacedElement(container, curves, container.canvas);
 							}
-							if (!(container instanceof SVGElementContainer))
-								return [3 /*break*/, 12];
+							if (!(container instanceof SVGElementContainer)) return [3 /*break*/, 12];
 							_c.label = 9;
 						case 9:
 							_c.trys.push([9, 11, , 12]);
@@ -8850,15 +7582,10 @@
 							return [3 /*break*/, 12];
 						case 11:
 							_c.sent();
-							this.context.logger.error(
-								"Error loading svg " + container.svg.substring(0, 255)
-							);
+							this.context.logger.error("Error loading svg " + container.svg.substring(0, 255));
 							return [3 /*break*/, 12];
 						case 12:
-							if (
-								!(container instanceof IFrameElementContainer && container.tree)
-							)
-								return [3 /*break*/, 14];
+							if (!(container instanceof IFrameElementContainer && container.tree)) return [3 /*break*/, 14];
 							iframeRenderer = new CanvasRenderer(this.context, {
 								scale: this.options.scale,
 								backgroundColor: container.backgroundColor,
@@ -8886,42 +7613,18 @@
 							_c.label = 14;
 						case 14:
 							if (container instanceof InputElementContainer) {
-								size = Math.min(
-									container.bounds.width,
-									container.bounds.height
-								);
+								size = Math.min(container.bounds.width, container.bounds.height);
 								if (container.type === CHECKBOX) {
 									if (container.checked) {
 										this.ctx.save();
 										this.path([
-											new Vector(
-												container.bounds.left + size * 0.39363,
-												container.bounds.top + size * 0.79
-											),
-											new Vector(
-												container.bounds.left + size * 0.16,
-												container.bounds.top + size * 0.5549
-											),
-											new Vector(
-												container.bounds.left + size * 0.27347,
-												container.bounds.top + size * 0.44071
-											),
-											new Vector(
-												container.bounds.left + size * 0.39694,
-												container.bounds.top + size * 0.5649
-											),
-											new Vector(
-												container.bounds.left + size * 0.72983,
-												container.bounds.top + size * 0.23
-											),
-											new Vector(
-												container.bounds.left + size * 0.84,
-												container.bounds.top + size * 0.34085
-											),
-											new Vector(
-												container.bounds.left + size * 0.39363,
-												container.bounds.top + size * 0.79
-											),
+											new Vector(container.bounds.left + size * 0.39363, container.bounds.top + size * 0.79),
+											new Vector(container.bounds.left + size * 0.16, container.bounds.top + size * 0.5549),
+											new Vector(container.bounds.left + size * 0.27347, container.bounds.top + size * 0.44071),
+											new Vector(container.bounds.left + size * 0.39694, container.bounds.top + size * 0.5649),
+											new Vector(container.bounds.left + size * 0.72983, container.bounds.top + size * 0.23),
+											new Vector(container.bounds.left + size * 0.84, container.bounds.top + size * 0.34085),
+											new Vector(container.bounds.left + size * 0.39363, container.bounds.top + size * 0.79),
 										]);
 										this.ctx.fillStyle = asString(INPUT_COLOR);
 										this.ctx.fill();
@@ -8946,19 +7649,12 @@
 								}
 							}
 							if (isTextInputElement(container) && container.value.length) {
-								(_b = this.createFontStyle(styles)),
-									(fontFamily = _b[0]),
-									(fontSize = _b[1]);
-								baseline = this.fontMetrics.getMetrics(
-									fontFamily,
-									fontSize
-								).baseline;
+								(_b = this.createFontStyle(styles)), (fontFamily = _b[0]), (fontSize = _b[1]);
+								baseline = this.fontMetrics.getMetrics(fontFamily, fontSize).baseline;
 								this.ctx.font = fontFamily;
 								this.ctx.fillStyle = asString(styles.color);
 								this.ctx.textBaseline = "alphabetic";
-								this.ctx.textAlign = canvasTextAlign(
-									container.styles.textAlign
-								);
+								this.ctx.textAlign = canvasTextAlign(container.styles.textAlign);
 								bounds = contentBox(container);
 								x = 0;
 								switch (container.styles.textAlign) {
@@ -8974,10 +7670,7 @@
 								this.path([
 									new Vector(bounds.left, bounds.top),
 									new Vector(bounds.left + bounds.width, bounds.top),
-									new Vector(
-										bounds.left + bounds.width,
-										bounds.top + bounds.height
-									),
+									new Vector(bounds.left + bounds.width, bounds.top + bounds.height),
 									new Vector(bounds.left, bounds.top + bounds.height),
 								]);
 								this.ctx.clip();
@@ -8990,10 +7683,8 @@
 								this.ctx.textBaseline = "alphabetic";
 								this.ctx.textAlign = "left";
 							}
-							if (!contains(container.styles.display, 2048 /* LIST_ITEM */))
-								return [3 /*break*/, 20];
-							if (!(container.styles.listStyleImage !== null))
-								return [3 /*break*/, 19];
+							if (!contains(container.styles.display, 2048 /* LIST_ITEM */)) return [3 /*break*/, 20];
+							if (!(container.styles.listStyleImage !== null)) return [3 /*break*/, 19];
 							img = container.styles.listStyleImage;
 							if (!((img.type === 0) /* URL */)) return [3 /*break*/, 18];
 							image = void 0;
@@ -9004,25 +7695,16 @@
 							return [4 /*yield*/, this.context.cache.match(url)];
 						case 16:
 							image = _c.sent();
-							this.ctx.drawImage(
-								image,
-								container.bounds.left - (image.width + 10),
-								container.bounds.top
-							);
+							this.ctx.drawImage(image, container.bounds.left - (image.width + 10), container.bounds.top);
 							return [3 /*break*/, 18];
 						case 17:
 							_c.sent();
-							this.context.logger.error(
-								"Error loading list-style-image " + url
-							);
+							this.context.logger.error("Error loading list-style-image " + url);
 							return [3 /*break*/, 18];
 						case 18:
 							return [3 /*break*/, 20];
 						case 19:
-							if (
-								paint.listValue &&
-								container.styles.listStyleType !== -1 /* NONE */
-							) {
+							if (paint.listValue && container.styles.listStyleType !== -1 /* NONE */) {
 								fontFamily = this.createFontStyle(styles)[0];
 								this.ctx.font = fontFamily;
 								this.ctx.fillStyle = asString(styles.color);
@@ -9030,22 +7712,14 @@
 								this.ctx.textAlign = "right";
 								bounds = new Bounds(
 									container.bounds.left,
-									container.bounds.top +
-										getAbsoluteValue(
-											container.styles.paddingTop,
-											container.bounds.width
-										),
+									container.bounds.top + getAbsoluteValue(container.styles.paddingTop, container.bounds.width),
 									container.bounds.width,
-									computeLineHeight(styles.lineHeight, styles.fontSize.number) /
-										2 +
-										1
+									computeLineHeight(styles.lineHeight, styles.fontSize.number) / 2 + 1
 								);
 								this.renderTextWithLetterSpacing(
 									new TextBounds(paint.listValue, bounds),
 									styles.letterSpacing,
-									computeLineHeight(styles.lineHeight, styles.fontSize.number) /
-										2 +
-										2
+									computeLineHeight(styles.lineHeight, styles.fontSize.number) / 2 + 2
 								);
 								this.ctx.textBaseline = "bottom";
 								this.ctx.textAlign = "left";
@@ -9059,41 +7733,16 @@
 		};
 		CanvasRenderer.prototype.renderStackContent = function (stack) {
 			return __awaiter(this, void 0, void 0, function () {
-				var _i,
-					_a,
-					child,
-					_b,
-					_c,
-					child,
-					_d,
-					_e,
-					child,
-					_f,
-					_g,
-					child,
-					_h,
-					_j,
-					child,
-					_k,
-					_l,
-					child,
-					_m,
-					_o,
-					child;
+				var _i, _a, child, _b, _c, child, _d, _e, child, _f, _g, child, _h, _j, child, _k, _l, child, _m, _o, child;
 				return __generator(this, function (_p) {
 					switch (_p.label) {
 						case 0:
-							if (
-								contains(stack.element.container.flags, 16 /* DEBUG_RENDER */)
-							) {
+							if (contains(stack.element.container.flags, 16 /* DEBUG_RENDER */)) {
 								debugger;
 							}
 							// https://www.w3.org/TR/css-position-3/#painting-order
 							// 1. the background and borders of the element forming the stacking context.
-							return [
-								4 /*yield*/,
-								this.renderNodeBackgroundAndBorders(stack.element),
-							];
+							return [4 /*yield*/, this.renderNodeBackgroundAndBorders(stack.element)];
 						case 1:
 							// https://www.w3.org/TR/css-position-3/#painting-order
 							// 1. the background and borders of the element forming the stacking context.
@@ -9235,12 +7884,7 @@
 				}
 			});
 		};
-		CanvasRenderer.prototype.renderRepeat = function (
-			path,
-			pattern,
-			offsetX,
-			offsetY
-		) {
+		CanvasRenderer.prototype.renderRepeat = function (path, pattern, offsetX, offsetY) {
 			this.path(path);
 			this.ctx.fillStyle = pattern;
 			this.ctx.translate(offsetX, offsetY);
@@ -9252,25 +7896,12 @@
 			if (image.width === width && image.height === height) {
 				return image;
 			}
-			var ownerDocument =
-				(_a = this.canvas.ownerDocument) !== null && _a !== void 0
-					? _a
-					: document;
+			var ownerDocument = (_a = this.canvas.ownerDocument) !== null && _a !== void 0 ? _a : document;
 			var canvas = ownerDocument.createElement("canvas");
 			canvas.width = Math.max(1, width);
 			canvas.height = Math.max(1, height);
 			var ctx = canvas.getContext("2d");
-			ctx.drawImage(
-				image,
-				0,
-				0,
-				image.width,
-				image.height,
-				0,
-				0,
-				width,
-				height
-			);
+			ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0, width, height);
 			return canvas;
 		};
 		CanvasRenderer.prototype.renderBackgroundImage = function (container) {
@@ -9326,8 +7957,7 @@
 								return __generator(this, function (_h) {
 									switch (_h.label) {
 										case 0:
-											if (!((backgroundImage.type === 0) /* URL */))
-												return [3 /*break*/, 5];
+											if (!((backgroundImage.type === 0) /* URL */)) return [3 /*break*/, 5];
 											image = void 0;
 											url = backgroundImage.url;
 											_h.label = 1;
@@ -9339,9 +7969,7 @@
 											return [3 /*break*/, 4];
 										case 3:
 											_h.sent();
-											this_1.context.logger.error(
-												"Error loading background-image " + url
-											);
+											this_1.context.logger.error("Error loading background-image " + url);
 											return [3 /*break*/, 4];
 										case 4:
 											if (image) {
@@ -9355,30 +7983,19 @@
 													(y = _c[2]),
 													(width = _c[3]),
 													(height = _c[4]);
-												pattern = this_1.ctx.createPattern(
-													this_1.resizeImage(image, width, height),
-													"repeat"
-												);
+												pattern = this_1.ctx.createPattern(this_1.resizeImage(image, width, height), "repeat");
 												this_1.renderRepeat(path, pattern, x, y);
 											}
 											return [3 /*break*/, 6];
 										case 5:
 											if (isLinearGradient(backgroundImage)) {
-												(_d = calculateBackgroundRendering(container, index, [
-													null,
-													null,
-													null,
-												])),
+												(_d = calculateBackgroundRendering(container, index, [null, null, null])),
 													(path = _d[0]),
 													(x = _d[1]),
 													(y = _d[2]),
 													(width = _d[3]),
 													(height = _d[4]);
-												(_e = calculateGradientDirection(
-													backgroundImage.angle,
-													width,
-													height
-												)),
+												(_e = calculateGradientDirection(backgroundImage.angle, width, height)),
 													(lineLength = _e[0]),
 													(x0 = _e[1]),
 													(x1 = _e[2]),
@@ -9389,14 +8006,8 @@
 												canvas.height = height;
 												ctx = canvas.getContext("2d");
 												gradient_1 = ctx.createLinearGradient(x0, y0, x1, y1);
-												processColorStops(
-													backgroundImage.stops,
-													lineLength
-												).forEach(function (colorStop) {
-													return gradient_1.addColorStop(
-														colorStop.stop,
-														asString(colorStop.color)
-													);
+												processColorStops(backgroundImage.stops, lineLength).forEach(function (colorStop) {
+													return gradient_1.addColorStop(colorStop.stop, asString(colorStop.color));
 												});
 												ctx.fillStyle = gradient_1;
 												ctx.fillRect(0, 0, width, height);
@@ -9405,34 +8016,16 @@
 													this_1.renderRepeat(path, pattern, x, y);
 												}
 											} else if (isRadialGradient(backgroundImage)) {
-												(_f = calculateBackgroundRendering(container, index, [
-													null,
-													null,
-													null,
-												])),
+												(_f = calculateBackgroundRendering(container, index, [null, null, null])),
 													(path = _f[0]),
 													(left = _f[1]),
 													(top_1 = _f[2]),
 													(width = _f[3]),
 													(height = _f[4]);
-												position =
-													backgroundImage.position.length === 0
-														? [FIFTY_PERCENT]
-														: backgroundImage.position;
+												position = backgroundImage.position.length === 0 ? [FIFTY_PERCENT] : backgroundImage.position;
 												x = getAbsoluteValue(position[0], width);
-												y = getAbsoluteValue(
-													position[position.length - 1],
-													height
-												);
-												(_g = calculateRadius(
-													backgroundImage,
-													x,
-													y,
-													width,
-													height
-												)),
-													(rx = _g[0]),
-													(ry = _g[1]);
+												y = getAbsoluteValue(position[position.length - 1], height);
+												(_g = calculateRadius(backgroundImage, x, y, width, height)), (rx = _g[0]), (ry = _g[1]);
 												if (rx > 0 && ry > 0) {
 													radialGradient_1 = this_1.ctx.createRadialGradient(
 														left + x,
@@ -9442,36 +8035,21 @@
 														top_1 + y,
 														rx
 													);
-													processColorStops(
-														backgroundImage.stops,
-														rx * 2
-													).forEach(function (colorStop) {
-														return radialGradient_1.addColorStop(
-															colorStop.stop,
-															asString(colorStop.color)
-														);
+													processColorStops(backgroundImage.stops, rx * 2).forEach(function (colorStop) {
+														return radialGradient_1.addColorStop(colorStop.stop, asString(colorStop.color));
 													});
 													this_1.path(path);
 													this_1.ctx.fillStyle = radialGradient_1;
 													if (rx !== ry) {
-														midX =
-															container.bounds.left +
-															0.5 * container.bounds.width;
-														midY =
-															container.bounds.top +
-															0.5 * container.bounds.height;
+														midX = container.bounds.left + 0.5 * container.bounds.width;
+														midY = container.bounds.top + 0.5 * container.bounds.height;
 														f = ry / rx;
 														invF = 1 / f;
 														this_1.ctx.save();
 														this_1.ctx.translate(midX, midY);
 														this_1.ctx.transform(1, 0, 0, f, 0, 0);
 														this_1.ctx.translate(-midX, -midY);
-														this_1.ctx.fillRect(
-															left,
-															invF * (top_1 - midY) + midY,
-															width,
-															height * invF
-														);
+														this_1.ctx.fillRect(left, invF * (top_1 - midY) + midY, width, height * invF);
 														this_1.ctx.restore();
 													} else {
 														this_1.ctx.fill();
@@ -9486,8 +8064,7 @@
 								});
 							};
 							this_1 = this;
-							(_i = 0),
-								(_a = container.styles.backgroundImage.slice(0).reverse());
+							(_i = 0), (_a = container.styles.backgroundImage.slice(0).reverse());
 							_b.label = 1;
 						case 1:
 							if (!(_i < _a.length)) return [3 /*break*/, 4];
@@ -9505,11 +8082,7 @@
 				});
 			});
 		};
-		CanvasRenderer.prototype.renderSolidBorder = function (
-			color,
-			side,
-			curvePoints
-		) {
+		CanvasRenderer.prototype.renderSolidBorder = function (color, side, curvePoints) {
 			return __awaiter(this, void 0, void 0, function () {
 				return __generator(this, function (_a) {
 					this.path(parsePathForBorder(curvePoints, side));
@@ -9519,22 +8092,14 @@
 				});
 			});
 		};
-		CanvasRenderer.prototype.renderDoubleBorder = function (
-			color,
-			width,
-			side,
-			curvePoints
-		) {
+		CanvasRenderer.prototype.renderDoubleBorder = function (color, width, side, curvePoints) {
 			return __awaiter(this, void 0, void 0, function () {
 				var outerPaths, innerPaths;
 				return __generator(this, function (_a) {
 					switch (_a.label) {
 						case 0:
 							if (!(width < 3)) return [3 /*break*/, 2];
-							return [
-								4 /*yield*/,
-								this.renderSolidBorder(color, side, curvePoints),
-							];
+							return [4 /*yield*/, this.renderSolidBorder(color, side, curvePoints)];
 						case 1:
 							_a.sent();
 							return [2 /*return*/];
@@ -9553,23 +8118,14 @@
 		};
 		CanvasRenderer.prototype.renderNodeBackgroundAndBorders = function (paint) {
 			return __awaiter(this, void 0, void 0, function () {
-				var styles,
-					hasBackground,
-					borders,
-					backgroundPaintingArea,
-					side,
-					_i,
-					borders_1,
-					border;
+				var styles, hasBackground, borders, backgroundPaintingArea, side, _i, borders_1, border;
 				var _this = this;
 				return __generator(this, function (_a) {
 					switch (_a.label) {
 						case 0:
 							this.applyEffects(paint.getEffects(2 /* BACKGROUND_BORDERS */));
 							styles = paint.container.styles;
-							hasBackground =
-								!isTransparent(styles.backgroundColor) ||
-								styles.backgroundImage.length;
+							hasBackground = !isTransparent(styles.backgroundColor) || styles.backgroundImage.length;
 							borders = [
 								{
 									style: styles.borderTopStyle,
@@ -9596,8 +8152,7 @@
 								getBackgroundValueForIndex(styles.backgroundClip, 0),
 								paint.curves
 							);
-							if (!(hasBackground || styles.boxShadow.length))
-								return [3 /*break*/, 2];
+							if (!(hasBackground || styles.boxShadow.length)) return [3 /*break*/, 2];
 							this.ctx.save();
 							this.path(backgroundPaintingArea);
 							this.ctx.clip();
@@ -9618,8 +8173,7 @@
 									var maskOffset = shadow.inset ? 0 : MASK_OFFSET;
 									var shadowPaintingArea = transformPath(
 										borderBoxArea,
-										-maskOffset +
-											(shadow.inset ? 1 : -1) * shadow.spread.number,
+										-maskOffset + (shadow.inset ? 1 : -1) * shadow.spread.number,
 										(shadow.inset ? 1 : -1) * shadow.spread.number,
 										shadow.spread.number * (shadow.inset ? -2 : 2),
 										shadow.spread.number * (shadow.inset ? -2 : 2)
@@ -9637,9 +8191,7 @@
 									_this.ctx.shadowOffsetY = shadow.offsetY.number;
 									_this.ctx.shadowColor = asString(shadow.color);
 									_this.ctx.shadowBlur = shadow.blur.number;
-									_this.ctx.fillStyle = shadow.inset
-										? asString(shadow.color)
-										: "rgba(0,0,0,1)";
+									_this.ctx.fillStyle = shadow.inset ? asString(shadow.color) : "rgba(0,0,0,1)";
 									_this.ctx.fill();
 									_this.ctx.restore();
 								});
@@ -9651,24 +8203,12 @@
 						case 3:
 							if (!(_i < borders_1.length)) return [3 /*break*/, 13];
 							border = borders_1[_i];
-							if (
-								!(
-									border.style !== 0 /* NONE */ &&
-									!isTransparent(border.color) &&
-									border.width > 0
-								)
-							)
+							if (!(border.style !== 0 /* NONE */ && !isTransparent(border.color) && border.width > 0))
 								return [3 /*break*/, 11];
 							if (!((border.style === 2) /* DASHED */)) return [3 /*break*/, 5];
 							return [
 								4 /*yield*/,
-								this.renderDashedDottedBorder(
-									border.color,
-									border.width,
-									side,
-									paint.curves,
-									2 /* DASHED */
-								),
+								this.renderDashedDottedBorder(border.color, border.width, side, paint.curves, 2 /* DASHED */),
 							];
 						case 4:
 							_a.sent();
@@ -9677,36 +8217,19 @@
 							if (!((border.style === 3) /* DOTTED */)) return [3 /*break*/, 7];
 							return [
 								4 /*yield*/,
-								this.renderDashedDottedBorder(
-									border.color,
-									border.width,
-									side,
-									paint.curves,
-									3 /* DOTTED */
-								),
+								this.renderDashedDottedBorder(border.color, border.width, side, paint.curves, 3 /* DOTTED */),
 							];
 						case 6:
 							_a.sent();
 							return [3 /*break*/, 11];
 						case 7:
 							if (!((border.style === 4) /* DOUBLE */)) return [3 /*break*/, 9];
-							return [
-								4 /*yield*/,
-								this.renderDoubleBorder(
-									border.color,
-									border.width,
-									side,
-									paint.curves
-								),
-							];
+							return [4 /*yield*/, this.renderDoubleBorder(border.color, border.width, side, paint.curves)];
 						case 8:
 							_a.sent();
 							return [3 /*break*/, 11];
 						case 9:
-							return [
-								4 /*yield*/,
-								this.renderSolidBorder(border.color, side, paint.curves),
-							];
+							return [4 /*yield*/, this.renderSolidBorder(border.color, side, paint.curves)];
 						case 10:
 							_a.sent();
 							_a.label = 11;
@@ -9722,13 +8245,7 @@
 				});
 			});
 		};
-		CanvasRenderer.prototype.renderDashedDottedBorder = function (
-			color,
-			width,
-			side,
-			curvePoints,
-			style
-		) {
+		CanvasRenderer.prototype.renderDashedDottedBorder = function (color, width, side, curvePoints, style) {
 			return __awaiter(this, void 0, void 0, function () {
 				var strokePaths,
 					boxPaths,
@@ -9795,17 +8312,11 @@
 						dashLength *= multiplier;
 						spaceLength *= multiplier;
 					} else {
-						numberOfDashes = Math.floor(
-							(length + spaceLength) / (dashLength + spaceLength)
-						);
-						minSpace =
-							(length - numberOfDashes * dashLength) / (numberOfDashes - 1);
-						maxSpace =
-							(length - (numberOfDashes + 1) * dashLength) / numberOfDashes;
+						numberOfDashes = Math.floor((length + spaceLength) / (dashLength + spaceLength));
+						minSpace = (length - numberOfDashes * dashLength) / (numberOfDashes - 1);
+						maxSpace = (length - (numberOfDashes + 1) * dashLength) / numberOfDashes;
 						spaceLength =
-							maxSpace <= 0 ||
-							Math.abs(spaceLength - minSpace) <
-								Math.abs(spaceLength - maxSpace)
+							maxSpace <= 0 || Math.abs(spaceLength - minSpace) < Math.abs(spaceLength - maxSpace)
 								? minSpace
 								: maxSpace;
 					}
@@ -9831,20 +8342,14 @@
 							path1 = boxPaths[3];
 							path2 = boxPaths[0];
 							this.ctx.beginPath();
-							this.formatPath([
-								new Vector(path1.end.x, path1.end.y),
-								new Vector(path2.start.x, path2.start.y),
-							]);
+							this.formatPath([new Vector(path1.end.x, path1.end.y), new Vector(path2.start.x, path2.start.y)]);
 							this.ctx.stroke();
 						}
 						if (isBezierCurve(boxPaths[1])) {
 							path1 = boxPaths[1];
 							path2 = boxPaths[2];
 							this.ctx.beginPath();
-							this.formatPath([
-								new Vector(path1.end.x, path1.end.y),
-								new Vector(path2.start.x, path2.start.y),
-							]);
+							this.formatPath([new Vector(path1.end.x, path1.end.y), new Vector(path2.start.x, path2.start.y)]);
 							this.ctx.stroke();
 						}
 					}
@@ -9861,12 +8366,7 @@
 						case 0:
 							if (this.options.backgroundColor) {
 								this.ctx.fillStyle = asString(this.options.backgroundColor);
-								this.ctx.fillRect(
-									this.options.x,
-									this.options.y,
-									this.options.width,
-									this.options.height
-								);
+								this.ctx.fillRect(this.options.x, this.options.y, this.options.width, this.options.height);
 							}
 							stack = parseStackingContexts(element);
 							return [4 /*yield*/, this.renderStack(stack)];
@@ -9885,11 +8385,7 @@
 			return true;
 		} else if (container instanceof SelectElementContainer) {
 			return true;
-		} else if (
-			container instanceof InputElementContainer &&
-			container.type !== RADIO &&
-			container.type !== CHECKBOX
-		) {
+		} else if (container instanceof InputElementContainer && container.type !== RADIO && container.type !== CHECKBOX) {
 			return true;
 		}
 		return false;
@@ -9921,9 +8417,7 @@
 		__extends(ForeignObjectRenderer, _super);
 		function ForeignObjectRenderer(context, options) {
 			var _this = _super.call(this, context, options) || this;
-			_this.canvas = options.canvas
-				? options.canvas
-				: document.createElement("canvas");
+			_this.canvas = options.canvas ? options.canvas : document.createElement("canvas");
 			_this.ctx = _this.canvas.getContext("2d");
 			_this.options = options;
 			_this.canvas.width = Math.floor(options.width * options.scale);
@@ -9971,11 +8465,7 @@
 									this.options.height * this.options.scale
 								);
 							}
-							this.ctx.drawImage(
-								img,
-								-this.options.x * this.options.scale,
-								-this.options.y * this.options.scale
-							);
+							this.ctx.drawImage(img, -this.options.x * this.options.scale, -this.options.y * this.options.scale);
 							return [2 /*return*/, this.canvas];
 					}
 				});
@@ -9990,9 +8480,7 @@
 				resolve(img);
 			};
 			img.onerror = reject;
-			img.src =
-				"data:image/svg+xml;charset=utf-8," +
-				encodeURIComponent(new XMLSerializer().serializeToString(svg));
+			img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg));
 		});
 	};
 
@@ -10012,16 +8500,9 @@
 			}
 			if (this.enabled) {
 				// eslint-disable-next-line no-console
-				if (
-					typeof window !== "undefined" &&
-					window.console &&
-					typeof console.debug === "function"
-				) {
+				if (typeof window !== "undefined" && window.console && typeof console.debug === "function") {
 					// eslint-disable-next-line no-console
-					console.debug.apply(
-						console,
-						__spreadArray([this.id, this.getTime() + "ms"], args)
-					);
+					console.debug.apply(console, __spreadArray([this.id, this.getTime() + "ms"], args));
 				} else {
 					this.info.apply(this, args);
 				}
@@ -10038,16 +8519,9 @@
 			}
 			if (this.enabled) {
 				// eslint-disable-next-line no-console
-				if (
-					typeof window !== "undefined" &&
-					window.console &&
-					typeof console.info === "function"
-				) {
+				if (typeof window !== "undefined" && window.console && typeof console.info === "function") {
 					// eslint-disable-next-line no-console
-					console.info.apply(
-						console,
-						__spreadArray([this.id, this.getTime() + "ms"], args)
-					);
+					console.info.apply(console, __spreadArray([this.id, this.getTime() + "ms"], args));
 				}
 			}
 		};
@@ -10059,16 +8533,9 @@
 			}
 			if (this.enabled) {
 				// eslint-disable-next-line no-console
-				if (
-					typeof window !== "undefined" &&
-					window.console &&
-					typeof console.warn === "function"
-				) {
+				if (typeof window !== "undefined" && window.console && typeof console.warn === "function") {
 					// eslint-disable-next-line no-console
-					console.warn.apply(
-						console,
-						__spreadArray([this.id, this.getTime() + "ms"], args)
-					);
+					console.warn.apply(console, __spreadArray([this.id, this.getTime() + "ms"], args));
 				} else {
 					this.info.apply(this, args);
 				}
@@ -10082,16 +8549,9 @@
 			}
 			if (this.enabled) {
 				// eslint-disable-next-line no-console
-				if (
-					typeof window !== "undefined" &&
-					window.console &&
-					typeof console.error === "function"
-				) {
+				if (typeof window !== "undefined" && window.console && typeof console.error === "function") {
 					// eslint-disable-next-line no-console
-					console.error.apply(
-						console,
-						__spreadArray([this.id, this.getTime() + "ms"], args)
-					);
+					console.error.apply(console, __spreadArray([this.id, this.getTime() + "ms"], args));
 				} else {
 					this.info.apply(this, args);
 				}
@@ -10110,10 +8570,7 @@
 				id: this.instanceName,
 				enabled: options.logging,
 			});
-			this.cache =
-				(_a = options.cache) !== null && _a !== void 0
-					? _a
-					: new Cache(this, options);
+			this.cache = (_a = options.cache) !== null && _a !== void 0 ? _a : new Cache(this, options);
 		}
 		Context.instanceCount = 1;
 		return Context;
@@ -10158,10 +8615,7 @@
 				switch (_u.label) {
 					case 0:
 						if (!element || typeof element !== "object") {
-							return [
-								2 /*return*/,
-								Promise.reject("Invalid element provided as first argument"),
-							];
+							return [2 /*return*/, Promise.reject("Invalid element provided as first argument")];
 						}
 						ownerDocument = element.ownerDocument;
 						if (!ownerDocument) {
@@ -10172,39 +8626,23 @@
 							throw new Error("Document is not attached to a Window");
 						}
 						resourceOptions = {
-							allowTaint:
-								(_b = opts.allowTaint) !== null && _b !== void 0 ? _b : false,
-							imageTimeout:
-								(_c = opts.imageTimeout) !== null && _c !== void 0 ? _c : 15000,
+							allowTaint: (_b = opts.allowTaint) !== null && _b !== void 0 ? _b : false,
+							imageTimeout: (_c = opts.imageTimeout) !== null && _c !== void 0 ? _c : 15000,
 							proxy: opts.proxy,
-							useCORS:
-								(_d = opts.useCORS) !== null && _d !== void 0 ? _d : false,
+							useCORS: (_d = opts.useCORS) !== null && _d !== void 0 ? _d : false,
 						};
 						contextOptions = __assign(
 							{
-								logging:
-									(_e = opts.logging) !== null && _e !== void 0 ? _e : true,
+								logging: (_e = opts.logging) !== null && _e !== void 0 ? _e : true,
 								cache: opts.cache,
 							},
 							resourceOptions
 						);
 						windowOptions = {
-							windowWidth:
-								(_f = opts.windowWidth) !== null && _f !== void 0
-									? _f
-									: defaultView.innerWidth,
-							windowHeight:
-								(_g = opts.windowHeight) !== null && _g !== void 0
-									? _g
-									: defaultView.innerHeight,
-							scrollX:
-								(_h = opts.scrollX) !== null && _h !== void 0
-									? _h
-									: defaultView.pageXOffset,
-							scrollY:
-								(_j = opts.scrollY) !== null && _j !== void 0
-									? _j
-									: defaultView.pageYOffset,
+							windowWidth: (_f = opts.windowWidth) !== null && _f !== void 0 ? _f : defaultView.innerWidth,
+							windowHeight: (_g = opts.windowHeight) !== null && _g !== void 0 ? _g : defaultView.innerHeight,
+							scrollX: (_h = opts.scrollX) !== null && _h !== void 0 ? _h : defaultView.pageXOffset,
+							scrollY: (_j = opts.scrollY) !== null && _j !== void 0 ? _j : defaultView.pageYOffset,
 						};
 						windowBounds = new Bounds(
 							windowOptions.scrollX,
@@ -10213,13 +8651,9 @@
 							windowOptions.windowHeight
 						);
 						context = new Context(contextOptions, windowBounds);
-						foreignObjectRendering =
-							(_k = opts.foreignObjectRendering) !== null && _k !== void 0
-								? _k
-								: false;
+						foreignObjectRendering = (_k = opts.foreignObjectRendering) !== null && _k !== void 0 ? _k : false;
 						cloneOptions = {
-							allowTaint:
-								(_l = opts.allowTaint) !== null && _l !== void 0 ? _l : false,
+							allowTaint: (_l = opts.allowTaint) !== null && _l !== void 0 ? _l : false,
 							onclone: opts.onclone,
 							ignoreElements: opts.ignoreElements,
 							inlineImages: foreignObjectRendering,
@@ -10238,15 +8672,9 @@
 						documentCloner = new DocumentCloner(context, element, cloneOptions);
 						clonedElement = documentCloner.clonedReferenceElement;
 						if (!clonedElement) {
-							return [
-								2 /*return*/,
-								Promise.reject("Unable to find element in cloned iframe"),
-							];
+							return [2 /*return*/, Promise.reject("Unable to find element in cloned iframe")];
 						}
-						return [
-							4 /*yield*/,
-							documentCloner.toIFrame(ownerDocument, windowBounds),
-						];
+						return [4 /*yield*/, documentCloner.toIFrame(ownerDocument, windowBounds)];
 					case 1:
 						container = _u.sent();
 						(_a =
@@ -10257,36 +8685,22 @@
 							(height = _a.height),
 							(left = _a.left),
 							(top = _a.top);
-						backgroundColor = parseBackgroundColor(
-							context,
-							clonedElement,
-							opts.backgroundColor
-						);
+						backgroundColor = parseBackgroundColor(context, clonedElement, opts.backgroundColor);
 						renderOptions = {
 							canvas: opts.canvas,
 							backgroundColor: backgroundColor,
 							scale:
-								(_o =
-									(_m = opts.scale) !== null && _m !== void 0
-										? _m
-										: defaultView.devicePixelRatio) !== null && _o !== void 0
+								(_o = (_m = opts.scale) !== null && _m !== void 0 ? _m : defaultView.devicePixelRatio) !== null &&
+								_o !== void 0
 									? _o
 									: 1,
 							x: ((_p = opts.x) !== null && _p !== void 0 ? _p : 0) + left,
 							y: ((_q = opts.y) !== null && _q !== void 0 ? _q : 0) + top,
-							width:
-								(_r = opts.width) !== null && _r !== void 0
-									? _r
-									: Math.ceil(width),
-							height:
-								(_s = opts.height) !== null && _s !== void 0
-									? _s
-									: Math.ceil(height),
+							width: (_r = opts.width) !== null && _r !== void 0 ? _r : Math.ceil(width),
+							height: (_s = opts.height) !== null && _s !== void 0 ? _s : Math.ceil(height),
 						};
 						if (!foreignObjectRendering) return [3 /*break*/, 3];
-						context.logger.debug(
-							"Document cloned, using foreign object rendering"
-						);
+						context.logger.debug("Document cloned, using foreign object rendering");
 						renderer = new ForeignObjectRenderer(context, renderOptions);
 						return [4 /*yield*/, renderer.render(clonedElement)];
 					case 2:
@@ -10325,13 +8739,9 @@
 						canvas = _u.sent();
 						_u.label = 5;
 					case 5:
-						if (
-							(_t = opts.removeContainer) !== null && _t !== void 0 ? _t : true
-						) {
+						if ((_t = opts.removeContainer) !== null && _t !== void 0 ? _t : true) {
 							if (!DocumentCloner.destroy(container)) {
-								context.logger.error(
-									"Cannot detach cloned iframe as it is not in the DOM anymore"
-								);
+								context.logger.error("Cannot detach cloned iframe as it is not in the DOM anymore");
 							}
 						}
 						context.logger.debug("Finished rendering");
@@ -10340,24 +8750,14 @@
 			});
 		});
 	};
-	var parseBackgroundColor = function (
-		context,
-		element,
-		backgroundColorOverride
-	) {
+	var parseBackgroundColor = function (context, element, backgroundColorOverride) {
 		var ownerDocument = element.ownerDocument;
 		// http://www.w3.org/TR/css3-background/#special-backgrounds
 		var documentBackgroundColor = ownerDocument.documentElement
-			? parseColor(
-					context,
-					getComputedStyle(ownerDocument.documentElement).backgroundColor
-			  )
+			? parseColor(context, getComputedStyle(ownerDocument.documentElement).backgroundColor)
 			: COLORS.TRANSPARENT;
 		var bodyBackgroundColor = ownerDocument.body
-			? parseColor(
-					context,
-					getComputedStyle(ownerDocument.body).backgroundColor
-			  )
+			? parseColor(context, getComputedStyle(ownerDocument.body).backgroundColor)
 			: COLORS.TRANSPARENT;
 		var defaultBackgroundColor =
 			typeof backgroundColorOverride === "string"
