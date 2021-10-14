@@ -253,10 +253,9 @@ const downTable = () => {
 };
 
 const restoreColor = () => {
-	let customData = [...$$(".custom")];
-	customData.forEach((cell) => {
+	boxList.forEach((cell) => {
 		cell.style.backgroundColor = "";
-		cell.style.color = "black";
+		cell.style.color = "";
 	});
 };
 
