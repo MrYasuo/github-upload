@@ -6,7 +6,7 @@ const Data1 = new Schema({
 	index: Number,
 	background: String,
 	color: String,
-	updateAt: { type: String, default: Date.now },
+	updateAt: String,
 });
 
 module.exports = mongoose.model("Data1", Data1);
