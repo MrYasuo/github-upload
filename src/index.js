@@ -32,10 +32,15 @@ app.engine(
 				let accum = "";
 				for (let i = from; i < from + 7; ++i) {
 					let currentData = datum.find((data) => data.index == i);
+					// find data with the same index, if exist, render it
 					if (currentData) accum += options.fn(currentData);
 					else accum += options.fn({ task: "", index: i });
 				}
 				return accum;
+			},
+			update: function (datum, options) {
+				if (datum[0]) return options.fn(datum[0]);
+				return options.inverse(this);
 			},
 		},
 		extname: ".hbs",
@@ -81,6 +86,10 @@ app.post("/group2", (req, res) => {
 		let newData = new Data2(data);
 		newData.save();
 	});
+});
+
+app.get("/*", (req, res) => {
+	res.redirect("/group1");
 });
 
 app.post("/change", (req, res) => {

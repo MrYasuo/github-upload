@@ -15,6 +15,7 @@ const table = $("table");
 const time = $("#time");
 const lesson = $("#lesson");
 const downbtn = $("#down-btn");
+const updateAt = $("#update");
 const taskTable = $("#task-table");
 const taskCreate = $("#create-task");
 const rightMenu = $("#right-menu");
@@ -35,11 +36,17 @@ const undoRedoHandler = new UndoRedoHandler(boxList);
 
 const renderLayout = () => {
 	for (let i = 0; i < day.length; ++i) {
-		day[i].style.width = (table.offsetWidth - lesson.offsetWidth - time.offsetWidth) / 7 + "px";
+		day[i].style.width =
+			(table.offsetWidth - lesson.offsetWidth - time.offsetWidth) / 7 + "px";
 	}
 	footer.style.height = custom.offsetHeight + "px";
 	footer.style.width = custom.offsetWidth + "px";
-	taskContain.style.height = body.offsetHeight - footer.offsetHeight - taskCreate.offsetHeight + 40 + "px";
+	taskContain.style.height =
+		body.offsetHeight -
+		footer.offsetHeight -
+		taskCreate.offsetHeight +
+		40 +
+		"px";
 };
 
 const checkScroll = () => {
@@ -48,7 +55,8 @@ const checkScroll = () => {
 		let totalHeight = footer.offsetHeight + taskCreate.offsetHeight;
 		for (let i = 0; i < taskBox.length; ++i) {
 			totalHeight += taskBox[i].offsetHeight;
-			if (totalHeight > taskContain.offsetHeight) taskContain.style.overflowY = "scroll";
+			if (totalHeight > taskContain.offsetHeight)
+				taskContain.style.overflowY = "scroll";
 		}
 	}
 };
@@ -118,7 +126,12 @@ const changeColor = (e) => {
 	for (let i = 0; i < arr.length; ++i) {
 		arr[i].style.backgroundColor = e.target.value;
 		rgb = e.target.value.convertToRGB();
-		brightness = Math.round((parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000);
+		brightness = Math.round(
+			(parseInt(rgb[0]) * 299 +
+				parseInt(rgb[1]) * 587 +
+				parseInt(rgb[2]) * 114) /
+				1000
+		);
 		arr[i].style.color = brightness > 125 ? "black" : "white";
 		arr[i].classList.add("custom");
 	}
@@ -281,7 +294,8 @@ const resetAll = () => {
 };
 
 const toggleMenu = () => {
-	rightMenu.style.display = rightMenu.style.display == "none" ? "block" : "none";
+	rightMenu.style.display =
+		rightMenu.style.display == "none" ? "block" : "none";
 };
 
 const saveData = () => {
@@ -298,6 +312,7 @@ const saveData = () => {
 						index: i,
 						background: boxList[i].style.backgroundColor,
 						color: boxList[i].style.color,
+						updateAt: Date(),
 					});
 				}
 			}
@@ -336,7 +351,7 @@ const setup = () => {
 	renderLayout();
 	let arr = [];
 	boxList.forEach((cell) => {
-		if (cell.firstChild.data != `\n\t\t\t\t\t`) {
+		if (cell.innerText) {
 			cell.lastElementChild.style.display = "block";
 			// check not to create same task options
 			if (!arr.includes(cell.innerText)) {
@@ -375,7 +390,10 @@ const handleTaskWhenUndoRedo = () => {
 		if (cell.innerText != "") {
 			cell.lastElementChild.style.display = "block";
 			// check not to create same task options
-			if (!arr.includes(cell.innerText) && cell.firstChild.data != `\n\t\t\t\t\t`) {
+			if (
+				!arr.includes(cell.innerText) &&
+				cell.firstChild.data != `\n\t\t\t\t\t`
+			) {
 				arr.push(cell.innerText);
 				console.log(arr);
 			}

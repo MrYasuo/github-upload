@@ -16,6 +16,10 @@ body {
 }
 
 /* table */
+#update {
+	color: red;
+}
+
 #task-table {
 	width: 100%;
 	padding: 1%;
@@ -206,12 +210,14 @@ li:hover {
 	height: 5%;
 }
 
-div #btn-1, #btn-2 {
+div #btn-1,
+#btn-2 {
 	width: 100%;
 	margin: 1%;
 }
 
-#undo, #redo {
+#undo,
+#redo {
 	position: absolute;
 	width: 20%;
 	height: 20%;
