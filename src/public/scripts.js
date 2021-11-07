@@ -306,15 +306,13 @@ const saveData = () => {
 		if (check.trim() == "chienthan") {
 			let arr = [];
 			for (let i = 0; i < boxList.length; ++i) {
-				if (boxList[i].innerText) {
-					arr.push({
-						task: boxList[i].innerText,
-						index: i,
-						background: boxList[i].style.backgroundColor,
-						color: boxList[i].style.color,
-						updateAt: Date(),
-					});
-				}
+				arr.push({
+					task: boxList[i].innerText,
+					index: i,
+					background: boxList[i].style.backgroundColor,
+					color: boxList[i].style.color,
+					updateAt: Date(),
+				});
 			}
 			sendData(arr);
 			undoRedoHandler.clear();
